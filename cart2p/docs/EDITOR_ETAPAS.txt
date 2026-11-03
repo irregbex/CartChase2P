@@ -1,0 +1,137 @@
+CART CHASE 2P - STAGE EDITOR
+============================
+Updated: 2026-10-09. Since this date the editor is INSIDE THE GAME.
+The browser (HTML) editor still works as a backup and uses the same
+recipes (see the end).
+
+OPENING IT
+----------
+"Cart Chase 2P" shortcut -> welcome screen (Start) -> main menu ->
+EDITOR. It is used with mouse and keyboard. Everything stays in the game
+window.
+
+1. STAGE LIST
+-------------
+  - "+ NUEVA ETAPA DE MINE CART CARNAGE / MADNESS" (new stage): starts out
+    identical to the original level, cut into its sections.
+  - Below, all stages (recipes in cart2p\etapas_fuente\).
+  - Typing filters by name or id. Up/down (or wheel) select, Enter or
+    double click opens. Esc goes back to the main menu.
+
+2. EDITING SCREEN
+-----------------
+  Top         name, level, columns, approx. seconds; on the right VALIDA
+              (valid) or "N PROBLEMAS" (N problems). A * = unsaved
+              changes.
+  Track       the stage with the real graphics of the level:
+                - color strip at the top: pieces (blue section, green
+                  straight, orange pit); the selected one with a yellow
+                  frame
+                - dotted red line: the track as measured by the game
+                - circles: objects (red enemy, yellow KONG letter, brown
+                  barrels, blue others); white border = added; crossed
+                  out = removed. Yellow dots: bananas.
+                - PARTIDA (start) and META (finish) in green; "NO CALZA"
+                  (does not fit) in red; "CORTE" (cut) in orange (valid
+                  join, but the scenery changes abruptly)
+                - top right: VALIDA SIN CORTES (valid, no cuts, green),
+                  VALIDA n CORTES (valid, n cuts, orange) or the first
+                  problem (red)
+  Minimap     the whole stage; click to go to that part
+  Cards       one per piece: number and type (T section + start column, R
+              straight + length, H pit, HH double pit), columns, track
+              height at entry and exit (red if it does not fit, orange if
+              cut)
+  Info        selected piece, messages, first problem
+
+3. KEYS AND MOUSE
+-----------------
+  Click on the track or on a card      select piece
+  Drag a card                          move it to another place
+  Left/right arrows                    previous/next piece
+  Alt + arrows                         move the selected piece
+  Home / End                           first / last piece
+  Wheel                                scroll along the track
+  Ctrl + wheel, Z / X                  zoom
+  Shift + wheel, up/down arrows        move the view up / down
+  Right click and drag                 pan the view
+  TAB                                  pieces to insert (below)
+  Del                                  delete the selected piece
+  Ctrl + D                             duplicate the selected piece
+  + / -                                length: straight (columns) or
+                                       section (last column; with Shift,
+                                       the first)
+  O                                    objects (below)
+  Click on a level object              remove it / restore it
+  N (or F2)                            change the menu name
+  T                                    theme: another world behind the
+                                       track (none, jungle, cave,
+                                       factory, snow, trees, forest,
+                                       temple, mine). The track is drawn
+                                       with the theme (in the game, in
+                                       Madness, the background scrolls
+                                       at half speed).
+  M                                    music: song from another level of
+                                       the game (the level's own, island,
+                                       cave, fog, water, cart, snow,
+                                       temple, factory, mines, ice,
+                                       forest, bonus, trees, boss,
+                                       galleon). Heard when testing and
+                                       playing. T also sets the theme's
+                                       music (if no other was chosen
+                                       with M).
+  Ctrl + Z / Ctrl + Y                  undo / redo
+  Ctrl + S                             save
+  P (or F5)                            test now
+  F1 (or H)                            on-screen help
+  Esc                                  exit (if there are changes it
+                                       asks: G save, D discard, Esc keep
+                                       editing)
+
+4. INSERTING PIECES (TAB)
+-------------------------
+Panel on the right with four tabs (TRAMOS, RECTAS, HOYOS, SIN CORTE =
+sections, straights, pits, no cut; click or keys 1/2/3/4 or left/right
+arrows). Each option comes with a thumbnail.
+SIN CORTE (the recommended one) offers to continue at a column IDENTICAL
+to the one that would come after the selected piece: "SEGUIR" (continue,
+the original continuation) or "SALTO A" (jump to) another part of the
+level with the same scenery; the join is not noticeable. + and - change
+its length in steps of 4 columns. The other tabs almost always leave a
+visible CORTE. With "C: SOLO LAS QUE CALZAN (SI)" (C: only the ones that
+fit (yes)) only the ones appear that enter at the height where the
+selected piece exits AND exit at the height where the next one enters,
+so the stage stays valid. C shows all of them. Click or Enter inserts
+after the selected piece (the panel stays open to keep going). In
+RECTAS, + and - change the length. TAB or Esc closes.
+
+5. OBJECTS (O)
+--------------
+Panel with the level's templates (enemies, letters, barrels...). Click on
+one and then click on the track: the object is placed there (anchored to
+that piece). Added objects can be dragged; right click deletes them. A
+click on a level object removes or restores it. Limit: the objects of the
+original level (Carnage 39, Madness 78).
+
+6. SAVING AND TESTING
+---------------------
+  Ctrl + S validates (the track must fit at every join; start and finish
+  fixed), saves the recipe (the previous version is kept in
+  cart2p\etapas_fuente\historial\), documents it piece by piece,
+  compiles it and adds it to the stage menu. New stages are named
+  mia_<fecha>_<hora> (mia_<date>_<time>; the menu name is changed with N).
+  P saves if needed and opens the race on that stage in 1 JUGADOR (1
+  player). On reaching the finish, Start goes back to the editor; Esc goes
+  back earlier.
+
+7. HTML EDITOR (BACKUP)
+-----------------------
+cart2p\JUGAR.bat option 2: the same work in the browser, with more space
+for description and notes. It reads and writes the same recipes. Both
+editors produce exactly the same .c2p for the same recipe.
+It also marks cuts in orange ("CORTE") and has the "Sin corte" (no cut)
+section in the palette, with its own length, and "Tema" (theme) and
+"Musica" (music) selectors.
+Since 2026-10-12 it can also be opened by double-clicking
+cart2p\EDITOR_WEB.bat (starts the server and opens the browser; the
+editor has its own icon).

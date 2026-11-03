@@ -1,0 +1,204 @@
+{
+  "formato": 1,
+  "id": "e186_madness_mundo_cueva",
+  "nombre": "MUNDO CUEVA",
+  "nivel": "madness",
+  "tema": "cueva",
+  "musica": "cueva",
+  "familia": "OTROS MUNDOS",
+  "descripcion": "Etapa de prueba con la musica y los enemigos de Bouncy Bonanza, Manic Mincers y Torchlight Trouble (Cave Dweller Concert), sobre la via de CUEVA MAD 01 (e146_madness_cueva01) con su tema. Se quitaron 14 enemigos originales y se agregaron 7 del otro mundo (KLUMP, KRITTER, KRUSHA, ZINGER).",
+  "autor": "Claude (generar_mundos.py)",
+  "creada": "2026-10-12",
+  "modificada": "2026-10-12",
+  "notas": "Prueba de enemigos y musica de otros niveles. Jugarla y ajustar en el editor (los enemigos agregados se ven con borde blanco).",
+  "estadisticas": {
+    "columnas": 276,
+    "largo_px": 8832,
+    "segundos_aprox": 37.6,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 21,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 1,
+      "CANON": 3,
+      "CARRO": 2,
+      "FICHA": 1,
+      "GNAWTY": 2,
+      "KLUMP": 1,
+      "KRITTER": 3,
+      "KRUSHA": 2,
+      "LETRA KONG": 1,
+      "MEDIO NEUMATICO": 2,
+      "NECKY": 4,
+      "NEUMATICO": 3,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 7
+    },
+    "grupos_platanos": 9,
+    "largo_vs_original": 0.59,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 83,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-82 (X original $0000-$0A5F), 83 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 1 LETRA KONG, 5 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 116,
+      "hasta": 131,
+      "nota": "Tramo original de Mine Cart Madness, columnas 116-130 (X original $0E80-$105F), 15 columnas, en la etapa desde X $0A60. 1 CANON, 1 CARRO, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 277,
+      "hasta": 291,
+      "nota": "Tramo original de Mine Cart Madness, columnas 277-290 (X original $22A0-$245F), 14 columnas, en la etapa desde X $0C40. 2 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 152,
+      "hasta": 173,
+      "nota": "Tramo original de Mine Cart Madness, columnas 152-172 (X original $1300-$159F), 21 columnas, en la etapa desde X $0E00. 2 CARRO, 1 FICHA, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00F3 y sale a $0133."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 193,
+      "hasta": 227,
+      "nota": "Tramo original de Mine Cart Madness, columnas 193-226 (X original $1820-$1C5F), 34 columnas, en la etapa desde X $10A0. 1 BARRIL CONTROL, 1 CARRO; 2 grupo(s) de platanos; via entra a $0133 y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 359,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 359-467 (X original $2CE0-$3A7F), 109 columnas, en la etapa desde X $14E0. 2 CANON, 3 CARRO, 1 GNAWTY, 2 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 5 ZINGER; 4 grupo(s) de platanos; via entra a $0073 y sale a -."
+    }
+  ],
+  "objetos_quitar": [
+    {
+      "pieza": 0,
+      "indice": 1
+    },
+    {
+      "pieza": 0,
+      "indice": 4
+    },
+    {
+      "pieza": 0,
+      "indice": 6
+    },
+    {
+      "pieza": 0,
+      "indice": 8
+    },
+    {
+      "pieza": 0,
+      "indice": 11
+    },
+    {
+      "pieza": 1,
+      "indice": 18
+    },
+    {
+      "pieza": 2,
+      "indice": 41
+    },
+    {
+      "pieza": 3,
+      "indice": 25
+    },
+    {
+      "pieza": 4,
+      "indice": 30
+    },
+    {
+      "pieza": 5,
+      "indice": 60
+    },
+    {
+      "pieza": 5,
+      "indice": 62
+    },
+    {
+      "pieza": 5,
+      "indice": 64
+    },
+    {
+      "pieza": 5,
+      "indice": 68
+    },
+    {
+      "pieza": 5,
+      "indice": 76
+    }
+  ],
+  "objetos_agregar": [
+    {
+      "pieza": 2,
+      "dx": 304,
+      "y": 243,
+      "nombre": "KRITTER",
+      "puntero": "$958D",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 208,
+      "y": 339,
+      "nombre": "KRUSHA",
+      "puntero": "$B559",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 464,
+      "y": 243,
+      "nombre": "KLUMP",
+      "puntero": "$98B3",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 720,
+      "y": 99,
+      "nombre": "ZINGER",
+      "puntero": "$9D21",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 976,
+      "y": 104,
+      "nombre": "KRITTER",
+      "puntero": "$9B83",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 1392,
+      "y": 147,
+      "nombre": "KRITTER",
+      "puntero": "$958D",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 2384,
+      "y": 328,
+      "nombre": "KRUSHA",
+      "puntero": "$B559",
+      "enemigo": true
+    }
+  ],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-12 generada con generar_mundos.py desde e146_madness_cueva01"
+  ],
+  "dificultad": "FACIL"
+}

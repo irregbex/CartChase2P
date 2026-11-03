@@ -1,0 +1,40 @@
+{
+  "name": "jungle-death-transition",
+  "script": "../recipes/route_death.dks",
+  "frames": 18000,
+  "widescreen": true,
+  "repeats": 3,
+  "trace": {
+    "extra": 43,
+    "require_cgram": true,
+    "expect_empty": [
+      "policy_violations",
+      "raw_fallback_frames",
+      "centered_nonblack_margin_frames",
+      "stable_input_margin_changes",
+      "stable_input_unproven_margin_changes"
+    ],
+    "minimum_decision_counts": {
+      "edge_extension": 1,
+      "centered_fallback": 1
+    }
+  },
+  "checkpoints": {
+    "level_entry": {
+      "expect": [
+        {"addr": "0x003E", "op": "==", "value": "0x0016"},
+        {"addr": "0x1B25", "op": ">=", "value": "0x0100"}
+      ]
+    },
+    "after_death": {
+      "expect": [
+        {"addr": "0x0032", "op": "==", "value": "0x0000"},
+        {"addr": "0x0028", "op": "!=", "value": "0x0000"},
+        {"addr": "0x1B23", "op": "==", "value": "0x0000"},
+        {"addr": "0x1B25", "op": "==", "value": "0x0000"},
+        {"addr": "0x0B6B", "op": "==", "value": "0x0000"},
+        {"addr": "0x0B9F", "op": "==", "value": "0x0000"}
+      ]
+    }
+  }
+}

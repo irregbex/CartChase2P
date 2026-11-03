@@ -1,0 +1,223 @@
+{
+  "formato": 1,
+  "id": "e187_madness_mundo_fabrica",
+  "nombre": "MUNDO FABRICA",
+  "nivel": "madness",
+  "tema": "fabrica",
+  "musica": "fabrica",
+  "familia": "OTROS MUNDOS",
+  "descripcion": "Etapa de prueba con la musica y los enemigos de Oil Drum Alley y Blackout Basement (Fear Factory), sobre la via de FABRICA MAD 01 (e151_madness_fabrica01) con su tema. Se quitaron 13 enemigos originales y se agregaron 10 del otro mundo (GNAWTY, KLAPTRAP, KLUMP, KRITTER).",
+  "autor": "Claude (generar_mundos.py)",
+  "creada": "2026-10-12",
+  "modificada": "2026-10-12",
+  "notas": "Prueba de enemigos y musica de otros niveles. Jugarla y ajustar en el editor (los enemigos agregados se ven con borde blanco).",
+  "estadisticas": {
+    "columnas": 279,
+    "largo_px": 8928,
+    "segundos_aprox": 38.1,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 24,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 1,
+      "CANON": 3,
+      "CARRO": 3,
+      "FICHA": 1,
+      "GNAWTY": 5,
+      "KLAPTRAP": 2,
+      "KLUMP": 2,
+      "KRITTER": 4,
+      "MEDIO NEUMATICO": 2,
+      "NECKY": 3,
+      "NEUMATICO": 3,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 5
+    },
+    "grupos_platanos": 10,
+    "largo_vs_original": 0.6,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 75,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-74 (X original $0000-$095F), 75 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 3 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 116,
+      "hasta": 130,
+      "nota": "Tramo original de Mine Cart Madness, columnas 116-129 (X original $0E80-$103F), 14 columnas, en la etapa desde X $0960. 1 CANON, 1 CARRO, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00CB."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 276,
+      "hasta": 291,
+      "nota": "Tramo original de Mine Cart Madness, columnas 276-290 (X original $2280-$245F), 15 columnas, en la etapa desde X $0B20. 2 ZINGER; 0 grupo(s) de platanos; via entra a $00CC y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 152,
+      "hasta": 186,
+      "nota": "Tramo original de Mine Cart Madness, columnas 152-185 (X original $1300-$173F), 34 columnas, en la etapa desde X $0D00. 3 CARRO, 1 FICHA, 1 ZINGER; 1 grupo(s) de platanos; via entra a $00F3 y sale a $0150."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 200,
+      "hasta": 233,
+      "nota": "Tramo original de Mine Cart Madness, columnas 200-232 (X original $1900-$1D1F), 33 columnas, en la etapa desde X $1140. 1 BARRIL CONTROL, 1 NECKY; 2 grupo(s) de platanos; via entra a $014F y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 360,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 360-467 (X original $2D00-$3A7F), 108 columnas, en la etapa desde X $1560. 2 CANON, 3 CARRO, 1 GNAWTY, 2 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 5 ZINGER; 4 grupo(s) de platanos; via entra a $0073 y sale a -."
+    }
+  ],
+  "objetos_quitar": [
+    {
+      "pieza": 0,
+      "indice": 1
+    },
+    {
+      "pieza": 0,
+      "indice": 4
+    },
+    {
+      "pieza": 0,
+      "indice": 6
+    },
+    {
+      "pieza": 0,
+      "indice": 8
+    },
+    {
+      "pieza": 1,
+      "indice": 18
+    },
+    {
+      "pieza": 2,
+      "indice": 41
+    },
+    {
+      "pieza": 3,
+      "indice": 25
+    },
+    {
+      "pieza": 3,
+      "indice": 28
+    },
+    {
+      "pieza": 5,
+      "indice": 58
+    },
+    {
+      "pieza": 5,
+      "indice": 61
+    },
+    {
+      "pieza": 5,
+      "indice": 63
+    },
+    {
+      "pieza": 5,
+      "indice": 66
+    },
+    {
+      "pieza": 5,
+      "indice": 69
+    }
+  ],
+  "objetos_agregar": [
+    {
+      "pieza": 0,
+      "dx": 2288,
+      "y": 208,
+      "nombre": "KRITTER",
+      "puntero": "$9C15",
+      "enemigo": true
+    },
+    {
+      "pieza": 2,
+      "dx": 336,
+      "y": 243,
+      "nombre": "KLUMP",
+      "puntero": "$98B3",
+      "enemigo": true
+    },
+    {
+      "pieza": 3,
+      "dx": 784,
+      "y": 316,
+      "nombre": "KLAPTRAP",
+      "puntero": "$9703",
+      "enemigo": true
+    },
+    {
+      "pieza": 3,
+      "dx": 1040,
+      "y": 339,
+      "nombre": "GNAWTY",
+      "puntero": "$B3F7",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 208,
+      "y": 251,
+      "nombre": "KRITTER",
+      "puntero": "$9C4F",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 464,
+      "y": 47,
+      "nombre": "KRITTER",
+      "puntero": "$9C15",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 144,
+      "y": 91,
+      "nombre": "KLUMP",
+      "puntero": "$98B3",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 1616,
+      "y": 147,
+      "nombre": "KLAPTRAP",
+      "puntero": "$9703",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 2256,
+      "y": 136,
+      "nombre": "GNAWTY",
+      "puntero": "$B3F7",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 2512,
+      "y": 431,
+      "nombre": "KRITTER",
+      "puntero": "$9C4F",
+      "enemigo": true
+    }
+  ],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-12 generada con generar_mundos.py desde e151_madness_fabrica01"
+  ],
+  "dificultad": "FACIL"
+}

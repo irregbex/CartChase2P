@@ -1,0 +1,102 @@
+{
+  "formato": 1,
+  "id": "e162_madness_arboles02",
+  "nombre": "ALDEA ARBOREA MAD 02",
+  "nivel": "madness",
+  "tema": "arboles",
+  "musica": "arboles",
+  "familia": "TEMA",
+  "descripcion": "Via de Mine Cart Madness. La via pasa entre los arboles y casas de Tree Top Town. Recorrido sin costuras. 470 columnas (100 % del original), unos 67.2 s, 6 saltos sin costura, pasa por 27 hoyos del nivel, 46 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 3041,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 470,
+    "largo_px": 15040,
+    "segundos_aprox": 67.2,
+    "piezas": 7,
+    "tramos_originales": 7,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 46,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 1,
+      "CANON": 5,
+      "CARRO": 16,
+      "FICHA": 1,
+      "GNAWTY": 4,
+      "LETRA KONG": 4,
+      "MEDIO NEUMATICO": 7,
+      "NECKY": 12,
+      "NEUMATICO": 4,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 14
+    },
+    "grupos_platanos": 11,
+    "largo_vs_original": 1.0,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 83,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-82 (X original $0000-$0A5F), 83 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 1 LETRA KONG, 5 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 116,
+      "hasta": 133,
+      "nota": "Tramo original de Mine Cart Madness, columnas 116-132 (X original $0E80-$109F), 17 columnas, en la etapa desde X $0A60. 1 CANON, 1 CARRO, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 116,
+      "hasta": 136,
+      "nota": "Tramo original de Mine Cart Madness, columnas 116-135 (X original $0E80-$10FF), 20 columnas, en la etapa desde X $0C80. 1 CANON, 1 CARRO, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 115,
+      "hasta": 186,
+      "nota": "Tramo original de Mine Cart Madness, columnas 115-185 (X original $0E60-$173F), 71 columnas, en la etapa desde X $0F00. 1 CANON, 4 CARRO, 1 FICHA, 1 LETRA KONG, 4 NECKY, 2 ZINGER; 1 grupo(s) de platanos; via entra a $00D3 y sale a $0150."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 200,
+      "hasta": 225,
+      "nota": "Tramo original de Mine Cart Madness, columnas 200-224 (X original $1900-$1C1F), 25 columnas, en la etapa desde X $17E0. 1 BARRIL CONTROL; 0 grupo(s) de platanos; via entra a $014F y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 346,
+      "hasta": 359,
+      "nota": "Tramo original de Mine Cart Madness, columnas 346-358 (X original $2B40-$2CDF), 13 columnas, en la etapa desde X $1B00. 2 CARRO, 2 MEDIO NEUMATICO, 1 ZINGER; 0 grupo(s) de platanos; via entra a $0073 y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 227,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 227-467 (X original $1C60-$3A7F), 241 columnas, en la etapa desde X $1CA0. 4 CANON, 10 CARRO, 1 GNAWTY, 2 LETRA KONG, 7 MEDIO NEUMATICO, 3 NECKY, 4 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 12 ZINGER; 7 grupo(s) de platanos; via entra a $0073 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: arboles (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 3041,
+    "columnas": 0,
+    "saltos_min": 6,
+    "objetivo": "variedad"
+  },
+  "dificultad": "DIFICIL"
+}

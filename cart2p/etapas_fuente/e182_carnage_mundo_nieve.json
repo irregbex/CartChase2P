@@ -1,0 +1,180 @@
+{
+  "formato": 1,
+  "id": "e182_carnage_mundo_nieve",
+  "nombre": "MUNDO NIEVE",
+  "nivel": "carnage",
+  "tema": "nieve",
+  "musica": "nieve",
+  "familia": "OTROS MUNDOS",
+  "descripcion": "Etapa de prueba con la musica y los enemigos de Snow Barrel Blast (Northern Hemispheres), sobre la via de NIEVE 01 (e116_carnage_nieve01) con su tema. Se quitaron 7 enemigos originales y se agregaron 8 del otro mundo (GNAWTY, KLAPTRAP, KRUSHA, NECKY, ZINGER).",
+  "autor": "Claude (generar_mundos.py)",
+  "creada": "2026-10-12",
+  "modificada": "2026-10-12",
+  "notas": "Prueba de enemigos y musica de otros niveles. Jugarla y ajustar en el editor (los enemigos agregados se ven con borde blanco).",
+  "estadisticas": {
+    "columnas": 340,
+    "largo_px": 10880,
+    "segundos_aprox": 47.4,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 15,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 7,
+      "COFRE": 1,
+      "GNAWTY": 1,
+      "KLAPTRAP": 2,
+      "KRUSHA": 2,
+      "LETRA KONG": 2,
+      "NECKY": 2,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 1
+    },
+    "grupos_platanos": 11,
+    "largo_vs_original": 0.58,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 110,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-109 (X original $0000-$0DBF), 110 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE, 1 LETRA KONG; 4 grupo(s) de platanos; via entra a - y sale a $0141."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 509,
+      "hasta": 524,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 509-523 (X original $3FA0-$417F), 15 columnas, en la etapa desde X $0DC0. 2 CARRO; 0 grupo(s) de platanos; via entra a $013F y sale a $00B3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 256,
+      "hasta": 271,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 256-270 (X original $2000-$21DF), 15 columnas, en la etapa desde X $0FA0. 2 CARRO; 1 grupo(s) de platanos; via entra a $00B3 y sale a $0037."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 354,
+      "hasta": 368,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 354-367 (X original $2C40-$2DFF), 14 columnas, en la etapa desde X $1180. 1 CARRO; 0 grupo(s) de platanos; via entra a $0038 y sale a $016A."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 181,
+      "hasta": 197,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 181-196 (X original $16A0-$189F), 16 columnas, en la etapa desde X $1340. 1 RACIMO; 0 grupo(s) de platanos; via entra a $016C y sale a $0097."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 418,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 418-587 (X original $3440-$497F), 170 columnas, en la etapa desde X $1540. 1 CANON, 10 CARRO, 1 LETRA KONG, 1 SALIDA, 2 SENAL; 6 grupo(s) de platanos; via entra a $0098 y sale a -."
+    }
+  ],
+  "objetos_quitar": [
+    {
+      "pieza": 1,
+      "indice": 29
+    },
+    {
+      "pieza": 2,
+      "indice": 13
+    },
+    {
+      "pieza": 3,
+      "indice": 22
+    },
+    {
+      "pieza": 5,
+      "indice": 27
+    },
+    {
+      "pieza": 5,
+      "indice": 31
+    },
+    {
+      "pieza": 5,
+      "indice": 33
+    },
+    {
+      "pieza": 5,
+      "indice": 37
+    }
+  ],
+  "objetos_agregar": [
+    {
+      "pieza": 0,
+      "dx": 2352,
+      "y": 211,
+      "nombre": "KRUSHA",
+      "puntero": "$B587",
+      "enemigo": true
+    },
+    {
+      "pieza": 0,
+      "dx": 3312,
+      "y": 339,
+      "nombre": "KLAPTRAP",
+      "puntero": "$9703",
+      "enemigo": true
+    },
+    {
+      "pieza": 2,
+      "dx": 176,
+      "y": 163,
+      "nombre": "NECKY",
+      "puntero": "$BC87",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 272,
+      "y": 319,
+      "nombre": "ZINGER",
+      "puntero": "$9D3D",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 848,
+      "y": 243,
+      "nombre": "GNAWTY",
+      "puntero": "$B413",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 1680,
+      "y": 176,
+      "nombre": "KRUSHA",
+      "puntero": "$B587",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 2896,
+      "y": 327,
+      "nombre": "KLAPTRAP",
+      "puntero": "$9703",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 3728,
+      "y": 227,
+      "nombre": "NECKY",
+      "puntero": "$BC87",
+      "enemigo": true
+    }
+  ],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-12 generada con generar_mundos.py desde e116_carnage_nieve01"
+  ],
+  "dificultad": "FACIL"
+}

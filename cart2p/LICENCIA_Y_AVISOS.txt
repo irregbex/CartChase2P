@@ -1,0 +1,82 @@
+CART CHASE 2P - LICENSE AND NOTICES
+===================================
+
+Cart Chase 2P is an unofficial, noncommercial fan modification of
+DKC1Recomp (a static recompilation of Donkey Kong Country for the SNES).
+It is not affiliated with, endorsed by, or sponsored by Nintendo or Rare.
+Donkey Kong Country, Nintendo, Rare and related names and trademarks
+belong to their respective owners.
+
+
+NO ROMS, NO PIRACY
+------------------
+The authors of Cart Chase 2P do not provide, host, link to or distribute
+any ROM, BIOS, copyrighted game code, graphics, music or any other
+copyrighted material, and do not condone piracy. Requests for ROMs will be
+ignored. Cart Chase 2P is only a mod: source code that works on top of one
+specific version of the game, Donkey Kong Country (USA) v1.0, which each
+user must supply from their own legally obtained copy. The build refuses
+any other file (SHA-256 check).
+
+
+WHAT THIS PROJECT DOES NOT CONTAIN
+----------------------------------
+No ROM, no game code, no graphics, no level maps, no music, no save
+states and no other data copied from the game. Everything the mod needs
+from the game is produced on YOUR computer from YOUR OWN legally obtained
+copy of Donkey Kong Country (USA) v1.0:
+
+  - the recompiled game code (scripts/generate_snesrecomp.py, at build time)
+  - start states, rail profiles, world skins, compiled stages and editor
+    images (tools/cart2p/preparar_desde_rom.py, once after building)
+
+The stages of the mod are distributed only as RECIPES
+(cart2p/etapas_fuente/*.json): column numbers, object positions and
+options, i.e. instructions that refer to the user's ROM, not game data.
+tools/cart2p/huellas_preparado.txt contains only SHA-256 fingerprints so
+users can verify their locally produced files.
+
+Release packages are produced with tools/cart2p/empaquetar_publico.py,
+which uses an allow-list and refuses to build the package if any file
+contains a 32-byte run identical to the ROM.
+
+
+LICENSES
+--------
+  Cart Chase 2P mod code (runner/cart2p/, tools/cart2p/, cart2p/)
+      MIT License, Copyright (c) 2026 Cart Chase 2P authors. Same terms as the
+      LICENSE file at the root of the repository.
+
+  DKC1Recomp (rest of the repository)
+      MIT License, Copyright (c) 2026 DKC1Recomp contributors (LICENSE).
+      Its own third-party notices: THIRD_PARTY_NOTICES.md.
+
+  snesrecomp (engine, downloaded separately into snesrecomp/)
+      PolyForm Noncommercial License 1.0.0, Copyright (c) 2026 Matthew Stan.
+      Because the build links this engine, ANY BUILD OF CART CHASE 2P MAY
+      ONLY BE USED AND SHARED FOR NONCOMMERCIAL PURPOSES. Do not sell it,
+      bundle it with paid products or put it behind a paywall.
+
+  recomp/*.cfg structural metadata
+      Derived by DKC1Recomp from the GPL-3 Yoshifanatic1 Donkey Kong
+      Country disassembly (see THIRD_PARTY_NOTICES.md). The disassembly is
+      not included (reference/ is not distributed).
+
+  SDL 2 (zlib) and miniz (MIT) on Windows: third_party/windows/.
+
+Addresses and routine names that appear in comments (for example
+CODE_B69C02 or DATA_BD8000) are labels used to locate data inside the
+user's ROM; no disassembly text is reproduced.
+
+
+DISTRIBUTION RULES FOR THIS PROJECT
+-----------------------------------
+  - Share the source package only. Never share a ROM, a patched ROM,
+    generated/, cart2p/states/*.state, cart2p/stages/*, or
+    cart2p/editor/datos/*.
+  - Compiled executables contain recompiled game code; this project does
+    not publish them. Users build their own.
+  - Keep this file, LICENSE and THIRD_PARTY_NOTICES.md with any copy.
+
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.

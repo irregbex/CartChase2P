@@ -1,0 +1,8 @@
+C code of the Cart Chase 2P mode: two-game race (player context, second
+cart, second camera, split render, rules, HUD), stages, in-game editor and
+recipe compiler. Everything here is behind the --cart2p flag (default off):
+without it, DKC1Recomp runs exactly as the original.
+
+Docs: cart2p\docs\CARRERA_2P.txt (race), cart2p\docs\FORMATO_ETAPAS.txt
+(file formats), cart2p\docs\EDITOR_ETAPAS.txt (editor),
+cart2p\docs\MAPA_WRAM_2P.txt (memory map).

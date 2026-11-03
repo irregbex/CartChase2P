@@ -1,0 +1,6 @@
+state_load map_carnage.state
+pulse 8 8 150 0028 <= 0008 timeout 4000
+wait 1b25 >= 0100 timeout 2000
+0 * 120
+state_save carnage_inicio.state
+0 * 2

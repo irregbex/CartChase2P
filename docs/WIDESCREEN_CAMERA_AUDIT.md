@@ -1,0 +1,42 @@
+# Camera and movement audit — September 6, 2026
+
+The first broader audit found and corrected another underwater presentation defect: ordinary fine-Y scroll crossings could leave a short strip of the last scanline without terrain. The current local app also includes the supplied Coral Capers ceiling-hole correction documented in [the wall-seam report](WIDESCREEN_WALL_SEAM.md). This is a partial runtime audit, not whole-game widescreen certification.
+
+## Coverage and evidence
+
+Private evidence is in `build/repros/widescreen-camera-audit-20260906/`. Inputs, screenshots, ROM-derived images and states remain outside version control.
+
+- **Source-art screening:** 40 main-level maps, 921 parsed camera records, 918 nonempty camera ranges, and 12,858 sampled camera/aspect combinations. The three excluded terminal records are beyond their published horizontal upper bound in Winky's Walkway, Snow Barrel Blast and Tanked Up Trouble. Both 308×224 and 342×224 margins are screened. `camera-regions.json`, `camera-art-report.json`, per-level contact sheets and `all-levels-priority-overview.jpg` retain the results.
+- **The source screening is provisional.** It reuses RainbowZ's ROM tile renderer and camera-table interpretation, with explicit map origins and an inferred one-pixel vertical-room camera-bound adjustment. It does not run the cartridge camera, HDMA, sprites, lighting or transitions. Its previews show original authored art, without the host's margin continuations. The 1,644 ranked records include repeated sightings and ordinary art edges; they are not 1,644 confirmed defects. The original ceiling-hole cell is detected, including a neighboring camera angle outside the current narrow seam capability. That angle remains a runtime-reproduction lead, not an accepted extension of the patch.
+- **Saved-state inventory:** 1,038 files reduce to 315 unique states; all load in the current headless runner. Most cover repeated positions in only a few scenes. `state-observations.json` records the actual scene and camera, rather than trusting filenames or old level labels.
+- **Movement screening:** ten 360-frame controller branches from each of five immutable roots: Coral Capers, Croctopus Chase, Slipslide Ride, Snow Barrel Blast and Torchlight Trouble. The 50 branches run three independent times at 16:9 on both the baseline and candidate. Each set is deterministic. Some Croctopus branches reach death/entry transitions; these do not establish traversal of the entire level. Other routes encounter ordinary walls. Input duration is not camera coverage.
+- **Additional aspect checks:** five Coral branches at 16:10 and one native-4:3 branch from each of the five roots, each against the baseline and with three candidate repeats. The original hole's separate five-route/two-aspect regression remains documented with its own evidence.
+
+The maintained `snapshot_widescreen_stress.py` runner/grader supplies the movement tests. The private wrapper preserves the five explicit local presentation options, since the standalone tool intentionally clears inherited game environment variables. Scripts and input manifests retain this distinction.
+
+The generic route-library sweep does not close the coverage gap: two boot routes stop with exit 22, and several others spend their duration in splash/menu states. Its pillarbox and OAM-wrap alerts are leads requiring scene/lifecycle attribution, not automatic proof of missing level art. No generated dispatch code or actor behavior was changed on that evidence.
+
+## Ordinary-scroll bottom-row gap
+
+The preserved active Coral root has SHA-256 `1eb7355de0dbc3ff8250d526611e0154fe446e590c1c1e43786a57a99e2be316`. In the Right+Y (`0x82`) branch, the first missing terrain serve is relative frame **85**, absolute **110691**, mode 3, level `$0061`, entrance `$00BF`, camera **592/10000**. The live terrain Y is 9999, whose fine phase is 7. A later visible example at relative frame 180, absolute 110786, camera 626/10047 changes only two margin pixels on output row 223. `bottom-row/pixel-differences.json` records the surrounding frames, colors and exact coordinates.
+
+The water raster effect advances vertical scroll during the final scanline. The generic shadow capture covers 29 rows, but this phase touches row 30. ROM margin prefill excludes the partly native edge tile, so that tile's last row can miss and reveal BG2 briefly. The existing live-VRAM guard-row capture ran only when the cache rebased. This failure happens without a rebase.
+
+`Dkc1PrepareWidescreenShadow` now also performs that same live guard capture when the current frame calibrates, `DKC1_WS_SCROLL_REBASE=1`, and the cartridge vertical-scroll phase is 7. The source and coordinate mapping are unchanged. It copies live native-column tile entries into host history; it does not synthesize art, write VRAM, change HDMA, widen activation or alter gameplay. Source defaults remain off. Removing the opt-in retains the previous default behavior.
+
+Validation:
+
+- The 50 movement branches contain **124 baseline terrain misses and zero candidate terrain misses**. All ten Coral branches improve from strict terrain-miss failure to pass; the other four roots remain unchanged. Across 18,000 compared frames, native-center, WRAM, VRAM, CGRAM, PPU-OAM and WRAM-OAM hashes are exact. Margin images differ in 70 Coral frames. Three complete candidate repeats agree.
+- The ten additional aspect/native branches also preserve those per-frame oracle hashes and repeat three times. Native 4:3 output is unchanged.
+- Exact-state isolated layers at both wide aspects change only BG1/composite pixels on row 223 outside the native image. BG2, BG3, OBJ and all five native-4:3 surfaces are identical. Three candidate layer repeats agree. `bottom-row/layer-validation.json` retains image hashes and changed coordinates.
+- Both actual non-headless app windows were inspected at the immutable trigger with Reconstruct mode 3, strength 100, softness 86 and shading 99. `bottom-row/before-window.jpg` and `after-window.jpg` retain the captures. The original underwater ripple remains enabled at the user's request.
+- Blank-region triggers sampled in Coral, Snow Barrel Blast and Torchlight Trouble fall on visible water, sky or darkness. Their alerts remain in the raw reports; they were not used to justify filling those regions. The terrain-cache miss was a separate, source-backed finding.
+- **241 unit/model tests**, zero failures, one skip. Host/headless builds and `git diff --check` pass. The transition sentinel passes **34 samples across five boundaries**. The four available fresh-entry anchors run three repeats with zero hard failures and four pre-existing native/wide divergence investigations.
+
+`recipes/coral-bottom-row-guard.json` preserves the exact controller schedule and named checkpoints. It requires the immutable active root above; it is explicitly an exact-state regression, not a fresh-entry recipe. `bottom-row/validate_extra.py`, `runtime-comparison.json`, `gate-commands.json` and the input manifests retain repeatable commands and byte evidence. The supported ROM SHA-256 remains `fa8cacf5bbfc39ee6bbaa557adf89133d60d42f6cf9e1db30d5a36a469f74d15`.
+
+## Delivery and remaining gates
+
+The normal `build/macos/DKC1Recomp.app` contains the new executable, SHA-256 `551cbb65fd79c32e5bba1e169d57b66a913e495136fb61059992e0337a9238cc`, and passes strict signature verification. Its executable was replaced atomically after private-app QA because the user had resumed playing. Existing process 92526 keeps its previous mapped executable until restart. Its game session was not interrupted, and the normal save slot, Info.plist and preferences were preserved. No diagnostic input/state paths were added to the normal app. `bottom-row/final-manifest.json` records both executable identities and save hashes. The healthy private QA apps were closed after capture; the original game remains available for playtesting.
+
+The **40-entrance capability floor still fails for 36 missing clean anchors**, including Coral Capers. Static art screening does not satisfy that gate. Fresh Coral entry, complete level outcomes, bonus rooms, all boss phases and every dynamic camera transition remain unverified. Static suspects in Croctopus, Slipslide and Poison Pond, and the neighboring Coral junction angle, need authentic runtime reproduction before changing their art. These limitations keep the changes local and opt-in; no whole-game promotion, commit or release is claimed.

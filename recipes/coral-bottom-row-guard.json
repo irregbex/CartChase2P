@@ -1,0 +1,14 @@
+{
+  "schema": "dkc1.route.v1",
+  "name": "coral-bottom-row-guard",
+  "steps": [
+    {"type": "input", "input": "000082", "frames": 80},
+    {"type": "checkpoint", "name": "before-fine-scroll-crossing"},
+    {"type": "input", "input": "000082", "frames": 5},
+    {"type": "checkpoint", "name": "first-bottom-row-miss"},
+    {"type": "input", "input": "000082", "frames": 95},
+    {"type": "checkpoint", "name": "visible-bottom-row-gap"},
+    {"type": "input", "input": "000082", "frames": 180},
+    {"type": "checkpoint", "name": "right-wall-settled"}
+  ]
+}

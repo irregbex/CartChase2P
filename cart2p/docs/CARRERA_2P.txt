@@ -1,0 +1,212 @@
+CART CHASE 2P - RACE (two-game mode, DKC1_CART2P=2)
+===================================================
+Updated: 2026-10-09.
+
+How to play
+-----------
+Double-click the "Cart Chase 2P" shortcut (in the root folder).
+It opens the game directly, with no console window: everything is handled
+from the in-game menu. (Same as build-windows\release\DKC1Recomp.exe
+--cart2p, or cart2p\JUGAR.bat option 1.)
+cart2p\JUGAR.bat is only kept for backup tools: stage editor in the
+browser (2), random stages with Python (3), compile recipes (4) and build
+the game (5). You do not need it to play, edit or create stages.
+
+  P1 = left half  = DK    = first controller  (keyboard: arrows, Z jumps)
+  P2 = right half = Diddy = second controller (keyboard: I J K L, N jumps)
+  (each one has the other Kong as a buddy, as in the original)
+
+Each player plays a full game of the original, with their own camera,
+bananas, KONG letters, enemies and counter. The two games run in the same
+program, side by side.
+
+Start-up and stage menu
+-----------------------
+1. Welcome screen: "CART CHASE" across the screen. Start (or Enter)
+   continues.
+1b. MAIN MENU (options on the left, on the right what the highlighted one
+   does). Up/down select, A confirms, left/right change values:
+     2 JUGADORES     (2 players) goes to the controller screen and the
+                     stage list
+     1 JUGADOR       (1 player) time trial, full screen, with any
+                     controller or the keyboard; records kept separate
+                     from 2-player ones; same stage list (B goes back to
+                     the menu and split screen returns)
+     EDITOR          in-game stage editor (mouse and keyboard):
+                     see cart2p\docs\EDITOR_ETAPAS.txt
+     ETAPAS AL AZAR  (random stages) left/right how many (1-30), A
+                     creates them inside the game (no Python) and adds
+                     them to the end of the list
+     VOLUMEN P1 / P2 (volume) 0 to 100 (steps of 10); 60/60 by default
+     MUERTE SUBITA   (sudden death) SI / NO (yes / no)
+     SALIR           (exit) closes the game
+   Volume and sudden death are saved in cart2p\opciones.txt.
+2. Controller screen: the left half is P1 and the right half P2. Each
+   controller appears on the side it had last time (cart2p\mandos.txt)
+   with its name. Each player:
+     - pushes their controller towards THEIR side (d-pad or stick
+       left/right) if it is on the wrong side; the controllers swap,
+     - presses A to confirm ("LISTO", ready); B cancels.
+   A confirmed side cannot be taken by the other player. When both are
+   ready, "LISTOS!" (ready!) shows and you go to the menu. Start skips
+   ahead immediately with whatever is set (for example, with a single
+   controller: P2 plays with keyboard IJKL + N).
+   The assignment is saved for next time. F10 during the race also swaps
+   the controllers. Select goes back to the main menu.
+3. "ELIGE ETAPA" (choose stage) menu: the stages from cart2p\etapas.txt
+   with their best time, and at the end "AL AZAR ?" (random ?). Up/down
+   select, left/right jump by 16 (one page), Start or jump plays. Either
+   controller works.
+   B (on the controller) goes back to the main menu.
+4. When each race ends, Start goes back to the stage list (the cursor
+   moves to the next stage).
+
+Controllers
+-----------
+Each controller stays bound to one player and is remembered in
+cart2p\mandos.txt (one line per controller: "P1 <id>" or "P2 <id>"). The
+first time, the first controller detected is P1 and the second P2; after
+that it does not matter in which order they connect (Bluetooth) or if one
+disconnects and comes back.
+  F10 during the game: swaps P1 and P2 ("MANDOS INTERCAMBIADOS",
+  controllers swapped, shows on screen and it is saved in mandos.txt for
+  next time).
+You can also edit the file, or delete it to start over. The log
+cart2p\logs\ultima_partida.txt says which controller ended up as P1 and P2.
+The keyboard keeps working (arrows+Z for P1, IJKL+N for P2).
+
+Rules
+-----
+1. Countdown 3 - 2 - 1 with everything frozen, then "YA!" (go!).
+2. Dying does not cost lives or take you out of the stage: your game (only
+   yours) rewinds ~1.5 s to a safe point (Kong sitting in the cart on the
+   rail). If you die again within 2.5 s of respawning, it rewinds 1 s more
+   each time (up to ~5 s), to get out of a dead end.
+   The penalty is the lost time. Losing the buddy Kong works the same as
+   in the original game.
+   On death, that player's half fades to dark (0.2 s), rewinds and fades
+   back in (0.33 s) with the "RETROCEDE" (rewind) notice (since
+   2026-10-09; before that the jump back was instant and it looked like
+   the track had changed).
+3. Finish line: the stage exit (the point where the original game ends
+   the level; in Carnage X=$4880, in Madness X=$39E4; in remix stages,
+   the end of the last section). When a player crosses it, that player's
+   game freezes at that instant with their time fixed; the other keeps
+   racing until they arrive. The first one wins: "P1 GANA!" or "P2 GANA!"
+   (P1/P2 wins!) with their time.
+   Safety net: if a game ends up with no Kongs on screen (it left the
+   stage some other way), it counts as a finish.
+4. When it ends, the screen stays paused until someone presses Start:
+   with a stage list it opens the menu; without a list it repeats the same
+   stage.
+5. Best times: saved in cart2p\records.txt per stage (key = initial state
+   + remix file). On screen, under the timer, "MEJOR m:ss.cc" (best)
+   shows; when you beat it, "NUEVO RECORD!" (new record!) appears on the
+   final banner.
+   To delete a record, edit or delete that file.
+6. "Sudden death" variant: the first one to die loses and the race ends
+   there. Enable it by adding to the .bat, before "start":
+     set "DKC1_CART2P_MUERTE=1"
+
+On screen (each half)
+---------------------
+  Top center: race timer (fixed when you arrive) and, below it, the best
+    time for the stage if there is one.
+  Top right: P1/P2 and position (1RO / 2DO = 1st / 2nd, by progress).
+  Bottom center: notices (controllers swapped).
+
+Sound
+-----
+Both games are heard: the music is the same in both and stays aligned
+sample by sample (the two SPCs advance identically, also during the
+countdown), so they are mixed 60 % + 60 %: the music sounds like the
+original (+1.6 dB) and each player's sound effects (jumps, bananas,
+crashes) a bit quieter (-4.4 dB). The mix can be changed in the .bat:
+  set "DKC1_CART2P_MEZCLA=60,60"     (percent P1, percent P2)
+  Examples: 100,0 = only P1 as before; 50,50 = music exactly as original.
+The music keeps playing without cuts even if a player dies and rewinds
+(only the game goes back, the sound does not).
+
+Stages
+------
+cart2p\etapas.txt: list for the stage menu, one per line:
+  name | initial state | remix stage (optional)
+  (paths relative to the cart2p\ folder; the name is shown on screen)
+112 are included: the 2 official ones (CARNAGE, MADNESS), the 10 created
+on 2026-10-07 (REMIX 1, REMIX MADNESS 1, INVENTADA 1, INVENTADA MAD 1 and
+6 AZAR) and 100 new ones (50 per level) in six families. Since 2026-10-09
+all 110 are SEAMLESS (see below):
+  REMIX     original length, 6-9 jumps, the least repetitive (10 per level)
+  SPRINT    short races, 45-65 % of the length (10)
+  HOYOS     (pits) original length, goes through as many pits as
+            possible (10)
+  TRANQUILA (calm) 80-100 %, the fewest enemies and pits (5)
+  LARGA     (long) the longest that fits in the game's memory (5)
+  MIXTA     (mixed) medium length, 70-95 %, many jumps (10)
+List with data for each one (length, seconds, enemies, cuts, difficulty):
+cart2p\etapas_fuente\CATALOGO_ETAPAS.txt (generated by
+tools\cart2p\compilar_etapas.py).
+
+THEMES (2026-10-09 and 10): 80 more stages at the end of the menu, with
+the track crossing other worlds of the game: JUNGLA (jungle), CUEVA
+(cave), FABRICA (factory), NIEVE (snow), ALDEA ARBOREA (treetop village),
+BOSQUE (forest), TEMPLO (temple) and MINA OSCURA (dark mine), 5 seamless
+ones of each, on Mine Cart Carnage (e101-e140, "JUNGLA 01"...) and on
+Mine Cart Madness (e141-e180, "JUNGLA MAD 01"...). Gameplay is that of
+the base level; the scenery changes. Technical details:
+cart2p\docs\FORMATO_ETAPAS.txt section 9. ETAPAS AL AZAR also picks a
+random theme (or none).
+
+SEAMLESS: the previous version (2026-10-08) joined sections only by the
+height of the track; at each join the scenery changed abruptly (buildings
+cut off) and it looked like the stage changed (test report, 2026-10-09).
+Now each stage is a route through the original level that jumps only
+between TWIN COLUMNS: scenery columns that are identical in two places of
+the level, with the flat track at the same height. Jumping forward makes
+it shorter, jumping back makes it longer (repeats a part). The jump is
+not visible. In Madness the far background (layer 2) scrolls
+continuously.
+
+Each created stage has its editable RECIPE in cart2p\etapas_fuente\
+<id>.json (source documented piece by piece) and its compiled version in
+cart2p\stages\<id>.c2p. Format: cart2p\docs\FORMATO_ETAPAS.txt.
+
+Stage editor (cart2p\JUGAR.bat option 2): opens in the browser with the
+real graphics of the level; you build stages piece by piece, remove or
+add objects, save and test in the game with one button. Manual:
+cart2p\docs\EDITOR_ETAPAS.txt.
+
+Randomizer (ETAPAS AL AZAR in the main menu, or cart2p\JUGAR.bat
+option 3): SEAMLESS random stages (random level and route, 8 to 11 jumps
+between twin columns; Carnage ones with a random theme or no theme), as
+editable recipes "azar_<nivel>_<semilla>" (azar_<level>_<seed>), added to
+the end of the menu.
+To remove a stage from the menu, delete its line in cart2p\etapas.txt.
+
+Old generator (gen_stage.py --inventar, and the pieces in the editor's
+TRAMOS/RECTAS/HOYOS tabs; leaves visible cuts at the joins):
+  Cuts the level at the flat-track points (Carnage 39 sections, Madness
+  31) and shuffles them (the track height matches at each join).
+  Each section carries its enemies, KONG letters, exit, bananas and the
+  game's camera zones.
+  Invented sections (10 by default; 0 = only shuffle): at flat-track
+  joins it inserts
+    - new straights (3 to 8 columns of flat track), and
+    - new pits: a pit edge from the original game (take-off, gap of
+      32 or 64 px and landing, at the same height) between straights; or
+      two pits in a row with a short straight in between.
+  There are only pit edges at the same height in 4 places in Carnage and
+  3 in Madness, and pits are never placed where flying enemies attack
+  (Necky, Zinger) nor above ground enemies; that is why Carnage gets few
+  new pits and more straights.
+  Track profiles: cart2p\stages\vias_carnage.txt, vias_madness.txt
+  (written by the game with DKC1_CART2P_SURVEY=archivo).
+  remix1.c2p and remix_madness1.c2p (from 2026-10-06) did not include the
+  camera zones; the menu uses their _v3 versions.
+
+Log
+---
+cart2p\logs\ultima_partida.txt          deaths, rewinds, finishes,
+                                        records, controllers, cost per frame
+cart2p\logs\ultima_partida_entradas.txt inputs of both controllers per frame
+cart2p\records.txt                      best times (frames; s = /60)

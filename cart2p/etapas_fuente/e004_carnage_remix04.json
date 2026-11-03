@@ -1,0 +1,114 @@
+{
+  "formato": 1,
+  "id": "e004_carnage_remix04",
+  "nombre": "CARNAGE REMIX 04",
+  "nivel": "carnage",
+  "familia": "REMIX",
+  "descripcion": "Recorrido sin costuras por el nivel, con el largo del original: salta entre columnas identicas a otras partes del nivel, en otro orden. 585 columnas (99 % del original), unos 84.7 s, 9 saltos sin costura, pasa por 33 hoyos del nivel, 20 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-08",
+  "semilla": 4,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 585,
+    "largo_px": 18720,
+    "segundos_aprox": 84.7,
+    "piezas": 10,
+    "tramos_originales": 10,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 20,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 2,
+      "CANON": 4,
+      "CARRO": 20,
+      "COFRE": 1,
+      "FICHA": 1,
+      "GLOBO": 1,
+      "LETRA KONG": 4,
+      "RACIMO": 2,
+      "SENAL": 2
+    },
+    "grupos_platanos": 19,
+    "largo_vs_original": 0.99,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 85,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-84 (X original $0000-$0A9F), 85 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE, 1 LETRA KONG; 3 grupo(s) de platanos; via entra a - y sale a $018C."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 211,
+      "hasta": 312,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 211-311 (X original $1A60-$26FF), 101 columnas, en la etapa desde X $0AA0. 1 BARRIL CONTROL, 1 BARRIL DK, 4 CARRO, 1 FICHA, 1 LETRA KONG; 5 grupo(s) de platanos; via entra a $018B y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 146,
+      "hasta": 184,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 146-183 (X original $1240-$16FF), 38 columnas, en la etapa desde X $1740. 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0093 y sale a $016C."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 394,
+      "hasta": 410,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 394-409 (X original $3140-$333F), 16 columnas, en la etapa desde X $1C00. sin objetos; 0 grupo(s) de platanos; via entra a $016B y sale a $0053."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 336,
+      "hasta": 354,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 336-353 (X original $2A00-$2C3F), 18 columnas, en la etapa desde X $1E00. 1 GLOBO; 1 grupo(s) de platanos; via entra a $0053 y sale a $0037."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 271,
+      "hasta": 299,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 271-298 (X original $21E0-$255F), 28 columnas, en la etapa desde X $2040. 1 CARRO; 2 grupo(s) de platanos; via entra a $0038 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 183,
+      "hasta": 222,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 183-221 (X original $16E0-$1BBF), 39 columnas, en la etapa desde X $23C0. 1 FICHA, 1 RACIMO; 1 grupo(s) de platanos; via entra a $0173 y sale a $0041."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 348,
+      "hasta": 393,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 348-392 (X original $2B80-$311F), 45 columnas, en la etapa desde X $28A0. 3 CARRO; 0 grupo(s) de platanos; via entra a $003F y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 299,
+      "hasta": 336,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 299-335 (X original $2560-$29FF), 37 columnas, en la etapa desde X $2E40. 3 CARRO, 1 LETRA KONG, 1 RACIMO; 3 grupo(s) de platanos; via entra a $0173 y sale a $0053."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 410,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 410-587 (X original $3340-$497F), 178 columnas, en la etapa desde X $32E0. 1 CANON, 10 CARRO, 1 LETRA KONG, 1 SALIDA, 2 SENAL; 6 grupo(s) de platanos; via entra a $0053 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-08 generada (familia REMIX)",
+    "2026-10-09 rehecha sin costuras (version con cortes en cart2p\\archivo\\2026-10-09_etapas_con_cortes\\)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 4,
+    "columnas": 0,
+    "saltos_min": 9,
+    "objetivo": "variedad"
+  },
+  "dificultad": "DIFICIL"
+}

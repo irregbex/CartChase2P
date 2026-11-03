@@ -1,0 +1,106 @@
+{
+  "formato": 1,
+  "id": "e022_carnage_hoyos02",
+  "nombre": "CARNAGE HOYOS 02",
+  "nivel": "carnage",
+  "familia": "HOYOS",
+  "descripcion": "Recorrido sin costuras que pasa por la mayor cantidad posible de hoyos del nivel (repite los tramos con mas saltos). 581 columnas (99 % del original), unos 84.1 s, 8 saltos sin costura, pasa por 31 hoyos del nivel, 19 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-08",
+  "semilla": 22,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 581,
+    "largo_px": 18592,
+    "segundos_aprox": 84.1,
+    "piezas": 9,
+    "tramos_originales": 9,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 19,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 19,
+      "COFRE": 1,
+      "GLOBO": 1,
+      "LETRA KONG": 4,
+      "RACIMO": 1,
+      "SENAL": 2
+    },
+    "grupos_platanos": 17,
+    "largo_vs_original": 0.99,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 90,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-89 (X original $0000-$0B3F), 90 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE, 1 LETRA KONG; 3 grupo(s) de platanos; via entra a - y sale a $0118."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 375,
+      "hasta": 393,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 375-392 (X original $2EE0-$311F), 18 columnas, en la etapa desde X $0B40. 2 CARRO; 0 grupo(s) de platanos; via entra a $0117 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 299,
+      "hasta": 312,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 299-311 (X original $2560-$26FF), 13 columnas, en la etapa desde X $0D80. 1 CARRO, 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0173 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 146,
+      "hasta": 183,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 146-182 (X original $1240-$16DF), 37 columnas, en la etapa desde X $0F20. 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0093 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 299,
+      "hasta": 312,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 299-311 (X original $2560-$26FF), 13 columnas, en la etapa desde X $13C0. 1 CARRO, 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0173 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 146,
+      "hasta": 181,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 146-180 (X original $1240-$169F), 35 columnas, en la etapa desde X $1560. 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0093 y sale a $016A."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 368,
+      "hasta": 410,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 368-409 (X original $2E00-$333F), 42 columnas, en la etapa desde X $19C0. 2 CARRO; 0 grupo(s) de platanos; via entra a $016C y sale a $0053."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 336,
+      "hasta": 348,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 336-347 (X original $2A00-$2B7F), 12 columnas, en la etapa desde X $1F00. 1 GLOBO; 1 grupo(s) de platanos; via entra a $0053 y sale a $0041."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 267,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 267-587 (X original $2160-$497F), 321 columnas, en la etapa desde X $2080. 1 CANON, 18 CARRO, 1 GLOBO, 2 LETRA KONG, 1 RACIMO, 1 SALIDA, 2 SENAL; 13 grupo(s) de platanos; via entra a $003F y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-08 generada (familia HOYOS)",
+    "2026-10-09 rehecha sin costuras (version con cortes en cart2p\\archivo\\2026-10-09_etapas_con_cortes\\)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 22,
+    "columnas": 0,
+    "saltos_min": 7,
+    "objetivo": "hoyos"
+  },
+  "dificultad": "DIFICIL"
+}

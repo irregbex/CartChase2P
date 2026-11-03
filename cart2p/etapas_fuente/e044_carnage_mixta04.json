@@ -1,0 +1,107 @@
+{
+  "formato": 1,
+  "id": "e044_carnage_mixta04",
+  "nombre": "CARNAGE MIXTA 04",
+  "nivel": "carnage",
+  "familia": "MIXTA",
+  "descripcion": "Recorrido sin costuras de largo intermedio con muchos saltos. 475 columnas (81 % del original), unos 67.9 s, 8 saltos sin costura, pasa por 27 hoyos del nivel, 17 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-08",
+  "semilla": 44,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 475,
+    "largo_px": 15200,
+    "segundos_aprox": 67.9,
+    "piezas": 9,
+    "tramos_originales": 9,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 17,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 17,
+      "COFRE": 1,
+      "FICHA": 1,
+      "GLOBO": 1,
+      "LETRA KONG": 4,
+      "RACIMO": 1,
+      "SENAL": 2
+    },
+    "grupos_platanos": 16,
+    "largo_vs_original": 0.81,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 90,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-89 (X original $0000-$0B3F), 90 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE, 1 LETRA KONG; 3 grupo(s) de platanos; via entra a - y sale a $0118."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 375,
+      "hasta": 393,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 375-392 (X original $2EE0-$311F), 18 columnas, en la etapa desde X $0B40. 2 CARRO; 0 grupo(s) de platanos; via entra a $0117 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 299,
+      "hasta": 312,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 299-311 (X original $2560-$26FF), 13 columnas, en la etapa desde X $0D80. 1 CARRO, 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0173 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 146,
+      "hasta": 184,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 146-183 (X original $1240-$16FF), 38 columnas, en la etapa desde X $0F20. 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0093 y sale a $016C."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 394,
+      "hasta": 410,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 394-409 (X original $3140-$333F), 16 columnas, en la etapa desde X $13E0. sin objetos; 0 grupo(s) de platanos; via entra a $016B y sale a $0053."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 336,
+      "hasta": 368,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 336-367 (X original $2A00-$2DFF), 32 columnas, en la etapa desde X $15E0. 1 CARRO, 1 GLOBO; 1 grupo(s) de platanos; via entra a $0053 y sale a $016A."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 181,
+      "hasta": 221,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 181-220 (X original $16A0-$1B9F), 40 columnas, en la etapa desde X $19E0. 1 FICHA, 1 RACIMO; 1 grupo(s) de platanos; via entra a $016C y sale a $0051."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 266,
+      "hasta": 299,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 266-298 (X original $2140-$255F), 33 columnas, en la etapa desde X $1EE0. 2 CARRO; 3 grupo(s) de platanos; via entra a $004F y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 393,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 393-587 (X original $3120-$497F), 195 columnas, en la etapa desde X $2300. 1 CANON, 10 CARRO, 1 LETRA KONG, 1 SALIDA, 2 SENAL; 6 grupo(s) de platanos; via entra a $0173 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-08 generada (familia MIXTA)",
+    "2026-10-09 rehecha sin costuras (version con cortes en cart2p\\archivo\\2026-10-09_etapas_con_cortes\\)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 44,
+    "columnas": 460,
+    "saltos_min": 8,
+    "objetivo": "variedad"
+  },
+  "dificultad": "MEDIA"
+}

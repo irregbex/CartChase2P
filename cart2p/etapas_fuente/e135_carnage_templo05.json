@@ -1,0 +1,92 @@
+{
+  "formato": 1,
+  "id": "e135_carnage_templo05",
+  "nombre": "TEMPLO 05",
+  "nivel": "carnage",
+  "tema": "templo",
+  "musica": "templo",
+  "familia": "TEMA",
+  "descripcion": "La via pasa frente a las ruinas de Temple Tempest. Recorrido sin costuras. 409 columnas (70 % del original), unos 57.9 s, 5 saltos sin costura, pasa por 21 hoyos del nivel, 15 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 2064,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 409,
+    "largo_px": 13088,
+    "segundos_aprox": 57.9,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 15,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 2,
+      "CANON": 4,
+      "CARRO": 15,
+      "COFRE": 1,
+      "FICHA": 1,
+      "LETRA KONG": 2,
+      "RACIMO": 1,
+      "SENAL": 2
+    },
+    "grupos_platanos": 11,
+    "largo_vs_original": 0.7,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 90,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-89 (X original $0000-$0B3F), 90 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE, 1 LETRA KONG; 3 grupo(s) de platanos; via entra a - y sale a $0118."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 375,
+      "hasta": 418,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 375-417 (X original $2EE0-$343F), 43 columnas, en la etapa desde X $0B40. 2 CARRO; 0 grupo(s) de platanos; via entra a $0117 y sale a $0097."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 197,
+      "hasta": 267,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 197-266 (X original $18A0-$215F), 70 columnas, en la etapa desde X $10A0. 1 BARRIL CONTROL, 1 BARRIL DK, 1 CARRO, 1 FICHA; 2 grupo(s) de platanos; via entra a $0098 y sale a $0041."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 348,
+      "hasta": 368,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 348-367 (X original $2B80-$2DFF), 20 columnas, en la etapa desde X $1960. 1 CARRO; 0 grupo(s) de platanos; via entra a $003F y sale a $016A."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 181,
+      "hasta": 197,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 181-196 (X original $16A0-$189F), 16 columnas, en la etapa desde X $1BE0. 1 RACIMO; 0 grupo(s) de platanos; via entra a $016C y sale a $0097."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 418,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 418-587 (X original $3440-$497F), 170 columnas, en la etapa desde X $1DE0. 1 CANON, 10 CARRO, 1 LETRA KONG, 1 SALIDA, 2 SENAL; 6 grupo(s) de platanos; via entra a $0098 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: templo (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 2064,
+    "columnas": 411,
+    "saltos_min": 5,
+    "objetivo": "variedad"
+  },
+  "dificultad": "FACIL"
+}

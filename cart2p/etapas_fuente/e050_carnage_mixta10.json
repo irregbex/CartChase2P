@@ -1,0 +1,107 @@
+{
+  "formato": 1,
+  "id": "e050_carnage_mixta10",
+  "nombre": "CARNAGE MIXTA 10",
+  "nivel": "carnage",
+  "familia": "MIXTA",
+  "descripcion": "Recorrido sin costuras de largo intermedio con muchos saltos. 559 columnas (95 % del original), unos 80.7 s, 8 saltos sin costura, pasa por 31 hoyos del nivel, 18 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-08",
+  "semilla": 50,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 559,
+    "largo_px": 17888,
+    "segundos_aprox": 80.7,
+    "piezas": 9,
+    "tramos_originales": 9,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 18,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 2,
+      "CANON": 4,
+      "CARRO": 18,
+      "COFRE": 1,
+      "FICHA": 1,
+      "LETRA KONG": 4,
+      "RACIMO": 2,
+      "SENAL": 2
+    },
+    "grupos_platanos": 18,
+    "largo_vs_original": 0.95,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 85,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-84 (X original $0000-$0A9F), 85 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE, 1 LETRA KONG; 3 grupo(s) de platanos; via entra a - y sale a $018C."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 211,
+      "hasta": 266,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 211-265 (X original $1A60-$213F), 55 columnas, en la etapa desde X $0AA0. 1 BARRIL CONTROL, 1 BARRIL DK, 1 CARRO, 1 FICHA; 1 grupo(s) de platanos; via entra a $018B y sale a $0051."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 221,
+      "hasta": 270,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 221-269 (X original $1BA0-$21BF), 49 columnas, en la etapa desde X $1180. 1 BARRIL CONTROL, 1 BARRIL DK, 2 CARRO; 2 grupo(s) de platanos; via entra a $004F y sale a $0033."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 353,
+      "hasta": 368,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 353-367 (X original $2C20-$2DFF), 15 columnas, en la etapa desde X $17A0. 1 CARRO; 0 grupo(s) de platanos; via entra a $0033 y sale a $016A."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 181,
+      "hasta": 211,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 181-210 (X original $16A0-$1A5F), 30 columnas, en la etapa desde X $1980. 1 RACIMO; 1 grupo(s) de platanos; via entra a $016C y sale a $018C."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 85,
+      "hasta": 181,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 85-180 (X original $0AA0-$169F), 96 columnas, en la etapa desde X $1D40. 1 LETRA KONG, 1 RACIMO; 4 grupo(s) de platanos; via entra a $018B y sale a $016A."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 368,
+      "hasta": 394,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 368-393 (X original $2E00-$313F), 26 columnas, en la etapa desde X $2940. 2 CARRO; 0 grupo(s) de platanos; via entra a $016C y sale a $016C."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 300,
+      "hasta": 319,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 300-318 (X original $2580-$27DF), 19 columnas, en la etapa desde X $2C80. 2 CARRO, 1 LETRA KONG; 2 grupo(s) de platanos; via entra a $016B y sale a $0053."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 404,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 404-587 (X original $3280-$497F), 184 columnas, en la etapa desde X $2EE0. 1 CANON, 10 CARRO, 1 LETRA KONG, 1 SALIDA, 2 SENAL; 6 grupo(s) de platanos; via entra a $0053 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-08 generada (familia MIXTA)",
+    "2026-10-09 rehecha sin costuras (version con cortes en cart2p\\archivo\\2026-10-09_etapas_con_cortes\\)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 50,
+    "columnas": 558,
+    "saltos_min": 8,
+    "objetivo": "variedad"
+  },
+  "dificultad": "DIFICIL"
+}

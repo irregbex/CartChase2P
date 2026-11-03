@@ -1,0 +1,107 @@
+{
+  "formato": 1,
+  "id": "e173_madness_templo03",
+  "nombre": "TEMPLO MAD 03",
+  "nivel": "madness",
+  "tema": "templo",
+  "musica": "templo",
+  "familia": "TEMA",
+  "descripcion": "Via de Mine Cart Madness. La via pasa frente a las ruinas de Temple Tempest. Recorrido sin costuras. 372 columnas (79 % del original), unos 52.2 s, 7 saltos sin costura, pasa por 21 hoyos del nivel, 36 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 3062,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 372,
+    "largo_px": 11904,
+    "segundos_aprox": 52.2,
+    "piezas": 8,
+    "tramos_originales": 8,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 36,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 5,
+      "CARRO": 14,
+      "FICHA": 1,
+      "GNAWTY": 4,
+      "LETRA KONG": 2,
+      "MEDIO NEUMATICO": 7,
+      "NECKY": 6,
+      "NEUMATICO": 4,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 12
+    },
+    "grupos_platanos": 11,
+    "largo_vs_original": 0.79,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 78,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-77 (X original $0000-$09BF), 78 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 4 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 116,
+      "hasta": 129,
+      "nota": "Tramo original de Mine Cart Madness, columnas 116-128 (X original $0E80-$101F), 13 columnas, en la etapa desde X $09C0. 1 CANON, 1 CARRO, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00BF."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 275,
+      "hasta": 287,
+      "nota": "Tramo original de Mine Cart Madness, columnas 275-286 (X original $2260-$23DF), 12 columnas, en la etapa desde X $0B60. 2 ZINGER; 0 grupo(s) de platanos; via entra a $00C0 y sale a $00F0."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 211,
+      "hasta": 230,
+      "nota": "Tramo original de Mine Cart Madness, columnas 211-229 (X original $1A60-$1CBF), 19 columnas, en la etapa desde X $0CE0. 1 NECKY; 1 grupo(s) de platanos; via entra a $00EF y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 253,
+      "hasta": 301,
+      "nota": "Tramo original de Mine Cart Madness, columnas 253-300 (X original $1FA0-$259F), 48 columnas, en la etapa desde X $0F40. 2 CANON, 2 CARRO, 1 LETRA KONG, 1 MEDIO NEUMATICO, 1 NEUMATICO, 2 ZINGER; 1 grupo(s) de platanos; via entra a $0073 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 149,
+      "hasta": 173,
+      "nota": "Tramo original de Mine Cart Madness, columnas 149-172 (X original $12A0-$159F), 24 columnas, en la etapa desde X $1540. 2 CARRO, 1 FICHA, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00F3 y sale a $0133."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 193,
+      "hasta": 210,
+      "nota": "Tramo original de Mine Cart Madness, columnas 193-209 (X original $1820-$1A3F), 17 columnas, en la etapa desde X $1840. 1 CARRO; 1 grupo(s) de platanos; via entra a $0133 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 307,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 307-467 (X original $2660-$3A7F), 161 columnas, en la etapa desde X $1A60. 2 CANON, 6 CARRO, 1 GNAWTY, 1 LETRA KONG, 6 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 8 ZINGER; 5 grupo(s) de platanos; via entra a $00F3 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: templo (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 3062,
+    "columnas": 374,
+    "saltos_min": 7,
+    "objetivo": "variedad"
+  },
+  "dificultad": "MEDIA"
+}

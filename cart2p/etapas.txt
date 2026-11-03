@@ -1,0 +1,218 @@
+# Cart Chase 2P - lista del menu de etapas (cart2p\JUGAR.bat)
+# Una etapa por linea:  nombre | estado inicial | etapa compilada (opcional)
+# Rutas relativas a esta carpeta (cart2p\). El nombre se muestra en el menu
+# del juego (letras A-Z, numeros, espacio) en este mismo orden.
+# El editor, el compilador de recetas y el randomizador agregan sus etapas
+# al final; se pueden reordenar o borrar lineas a mano (borrar una linea
+# solo la saca del menu: la receta y el .c2p siguen en disco).
+# Fuente editable de cada etapa: etapas_fuente\<id>.json.
+# remix1.c2p y remix_madness1.c2p (sin zonas de camara) se movieron a
+# archivo\2026-10-09_remix_sin_camara\; se usan sus versiones _v3.
+CARNAGE          | states\carnage_montado.state |
+MADNESS          | states\madness_montado.state |
+REMIX 1 | states\carnage_montado.state | stages\remix1_v3.c2p
+REMIX MADNESS 1 | states\madness_montado.state | stages\remix_madness1_v3.c2p
+INVENTADA 1 | states\carnage_montado.state | stages\inventada_carnage1.c2p
+INVENTADA MAD 1 | states\madness_montado.state | stages\inventada_madness1.c2p
+AZAR MADNESS 67311 | states\madness_montado.state | stages\azar_madness_67311.c2p
+AZAR CARNAGE 80897 | states\carnage_montado.state | stages\azar_carnage_80897.c2p
+AZAR MADNESS 98101 | states\madness_montado.state | stages\azar_madness_98101.c2p
+AZAR MADNESS 8378 | states\madness_montado.state | stages\azar_madness_8378.c2p
+AZAR CARNAGE 75658 | states\carnage_montado.state | stages\azar_carnage_75658.c2p
+AZAR MADNESS 38819 | states\madness_montado.state | stages\azar_madness_38819.c2p
+CARNAGE REMIX 01 | states\carnage_montado.state | stages\e001_carnage_remix01.c2p
+CARNAGE REMIX 02 | states\carnage_montado.state | stages\e002_carnage_remix02.c2p
+CARNAGE REMIX 03 | states\carnage_montado.state | stages\e003_carnage_remix03.c2p
+CARNAGE REMIX 04 | states\carnage_montado.state | stages\e004_carnage_remix04.c2p
+CARNAGE REMIX 05 | states\carnage_montado.state | stages\e005_carnage_remix05.c2p
+CARNAGE REMIX 06 | states\carnage_montado.state | stages\e006_carnage_remix06.c2p
+CARNAGE REMIX 07 | states\carnage_montado.state | stages\e007_carnage_remix07.c2p
+CARNAGE REMIX 08 | states\carnage_montado.state | stages\e008_carnage_remix08.c2p
+CARNAGE REMIX 09 | states\carnage_montado.state | stages\e009_carnage_remix09.c2p
+CARNAGE REMIX 10 | states\carnage_montado.state | stages\e010_carnage_remix10.c2p
+CARNAGE SPRINT 01 | states\carnage_montado.state | stages\e011_carnage_sprint01.c2p
+CARNAGE SPRINT 02 | states\carnage_montado.state | stages\e012_carnage_sprint02.c2p
+CARNAGE SPRINT 03 | states\carnage_montado.state | stages\e013_carnage_sprint03.c2p
+CARNAGE SPRINT 04 | states\carnage_montado.state | stages\e014_carnage_sprint04.c2p
+CARNAGE SPRINT 05 | states\carnage_montado.state | stages\e015_carnage_sprint05.c2p
+CARNAGE SPRINT 06 | states\carnage_montado.state | stages\e016_carnage_sprint06.c2p
+CARNAGE SPRINT 07 | states\carnage_montado.state | stages\e017_carnage_sprint07.c2p
+CARNAGE SPRINT 08 | states\carnage_montado.state | stages\e018_carnage_sprint08.c2p
+CARNAGE SPRINT 09 | states\carnage_montado.state | stages\e019_carnage_sprint09.c2p
+CARNAGE SPRINT 10 | states\carnage_montado.state | stages\e020_carnage_sprint10.c2p
+CARNAGE HOYOS 01 | states\carnage_montado.state | stages\e021_carnage_hoyos01.c2p
+CARNAGE HOYOS 02 | states\carnage_montado.state | stages\e022_carnage_hoyos02.c2p
+CARNAGE HOYOS 03 | states\carnage_montado.state | stages\e023_carnage_hoyos03.c2p
+CARNAGE HOYOS 04 | states\carnage_montado.state | stages\e024_carnage_hoyos04.c2p
+CARNAGE HOYOS 05 | states\carnage_montado.state | stages\e025_carnage_hoyos05.c2p
+CARNAGE HOYOS 06 | states\carnage_montado.state | stages\e026_carnage_hoyos06.c2p
+CARNAGE HOYOS 07 | states\carnage_montado.state | stages\e027_carnage_hoyos07.c2p
+CARNAGE HOYOS 08 | states\carnage_montado.state | stages\e028_carnage_hoyos08.c2p
+CARNAGE HOYOS 09 | states\carnage_montado.state | stages\e029_carnage_hoyos09.c2p
+CARNAGE HOYOS 10 | states\carnage_montado.state | stages\e030_carnage_hoyos10.c2p
+CARNAGE TRANQUILA 01 | states\carnage_montado.state | stages\e031_carnage_tranquila01.c2p
+CARNAGE TRANQUILA 02 | states\carnage_montado.state | stages\e032_carnage_tranquila02.c2p
+CARNAGE TRANQUILA 03 | states\carnage_montado.state | stages\e033_carnage_tranquila03.c2p
+CARNAGE TRANQUILA 04 | states\carnage_montado.state | stages\e034_carnage_tranquila04.c2p
+CARNAGE TRANQUILA 05 | states\carnage_montado.state | stages\e035_carnage_tranquila05.c2p
+CARNAGE LARGA 01 | states\carnage_montado.state | stages\e036_carnage_larga01.c2p
+CARNAGE LARGA 02 | states\carnage_montado.state | stages\e037_carnage_larga02.c2p
+CARNAGE LARGA 03 | states\carnage_montado.state | stages\e038_carnage_larga03.c2p
+CARNAGE LARGA 04 | states\carnage_montado.state | stages\e039_carnage_larga04.c2p
+CARNAGE LARGA 05 | states\carnage_montado.state | stages\e040_carnage_larga05.c2p
+CARNAGE MIXTA 01 | states\carnage_montado.state | stages\e041_carnage_mixta01.c2p
+CARNAGE MIXTA 02 | states\carnage_montado.state | stages\e042_carnage_mixta02.c2p
+CARNAGE MIXTA 03 | states\carnage_montado.state | stages\e043_carnage_mixta03.c2p
+CARNAGE MIXTA 04 | states\carnage_montado.state | stages\e044_carnage_mixta04.c2p
+CARNAGE MIXTA 05 | states\carnage_montado.state | stages\e045_carnage_mixta05.c2p
+CARNAGE MIXTA 06 | states\carnage_montado.state | stages\e046_carnage_mixta06.c2p
+CARNAGE MIXTA 07 | states\carnage_montado.state | stages\e047_carnage_mixta07.c2p
+CARNAGE MIXTA 08 | states\carnage_montado.state | stages\e048_carnage_mixta08.c2p
+CARNAGE MIXTA 09 | states\carnage_montado.state | stages\e049_carnage_mixta09.c2p
+CARNAGE MIXTA 10 | states\carnage_montado.state | stages\e050_carnage_mixta10.c2p
+MADNESS REMIX 01 | states\madness_montado.state | stages\e051_madness_remix01.c2p
+MADNESS REMIX 02 | states\madness_montado.state | stages\e052_madness_remix02.c2p
+MADNESS REMIX 03 | states\madness_montado.state | stages\e053_madness_remix03.c2p
+MADNESS REMIX 04 | states\madness_montado.state | stages\e054_madness_remix04.c2p
+MADNESS REMIX 05 | states\madness_montado.state | stages\e055_madness_remix05.c2p
+MADNESS REMIX 06 | states\madness_montado.state | stages\e056_madness_remix06.c2p
+MADNESS REMIX 07 | states\madness_montado.state | stages\e057_madness_remix07.c2p
+MADNESS REMIX 08 | states\madness_montado.state | stages\e058_madness_remix08.c2p
+MADNESS REMIX 09 | states\madness_montado.state | stages\e059_madness_remix09.c2p
+MADNESS REMIX 10 | states\madness_montado.state | stages\e060_madness_remix10.c2p
+MADNESS SPRINT 01 | states\madness_montado.state | stages\e061_madness_sprint01.c2p
+MADNESS SPRINT 02 | states\madness_montado.state | stages\e062_madness_sprint02.c2p
+MADNESS SPRINT 03 | states\madness_montado.state | stages\e063_madness_sprint03.c2p
+MADNESS SPRINT 04 | states\madness_montado.state | stages\e064_madness_sprint04.c2p
+MADNESS SPRINT 05 | states\madness_montado.state | stages\e065_madness_sprint05.c2p
+MADNESS SPRINT 06 | states\madness_montado.state | stages\e066_madness_sprint06.c2p
+MADNESS SPRINT 07 | states\madness_montado.state | stages\e067_madness_sprint07.c2p
+MADNESS SPRINT 08 | states\madness_montado.state | stages\e068_madness_sprint08.c2p
+MADNESS SPRINT 09 | states\madness_montado.state | stages\e069_madness_sprint09.c2p
+MADNESS SPRINT 10 | states\madness_montado.state | stages\e070_madness_sprint10.c2p
+MADNESS HOYOS 01 | states\madness_montado.state | stages\e071_madness_hoyos01.c2p
+MADNESS HOYOS 02 | states\madness_montado.state | stages\e072_madness_hoyos02.c2p
+MADNESS HOYOS 03 | states\madness_montado.state | stages\e073_madness_hoyos03.c2p
+MADNESS HOYOS 04 | states\madness_montado.state | stages\e074_madness_hoyos04.c2p
+MADNESS HOYOS 05 | states\madness_montado.state | stages\e075_madness_hoyos05.c2p
+MADNESS HOYOS 06 | states\madness_montado.state | stages\e076_madness_hoyos06.c2p
+MADNESS HOYOS 07 | states\madness_montado.state | stages\e077_madness_hoyos07.c2p
+MADNESS HOYOS 08 | states\madness_montado.state | stages\e078_madness_hoyos08.c2p
+MADNESS HOYOS 09 | states\madness_montado.state | stages\e079_madness_hoyos09.c2p
+MADNESS HOYOS 10 | states\madness_montado.state | stages\e080_madness_hoyos10.c2p
+MADNESS TRANQUILA 01 | states\madness_montado.state | stages\e081_madness_tranquila01.c2p
+MADNESS TRANQUILA 02 | states\madness_montado.state | stages\e082_madness_tranquila02.c2p
+MADNESS TRANQUILA 03 | states\madness_montado.state | stages\e083_madness_tranquila03.c2p
+MADNESS TRANQUILA 04 | states\madness_montado.state | stages\e084_madness_tranquila04.c2p
+MADNESS TRANQUILA 05 | states\madness_montado.state | stages\e085_madness_tranquila05.c2p
+MADNESS LARGA 01 | states\madness_montado.state | stages\e086_madness_larga01.c2p
+MADNESS LARGA 02 | states\madness_montado.state | stages\e087_madness_larga02.c2p
+MADNESS LARGA 03 | states\madness_montado.state | stages\e088_madness_larga03.c2p
+MADNESS LARGA 04 | states\madness_montado.state | stages\e089_madness_larga04.c2p
+MADNESS LARGA 05 | states\madness_montado.state | stages\e090_madness_larga05.c2p
+MADNESS MIXTA 01 | states\madness_montado.state | stages\e091_madness_mixta01.c2p
+MADNESS MIXTA 02 | states\madness_montado.state | stages\e092_madness_mixta02.c2p
+MADNESS MIXTA 03 | states\madness_montado.state | stages\e093_madness_mixta03.c2p
+MADNESS MIXTA 04 | states\madness_montado.state | stages\e094_madness_mixta04.c2p
+MADNESS MIXTA 05 | states\madness_montado.state | stages\e095_madness_mixta05.c2p
+MADNESS MIXTA 06 | states\madness_montado.state | stages\e096_madness_mixta06.c2p
+MADNESS MIXTA 07 | states\madness_montado.state | stages\e097_madness_mixta07.c2p
+MADNESS MIXTA 08 | states\madness_montado.state | stages\e098_madness_mixta08.c2p
+MADNESS MIXTA 09 | states\madness_montado.state | stages\e099_madness_mixta09.c2p
+MADNESS MIXTA 10 | states\madness_montado.state | stages\e100_madness_mixta10.c2p
+JUNGLA 01 | states\carnage_montado.state | stages\e101_carnage_jungla01.c2p
+JUNGLA 02 | states\carnage_montado.state | stages\e102_carnage_jungla02.c2p
+JUNGLA 03 | states\carnage_montado.state | stages\e103_carnage_jungla03.c2p
+JUNGLA 04 | states\carnage_montado.state | stages\e104_carnage_jungla04.c2p
+JUNGLA 05 | states\carnage_montado.state | stages\e105_carnage_jungla05.c2p
+CUEVA 01 | states\carnage_montado.state | stages\e106_carnage_cueva01.c2p
+CUEVA 02 | states\carnage_montado.state | stages\e107_carnage_cueva02.c2p
+CUEVA 03 | states\carnage_montado.state | stages\e108_carnage_cueva03.c2p
+CUEVA 04 | states\carnage_montado.state | stages\e109_carnage_cueva04.c2p
+CUEVA 05 | states\carnage_montado.state | stages\e110_carnage_cueva05.c2p
+FABRICA 01 | states\carnage_montado.state | stages\e111_carnage_fabrica01.c2p
+FABRICA 02 | states\carnage_montado.state | stages\e112_carnage_fabrica02.c2p
+FABRICA 03 | states\carnage_montado.state | stages\e113_carnage_fabrica03.c2p
+FABRICA 04 | states\carnage_montado.state | stages\e114_carnage_fabrica04.c2p
+FABRICA 05 | states\carnage_montado.state | stages\e115_carnage_fabrica05.c2p
+NIEVE 01 | states\carnage_montado.state | stages\e116_carnage_nieve01.c2p
+NIEVE 02 | states\carnage_montado.state | stages\e117_carnage_nieve02.c2p
+NIEVE 03 | states\carnage_montado.state | stages\e118_carnage_nieve03.c2p
+NIEVE 04 | states\carnage_montado.state | stages\e119_carnage_nieve04.c2p
+NIEVE 05 | states\carnage_montado.state | stages\e120_carnage_nieve05.c2p
+ALDEA ARBOREA 01 | states\carnage_montado.state | stages\e121_carnage_arboles01.c2p
+ALDEA ARBOREA 02 | states\carnage_montado.state | stages\e122_carnage_arboles02.c2p
+ALDEA ARBOREA 03 | states\carnage_montado.state | stages\e123_carnage_arboles03.c2p
+ALDEA ARBOREA 04 | states\carnage_montado.state | stages\e124_carnage_arboles04.c2p
+ALDEA ARBOREA 05 | states\carnage_montado.state | stages\e125_carnage_arboles05.c2p
+BOSQUE 01 | states\carnage_montado.state | stages\e126_carnage_bosque01.c2p
+BOSQUE 02 | states\carnage_montado.state | stages\e127_carnage_bosque02.c2p
+BOSQUE 03 | states\carnage_montado.state | stages\e128_carnage_bosque03.c2p
+BOSQUE 04 | states\carnage_montado.state | stages\e129_carnage_bosque04.c2p
+BOSQUE 05 | states\carnage_montado.state | stages\e130_carnage_bosque05.c2p
+TEMPLO 01 | states\carnage_montado.state | stages\e131_carnage_templo01.c2p
+TEMPLO 02 | states\carnage_montado.state | stages\e132_carnage_templo02.c2p
+TEMPLO 03 | states\carnage_montado.state | stages\e133_carnage_templo03.c2p
+TEMPLO 04 | states\carnage_montado.state | stages\e134_carnage_templo04.c2p
+TEMPLO 05 | states\carnage_montado.state | stages\e135_carnage_templo05.c2p
+MINA OSCURA 01 | states\carnage_montado.state | stages\e136_carnage_mina01.c2p
+MINA OSCURA 02 | states\carnage_montado.state | stages\e137_carnage_mina02.c2p
+MINA OSCURA 03 | states\carnage_montado.state | stages\e138_carnage_mina03.c2p
+MINA OSCURA 04 | states\carnage_montado.state | stages\e139_carnage_mina04.c2p
+MINA OSCURA 05 | states\carnage_montado.state | stages\e140_carnage_mina05.c2p
+JUNGLA MAD 01 | states\madness_montado.state | stages\e141_madness_jungla01.c2p
+JUNGLA MAD 02 | states\madness_montado.state | stages\e142_madness_jungla02.c2p
+JUNGLA MAD 03 | states\madness_montado.state | stages\e143_madness_jungla03.c2p
+JUNGLA MAD 04 | states\madness_montado.state | stages\e144_madness_jungla04.c2p
+JUNGLA MAD 05 | states\madness_montado.state | stages\e145_madness_jungla05.c2p
+CUEVA MAD 01 | states\madness_montado.state | stages\e146_madness_cueva01.c2p
+CUEVA MAD 02 | states\madness_montado.state | stages\e147_madness_cueva02.c2p
+CUEVA MAD 03 | states\madness_montado.state | stages\e148_madness_cueva03.c2p
+CUEVA MAD 04 | states\madness_montado.state | stages\e149_madness_cueva04.c2p
+CUEVA MAD 05 | states\madness_montado.state | stages\e150_madness_cueva05.c2p
+FABRICA MAD 01 | states\madness_montado.state | stages\e151_madness_fabrica01.c2p
+FABRICA MAD 02 | states\madness_montado.state | stages\e152_madness_fabrica02.c2p
+FABRICA MAD 03 | states\madness_montado.state | stages\e153_madness_fabrica03.c2p
+FABRICA MAD 04 | states\madness_montado.state | stages\e154_madness_fabrica04.c2p
+FABRICA MAD 05 | states\madness_montado.state | stages\e155_madness_fabrica05.c2p
+NIEVE MAD 01 | states\madness_montado.state | stages\e156_madness_nieve01.c2p
+NIEVE MAD 02 | states\madness_montado.state | stages\e157_madness_nieve02.c2p
+NIEVE MAD 03 | states\madness_montado.state | stages\e158_madness_nieve03.c2p
+NIEVE MAD 04 | states\madness_montado.state | stages\e159_madness_nieve04.c2p
+NIEVE MAD 05 | states\madness_montado.state | stages\e160_madness_nieve05.c2p
+ALDEA ARBOREA MAD 01 | states\madness_montado.state | stages\e161_madness_arboles01.c2p
+ALDEA ARBOREA MAD 02 | states\madness_montado.state | stages\e162_madness_arboles02.c2p
+ALDEA ARBOREA MAD 03 | states\madness_montado.state | stages\e163_madness_arboles03.c2p
+ALDEA ARBOREA MAD 04 | states\madness_montado.state | stages\e164_madness_arboles04.c2p
+ALDEA ARBOREA MAD 05 | states\madness_montado.state | stages\e165_madness_arboles05.c2p
+BOSQUE MAD 01 | states\madness_montado.state | stages\e166_madness_bosque01.c2p
+BOSQUE MAD 02 | states\madness_montado.state | stages\e167_madness_bosque02.c2p
+BOSQUE MAD 03 | states\madness_montado.state | stages\e168_madness_bosque03.c2p
+BOSQUE MAD 04 | states\madness_montado.state | stages\e169_madness_bosque04.c2p
+BOSQUE MAD 05 | states\madness_montado.state | stages\e170_madness_bosque05.c2p
+TEMPLO MAD 01 | states\madness_montado.state | stages\e171_madness_templo01.c2p
+TEMPLO MAD 02 | states\madness_montado.state | stages\e172_madness_templo02.c2p
+TEMPLO MAD 03 | states\madness_montado.state | stages\e173_madness_templo03.c2p
+TEMPLO MAD 04 | states\madness_montado.state | stages\e174_madness_templo04.c2p
+TEMPLO MAD 05 | states\madness_montado.state | stages\e175_madness_templo05.c2p
+MINA OSCURA MAD 01 | states\madness_montado.state | stages\e176_madness_mina01.c2p
+MINA OSCURA MAD 02 | states\madness_montado.state | stages\e177_madness_mina02.c2p
+MINA OSCURA MAD 03 | states\madness_montado.state | stages\e178_madness_mina03.c2p
+MINA OSCURA MAD 04 | states\madness_montado.state | stages\e179_madness_mina04.c2p
+MINA OSCURA MAD 05 | states\madness_montado.state | stages\e180_madness_mina05.c2p
+AZAR MADNESS 64897 | states\madness_montado.state | stages\azar_madness_64897.c2p
+AZAR CARNAGE 60120 | states\carnage_montado.state | stages\azar_carnage_60120.c2p
+AZAR MADNESS 76706 | states\madness_montado.state | stages\azar_madness_76706.c2p
+AZAR MADNESS 31215 | states\madness_montado.state | stages\azar_madness_31215.c2p
+AZAR MADNESS 51688 | states\madness_montado.state | stages\azar_madness_51688.c2p
+AZAR CARNAGE 54522 | states\carnage_montado.state | stages\azar_carnage_54522.c2p
+MUNDO JUNGLA | states\carnage_montado.state | stages\e181_carnage_mundo_jungla.c2p
+MUNDO NIEVE | states\carnage_montado.state | stages\e182_carnage_mundo_nieve.c2p
+MUNDO ARBOLES | states\carnage_montado.state | stages\e183_carnage_mundo_arboles.c2p
+MUNDO TEMPLO | states\carnage_montado.state | stages\e184_carnage_mundo_templo.c2p
+MUNDO MINA OSCURA | states\carnage_montado.state | stages\e185_carnage_mundo_mina.c2p
+MUNDO CUEVA | states\madness_montado.state | stages\e186_madness_mundo_cueva.c2p
+MUNDO FABRICA | states\madness_montado.state | stages\e187_madness_mundo_fabrica.c2p
+MUNDO BOSQUE | states\madness_montado.state | stages\e188_madness_mundo_bosque.c2p
+MUNDO PLATAFORMAS | states\madness_montado.state | stages\e189_madness_mundo_plataformas.c2p
+MUNDO LUCES | states\madness_montado.state | stages\e190_madness_mundo_luces.c2p

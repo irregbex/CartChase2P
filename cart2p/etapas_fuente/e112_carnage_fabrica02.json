@@ -1,0 +1,99 @@
+{
+  "formato": 1,
+  "id": "e112_carnage_fabrica02",
+  "nombre": "FABRICA 02",
+  "nivel": "carnage",
+  "tema": "fabrica",
+  "musica": "fabrica",
+  "familia": "TEMA",
+  "descripcion": "La via pasa frente a la fabrica de Oil Drum Alley. Recorrido sin costuras. 573 columnas (97 % del original), unos 82.9 s, 6 saltos sin costura, pasa por 28 hoyos del nivel, 20 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 2021,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 573,
+    "largo_px": 18336,
+    "segundos_aprox": 82.9,
+    "piezas": 7,
+    "tramos_originales": 7,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 20,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 2,
+      "CANON": 4,
+      "CARRO": 20,
+      "COFRE": 1,
+      "FICHA": 1,
+      "GLOBO": 1,
+      "LETRA KONG": 3,
+      "RACIMO": 2,
+      "SENAL": 2
+    },
+    "grupos_platanos": 18,
+    "largo_vs_original": 0.97,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 85,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-84 (X original $0000-$0A9F), 85 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE, 1 LETRA KONG; 3 grupo(s) de platanos; via entra a - y sale a $018C."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 211,
+      "hasta": 265,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 211-264 (X original $1A60-$211F), 54 columnas, en la etapa desde X $0AA0. 1 BARRIL CONTROL, 1 BARRIL DK, 1 CARRO, 1 FICHA; 1 grupo(s) de platanos; via entra a $018B y sale a $0061."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 220,
+      "hasta": 245,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 220-244 (X original $1B80-$1E9F), 25 columnas, en la etapa desde X $1160. 1 BARRIL CONTROL, 1 BARRIL DK; 1 grupo(s) de platanos; via entra a $005F y sale a $007E."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 59,
+      "hasta": 90,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 59-89 (X original $0760-$0B3F), 31 columnas, en la etapa desde X $1480. 1 LETRA KONG; 0 grupo(s) de platanos; via entra a $0080 y sale a $0118."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 375,
+      "hasta": 393,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 375-392 (X original $2EE0-$311F), 18 columnas, en la etapa desde X $1860. 2 CARRO; 0 grupo(s) de platanos; via entra a $0117 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 183,
+      "hasta": 219,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 183-218 (X original $16E0-$1B5F), 36 columnas, en la etapa desde X $1AA0. 1 FICHA, 1 RACIMO; 1 grupo(s) de platanos; via entra a $0173 y sale a $0070."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 264,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 264-587 (X original $2100-$497F), 324 columnas, en la etapa desde X $1F20. 1 CANON, 18 CARRO, 1 GLOBO, 2 LETRA KONG, 1 RACIMO, 1 SALIDA, 2 SENAL; 13 grupo(s) de platanos; via entra a $006F y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: fabrica (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 2021,
+    "columnas": 0,
+    "saltos_min": 6,
+    "objetivo": "variedad"
+  },
+  "dificultad": "MEDIA"
+}

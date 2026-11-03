@@ -1,0 +1,108 @@
+{
+  "formato": 1,
+  "id": "e168_madness_bosque03",
+  "nombre": "BOSQUE MAD 03",
+  "nivel": "madness",
+  "tema": "bosque",
+  "musica": "bosque",
+  "familia": "TEMA",
+  "descripcion": "Via de Mine Cart Madness. La via cruza el bosque de Forest Frenzy. Recorrido sin costuras. 371 columnas (79 % del original), unos 52.1 s, 7 saltos sin costura, pasa por 23 hoyos del nivel, 38 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 3052,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 371,
+    "largo_px": 11872,
+    "segundos_aprox": 52.1,
+    "piezas": 8,
+    "tramos_originales": 8,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 38,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 14,
+      "FICHA": 1,
+      "GNAWTY": 4,
+      "LETRA KONG": 2,
+      "MEDIO NEUMATICO": 6,
+      "NECKY": 11,
+      "NEUMATICO": 3,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 9
+    },
+    "grupos_platanos": 11,
+    "largo_vs_original": 0.79,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 83,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-82 (X original $0000-$0A5F), 83 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 1 LETRA KONG, 5 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 116,
+      "hasta": 140,
+      "nota": "Tramo original de Mine Cart Madness, columnas 116-139 (X original $0E80-$117F), 24 columnas, en la etapa desde X $0A60. 1 CANON, 1 CARRO, 1 NECKY, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00DF."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 284,
+      "hasta": 306,
+      "nota": "Tramo original de Mine Cart Madness, columnas 284-305 (X original $2380-$263F), 22 columnas, en la etapa desde X $0D60. 1 CANON, 1 CARRO, 1 MEDIO NEUMATICO; 1 grupo(s) de platanos; via entra a $00E0 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 290,
+      "hasta": 303,
+      "nota": "Tramo original de Mine Cart Madness, columnas 290-302 (X original $2440-$25DF), 13 columnas, en la etapa desde X $1020. 1 CANON, 1 CARRO, 1 MEDIO NEUMATICO; 1 grupo(s) de platanos; via entra a $00F3 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 144,
+      "hasta": 185,
+      "nota": "Tramo original de Mine Cart Madness, columnas 144-184 (X original $1200-$171F), 41 columnas, en la etapa desde X $11C0. 3 CARRO, 1 FICHA, 1 LETRA KONG, 2 NECKY, 1 ZINGER; 1 grupo(s) de platanos; via entra a $00F3 y sale a $0153."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 199,
+      "hasta": 246,
+      "nota": "Tramo original de Mine Cart Madness, columnas 199-245 (X original $18E0-$1EBF), 47 columnas, en la etapa desde X $16E0. 1 BARRIL CONTROL, 2 CARRO, 2 NECKY; 2 grupo(s) de platanos; via entra a $0153 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 338,
+      "hasta": 377,
+      "nota": "Tramo original de Mine Cart Madness, columnas 338-376 (X original $2A40-$2F1F), 39 columnas, en la etapa desde X $1CC0. 3 CARRO, 4 MEDIO NEUMATICO, 3 ZINGER; 1 grupo(s) de platanos; via entra a $0093 y sale a $0053."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 366,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 366-467 (X original $2DC0-$3A7F), 102 columnas, en la etapa desde X $21A0. 2 CANON, 3 CARRO, 1 GNAWTY, 2 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 5 ZINGER; 3 grupo(s) de platanos; via entra a $0053 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: bosque (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 3052,
+    "columnas": 374,
+    "saltos_min": 7,
+    "objetivo": "variedad"
+  },
+  "dificultad": "MEDIA"
+}

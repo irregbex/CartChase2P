@@ -1,0 +1,28 @@
+{
+  "name": "dixie-map-refresh",
+  "script": "../recipes/dixie-map-refresh.dks",
+  "frames": 3000,
+  "widescreen": false,
+  "repeats": 3,
+  "budgets": {"cache_oob": 0, "retrodict": 0},
+  "checkpoints": {
+    "supplied_map": {"expect": [
+      {"addr": "0x003E", "op": "==", "value": "0x000C"},
+      {"addr": "0x1B25", "op": "==", "value": "0"},
+      {"addr": "0x0575", "op": "==", "value": "6"},
+      {"addr": "0x057B", "op": "==", "value": "83"}
+    ]},
+    "fresh_jungle_map": {"expect": [
+      {"addr": "0x003E", "op": "==", "value": "0x0016"},
+      {"addr": "0x1B25", "op": "==", "value": "0"},
+      {"addr": "0x0575", "op": "==", "value": "6"},
+      {"addr": "0x057B", "op": "==", "value": "83"}
+    ]},
+    "refreshed_ropey_map": {"expect": [
+      {"addr": "0x003E", "op": "==", "value": "0x000C"},
+      {"addr": "0x1B25", "op": "==", "value": "0"},
+      {"addr": "0x0575", "op": "==", "value": "6"},
+      {"addr": "0x057B", "op": "==", "value": "83"}
+    ]}
+  }
+}

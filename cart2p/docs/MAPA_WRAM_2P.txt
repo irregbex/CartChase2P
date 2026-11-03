@@ -1,0 +1,147 @@
+CART CHASE 2P - WRAM MAP OF PLAYER, CART AND CAMERA (phase 1, draft)
+=======================================================================
+Date: 2026-10-06. Source: reference\disassembly\DKC1\
+  RM  = Routine_Macros_DKC1.asm
+  RAM = RAM_Map_DKC1.asm
+  MD  = Misc_Defines_DKC1.asm
+Numbers = line in the file. "(inferred)" = deduced from usage, no define.
+Checked by hand against the source: points 1.3 and 3.2.
+Note: at the time of writing tools\atlas.py fails (Pseudocode\
+instruction_index.csv is missing from the public disassembly). Everything
+comes from direct grep over the .asm.
+
+1. JOYPADS
+----------
+1.1 Per-frame read: CODE_80A257 (RM:4063-4117)
+    $0500/$0504 = P1 held/pressed;  $0502/$0506 = P2 held/pressed.
+    CODE_80C0F8 (RM:7618) zeroes a pad if there is no standard controller.
+    Copy by mode $42 to $050E/$0510:
+      $42=2  pad of player $44              (2P Contest, taking turns)
+      $42=1  pad by $056F AND 2             (2P Team: DK=P1, Diddy=P2)
+      other  always P1                      (1 player)
+    Return A = $0579 & $40 = pause.
+1.2 $42 = game mode (0/1/2; selection menu RM:10623-10633).
+    $44 = current player index (0/1).
+1.3 IMPORTANT (verified): in a level the Kong does NOT read $050E.
+    CODE_BFB27C (RM:110729) = the Kong's input routine:
+      - if $42==1: $44 = ($056F AND 2) >> 1  (every frame)
+      - DP $80 = pressed[$0504 + $44*2], DP $7E = held[$0500 + $44*2]
+      - copy per Kong (Y = $84: 0=DK, 2=Diddy):
+          $16E9,y = pressed   $16ED,y = held
+      - $16A5,y = frame ($28) of the last B (jump buffer)
+    30 calls from the Kong's state handlers.
+    => The game ALREADY supports "Kong X reads pad N". For 2P it is
+       enough for each Kong to read its own pad even if it is not the
+       active one.
+
+2. KONG ACTORS
+--------------
+2.1 Actor tables: 2 bytes per slot, X = slot*2, $02..$32, stride $34.
+    Main pool $02-$1C (CODE_BDF3A2), effects $1E-$32 (CODE_BDF3C3).
+2.2 Fixed slots: DK = X 2, Diddy = X 4 (CODE_8084BC RM:666-683).
+2.3 $056F Player_CurrentKong: 1=DK, 2=Diddy. Active slot = $056F*2
+    (CODE_809BA0 RM:3225). Follower = slot EOR 6.
+    On losing a Kong: $056F ^= 3 and $0579 bit0 = 0 (RM:106690-106701).
+    $0579 bit0 = both Kongs present (inferred).
+2.4 Per-slot fields:
+    $0B19 X           $0BC1 Y           $0E89 vel X     $0EF1 vel Y
+    $0F25 target/ground vel             $1029 state     $0D45 sprite ID
+    $10D1 animation   $0D11 pose        $0C69 flip (bit $4000)
+    $1631 height above ground (inferred)
+2.5 State $2E = riding a cart (CODE_BF97F2 RM:107175).
+2.6 Per-Kong tables (index $84 = 0/2), NOT per slot:
+    $0512/$0514, $1699, $16A5, $16E9, $16ED, $16FD
+
+3. CART (MINECART)
+------------------
+3.1 $BF:841F = JML CODE_B69C02 (main, RM:51769). Sparks $BF:83E7 =
+    JML CODE_B6A647. States ($1029): 0/1 idle, 3 ridden,
+    4 checkpoint spawn, 5 airborne, 6-$0B Krash's cart, $0C-$0E exit.
+3.2 Mounting: CODE_B69C7B (RM:51830): rider -> state $2E; $1E0F = cart
+    slot (GLOBAL); cart state 3; $0F25=1; $1A69=$50.
+    CODE_B69F6F (verified): if SpriteID(rider) AND $056F != 0
+      -> cart.$1375 = slot of the active rider, else cart.$13E9 = follower.
+    CODE_B6A01F/B6A03B: copy the cart's X/Y to the riders.
+3.3 Cart fields: $0F25 speed (clamp +-$0200, RM:52726-52744),
+    $123D slope acceleration, $10D1/$11D5 angle (8 = flat),
+    $0EBD/$0FF5 Y smoothing, $1341/$145D timers.
+3.4 Jump: CODE_B6A1C9 (RM:52463) reads $16E9 of the RIDER (bit15 = B) or
+    the buffer ($28-$16A5 < $0C). CODE_B6A209: vel Y=$0900, state 5.
+    Variable height: if the rider holds without B, velY -= $80/frame.
+    => The cart does NOT read the pad: it reads the rider's per-Kong
+       buffers.
+3.5 Cart globals: $1E0F, $1A69, $1929 (freeze), $0579 bits 0/$80,
+    $1E10 (Krash sound), $7F3769 (sound loop; only cart $1E0F).
+3.6 Levels:
+    Mine Cart Carnage : entrance $002E, checkpoint $0038, warp $00CC,
+                        level $001B, LevelType ($32) = $0009
+    Mine Cart Madness : entrance $0027, checkpoint $003B, level $0019,
+                        bonus $4D/$A0/$A2
+    Checkpoint carts: CODE_8088F8 (RM:1207).
+
+4. CAMERA
+---------
+4.1 Frame order (RM:2731-2749): input -> BDF8A2 (scanner) ->
+    BF8000 (sprites) -> CODE_809BEC (camera, RM:3272).
+4.2 Target = active slot (CODE_809BA0); $1E29 overrides it.
+4.3 Horizontal CODE_809CD0 (RM:3360): X(target) - velocity term + $1A69.
+    Smoothing $1A5D-$1A67, shifts $1B17/$1B19/$1B1B.
+    Output $1A61-$1A63 -> $088A/$088B.
+4.4 Vertical CODE_809F9A/80A05B (RM:3800): $4A, $1AF3, $1AF5,
+    $1A4B-$1A59, $1B1D/$1B1F, lock $0579 bit3. Output $1A4C -> $0895.
+4.5 Clamp CODE_809C8F (RM:3327): X between $1B23 and $1B25.
+4.6 Camera 2 needs its own copy of: $1A4B-$1A69, $1AF3/$1AF5,
+    $1B17-$1B21, $088A-$0897 and its own target slot.
+
+5. WHAT HAS TO BE DUPLICATED / SWAPPED FOR 2P
+---------------------------------------------
+Already per slot (works as is): all tables $0AE5-$1665, cart-rider
+  links $1375/$13E9. A 2nd cart only needs a free slot.
+Per Kong (2 entries, DK/Diddy): $0512, $1699, $16A5, $16E9, $16ED, $16FD.
+  P2 can use Diddy's entries.
+Single globals (context swap or C replacement):
+  player/mode  : $056F, $44, DP $7E/$80/$84/$88/$BA, $180F
+  flags        : $0579, $1929
+  cart         : $1E0F, $1E29, $1E10, $7F3769
+  camera       : block from 4.6
+  HUD          : $0575/$0577 lives, $057B/$0529 bananas, $057F KONG,
+                 $0571-$0574 tokens
+  level        : $003E/$0040 entrance
+
+5b. CONFIRMED AT RUNTIME (2026-10-06, cart2p\states\carnage_montado.state)
+-----------------------------------------------------------------------------
+  $003E = $002E (Mine Cart Carnage)   $0032 = $0005 ("in level" mode;
+  NOTE: $0032 is NOT LevelType; the address of LevelType is still to be
+  confirmed)
+  $056F = 1 (DK active)   $0579 = $0009 (bit0 = 2 Kongs, bit3 = camera Y lock)
+  slot 2 DK    : id $0001, state $002E (riding)
+  slot 4 Diddy : id $0002, state $000C (follower in cart)
+  $1E0F = $0008 -> cart in slot 8: id $0051, state 3 (ridden),
+         $1375 = 2 (rider DK), $13E9 = 4 (second rider Diddy), $0F25 = 4
+  => Section 3.2 confirmed: one cart, two riders; P2 needs its own cart.
+  Pad 2: B on controller 2 -> $0502 = $8000; in 1P mode ($42=0) nobody
+         reads it.
+  $15FD = the object's origin record in the level (Kongs 0, cart 5;
+         $8000 = dynamic actor, CODE_BDF3A2). It is not player context.
+  $0512 = 0 in normal play; only involved with cheats (CODE_BFB27C).
+  Death with a single Kong per player: state $3B, restarts the stage
+         (original behavior). To be solved in phases 3/5.
+  PHASE 1 CLOSED.
+
+6. PROPOSED STRATEGY FOR PHASE 2 (to be validated)
+--------------------------------------------------
+P1 = DK (slot 2, pad 1), P2 = Diddy (slot 4, pad 2), each in their own
+cart.
+ a) Input: already solved by design if $44 is set per Kong ($84>>1) in
+    CODE_BFB27C instead of by $056F. Minimal replacement behind a flag.
+ b) Diddy is currently a "follower" (follows the active one, is not
+    controlled). He has to be made to run the player handlers: swap
+    $056F (and $1E0F, $0579 bit0) around the update of slot 4 in the
+    BF8000 loop.
+ c) Second cart: spawn in the main pool with its own $1375 = 4.
+ d) Camera: phase 4 (for now it follows P1).
+Main risk: (b). If swapping $056F is not enough, C replacement of the
+Kong's handlers.
+
+Still to be confirmed: meaning of $15FD, $0512, bits of $0579,
+sign of $1631.

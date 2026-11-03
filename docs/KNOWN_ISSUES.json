@@ -1,0 +1,302 @@
+{
+  "schema": "dkc1.known-issues.v1",
+  "issues": [
+    {
+      "id": "ios-single-thumb-run-jump-roll",
+      "status": "fixed",
+      "summary": "A thumb that began on Y could not also press B by rolling across the touch diamond; the preceding adapter update handled separate fingers only.",
+      "repro": "Press Y with one thumb, roll toward B without lifting, roll back to Y, then repeat.",
+      "expected": "Y stays held, B presses when the same thumb overlaps it, and rolling back releases B for another jump. Double-tap Y hold still works.",
+      "first_seen": "2026-09-14",
+      "evidence": "docs/IOS.md; tests/test_ios_touch_button.c; build/ios-roll-tests.log; build/ios-validation/roll-y-b.png; build/ios-roll-install.json; build/ios-roll-launch.json",
+      "fixed_note": "UIKit keeps a contact with its initial view. Y now forwards per-contact overlap with B using stable layout coordinates and a bounded contact-radius estimate. B combines rolled contributions with its independent direct touches; rolling away or lifting removes only the matching contribution. A release band prevents boundary jitter and a roll invalidates Y double-tap candidacy. The production model passes repeated single-contact Y/B rolls, direct-plus-rolled touches, edge jitter, radius bounds and cancellation; both native Release builds pass. Simulator display QA checks both highlights. Physical thumb feel remains for user playtesting; no runtime/video or save-format changes."
+    },
+    {
+      "id": "ios-simultaneous-run-jump-touch",
+      "status": "fixed",
+      "summary": "The original UIKit game buttons used transient highlight state for input; the player needs reliable Y+B chords and a double-tap Y hold toggle.",
+      "repro": "Keep Y pressed and press/release B repeatedly. Double-tap Y, lift the finger, jump with B, then double-tap Y again.",
+      "expected": "Each button remains independently pressed for its touch lifetime; Y can latch on/off with a visible HOLD indicator.",
+      "first_seen": "2026-09-14",
+      "evidence": "docs/IOS.md; tests/test_ios_touch_button.c; build/ios-touch-tests.log; build/ios-validation/touch-hold-y.png",
+      "fixed_note": "Track actual UITouch identities and independent button state, explicitly enable concurrent controls, and OR active button masks. Recognize short Y tap pairs without delaying normal button input. Display a green HOLD ring/label and clear input on pause/cancellation. The real input model passes overlapping Y/B presses, repeated jumps, latch on/off, non-latching B taps, long press, drag, multiple fingers and stale release tests. Simulator visible QA and signed device build/install complete; physical touch feel remains for user playtesting. Guest masks, runtime timing and landscape rendering are unchanged."
+    },
+    {
+      "id": "ios-landscape-stretched-native-image",
+      "status": "fixed",
+      "summary": "The first iOS landscape overlay stretched a 256x224 framebuffer to the phone aspect, distorting the game.",
+      "repro": "Load the iOS game and enter landscape; distortion appeared on the first displayed landscape frame.",
+      "expected": "Render additional native source columns, preserve SNES pixel proportions, fill the phone with transparent touch controls.",
+      "first_seen": "2026-09-14",
+      "evidence": "docs/IOS.md; build/ios-validation/native-wide/; build/ios-release/BUILDINFO.json",
+      "fixed_note": "The UIKit host selects an even display-matched source width, 418x224 on iPhone 16 Pro Max, bounded by the existing 448-column PPU capacity. Rebind the framebuffer pitch on geometry changes; present at fixed 7:6 pixel aspect with nearest sampling. Gameplay enters landscape automatically. Native-center exact-state comparisons and six cross-platform replays pass; all 27 samples across four tested transitions pass. Four available clean entrances pass terrain grades and repeat determinism; native-wide machine differences remain investigations and the 40-entrance floor is incomplete. Desktop presets are unchanged. No ROM, generated code, submodule, shared calibration or gameplay-policy edits."
+    },
+    {
+      "id": "ios27-scene-lifecycle-launch",
+      "status": "fixed",
+      "summary": "The initial UIKit device build traps before the first game frame on iOS 27 because it creates an application window without adopting scene lifecycle.",
+      "repro": "Launch the initial signed arm64 build on iPhone 16 Pro Max running iOS 27.0 (24A5408d). The iOS 26.5 simulator does not enforce the requirement.",
+      "expected": "Create the native window through UIWindowScene and boot the verified game normally.",
+      "first_seen": "2026-09-14",
+      "evidence": "docs/IOS.md; build/ios-validation/device-crash.ips; build/ios-device-console-fixed.log; build/ios-install.json; build/ios-validation/jungle-replays/comparison.json",
+      "fixed_note": "The crash names ___UIApplicationEvaluateRuntimeIssueForNoSceneLifecycleAdoption_block_invoke. Add a single Game scene declaration, DKCSceneDelegate, and initWithWindowScene. The corrected app boots and remains running on the same phone; the live intro and touch interface were inspected via QuickTime. Three iOS and desktop fresh Jungle replays match all seven frame/memory/audio fingerprints. No game, ROM, saved-state, or widescreen changes. Whole-game mobile performance and physical Bluetooth controllers are not yet validated."
+    },
+    {
+      "id": "dixie-stomp-haptics",
+      "status": "fixed",
+      "summary": "Dixie enemy stomps produce no feedback because the host compares her rebound to stock DK's value; the Windows host also lacks visible rumble controls.",
+      "repro": "contracts/dixie-stomp.json: fresh boot, falling at frame 7749, stomp at 7750. Equivalent immutable Jungle-state route reaches the stomp at relative frame 149.",
+      "expected": "Recognize the pinned variant's accepted rebound and expose a persistent on/off setting and controller test.",
+      "first_seen": "2026-09-14",
+      "evidence": "docs/DIXIE_HAPTICS.md; build/release-v0.0.13/haptics/; build/release-v0.0.13/stomp-regression.json; haptics-ctest.log; haptics-unittest.log",
+      "fixed_note": "Select $0900 only for DKC1_DIXIE_VARIANT, grounded in the pinned bytes at BF:A79F and consecutive WRAM frames. Preserve stock $0720, Diddy $0880 and all existing guards. The real detector recognizes exactly one hit in the 300-frame trace. Three fresh-boot stomp/landing runs are byte-identical with lives preserved. Both SDL variants pass actual worker-to-virtual-controller pulse/disable/stop tests; platform tests cover preference persistence and menu state. No controller was connected during device inspection, so physical vibration remains unverified. No guest state or save format changes."
+    },
+    {
+      "id": "dixie-map-sprite-corruption",
+      "status": "fixed",
+      "summary": "The optional Dixie variant shows conspicuous garbage sprite clusters on Kongo Jungle and Jungle entrance maps, including after death. Fresh controller-only boot reproduces it; Jungle gameplay is clean in the inspected movement branches.",
+      "repro": "Dixie headless, native mode, first 5750 frames of recipes/dixie-jungle-startup.dks from the verified clean ROM; tracked Jungle-map OAM cluster begins at frame 5728, with earlier corruption on the preceding map.",
+      "expected": "Clean map sprites and transitions without filtering visible OAM or rewriting historical save-state contents.",
+      "first_seen": "2026-09-13",
+      "evidence": "docs/DIXIE_MAP_FIX_2026-09-14.md; build/dixie-map-fix-20260914/final-manifest.json; map-regression.json; final-validation.json; final-visible-after.jpg; historical docs/DIXIE_QA_2026-09-13.md",
+      "fixed_note": "The pinned mod's pose table at BB:F8A8 points to 41:6000, file offset 416000. Stock folding read unrelated bytes at 016000 as sprite layout data. Enable bounded linear low data banks only in the Dixie variant, retaining C0-FF stock aliases and default-off stock mapping. Fresh boot and normal map refresh are clean; three controller-only refreshes produce identical snapshots with six lives, 83 bananas and progress preserved. Ropey entry, Jungle spin, stock output, save continuity and visible SDL QA pass. Old serialized graphics remain historical until normal reload; the original tester save is backed up. Full-game and widescreen validation remain incomplete."
+    },
+    {
+      "id": "sdl-startup-route-oam-port-timing",
+      "status": "fixed",
+      "summary": "Input-only SDL startup routes skipped the per-frame drawing/HDMA/VBlank step, leaving PPU OAM uploads misaligned and visibly corrupting both stock and Dixie sprites at first interactive presentation.",
+      "repro": "DKC1_STARTUP_SCRIPT=recipes/dixie-jungle-startup.dks, native mode, clean boot; Dixie first interactive frame 7602.",
+      "expected": "The startup route must execute the same CPU and rendering/VBlank sequence as the normal runner, preserving its native framebuffer and all guest-memory hashes.",
+      "first_seen": "2026-09-13",
+      "evidence": "docs/DIXIE_QA_2026-09-13.md; build/dixie-qa-20260913/startup-comparison.json; final-checks.log",
+      "fixed_note": "Initialize the offscreen drawing buffer and run Dkc1DrawPpuFrame once per successful startup frame. Three fresh Dixie SDL runs match the headless framebuffer and WRAM/VRAM/CGRAM/PPU OAM/OAM-shadow hashes; stock SDL also matches its independent headless oracle. The existing no-startup-script path is unchanged. Old corrupt startup snapshots remain historical evidence."
+    },
+    {
+      "id": "dixie-windows-relaunch-integration",
+      "status": "fixed",
+      "summary": "Dixie menu restarts lost the selected ROM path and the SDL variant could return to the debugger filename; the regular Windows build lacked a matching SDL variant target.",
+      "repro": "Toggle Mods > Dixie Kong Country in both Windows hosts with a clean ROM path containing spaces; also start SDL with a persisted choice and cached ROM.",
+      "expected": "Preserve the resolved ROM and restart into the correct sibling frontend; stock must reject the 6 MiB image against stock generated code.",
+      "first_seen": "2026-09-13",
+      "evidence": "docs/DIXIE_QA_2026-09-13.md; build/dixie-qa-20260913/",
+      "fixed_note": "Preserve the selected ROM, quote paths, specify the CreateProcess target, resolve picker/cache paths before handoff, honor explicit menu changes over inherited automation settings, and restore the prior preference on a failed menu launch. Added opt-in SDL CMake variant target, repaired Windows platform self-tests, and restored the stock ROM identity gate. Actual stock/Dixie/stock menu restarts, native GPU smoke and all three Windows CTests pass."
+    },
+    {
+      "id": "no-contact-damage",
+      "status": "fixed",
+      "summary": "Contact damage never lands: DK overlaps the first Gnawty for 3800+ frames unharmed in BOTH native and wide modes, and identically under forced LLE (not a dispatch/widescreen defect).",
+      "repro": "recipes/route_death.dks",
+      "evidence": "build/death_final.png, build/death_native.png",
+      "expected": "Verify against emulator ground truth first; if stock damages a standing DK here, suspect the recomp collision path.",
+      "first_seen": "2026-08-15",
+      "fixed_note": "verified fixed 2026-08-16: on the current build the death route takes both hits and the two-Kong death fires at frame ~7711 (world teardown, $0028 reset, Kong counter decrement), landing on the post-death map. Fixed upstream by the concurrent runtime/dispatch work; damage-chain map for future reference: contact probe (BBA574/BBA58D, touched slot in $88/$16F5) -> event $40 in SprEventFlags $1595+slot -> Player_HandleHitEvents $BFA0F7 (consumes same frame; end-of-frame dumps never show the flag) -> state $19 + invuln $C0."
+    },
+    {
+      "id": "entry-wide-centered-flap",
+      "status": "open",
+      "summary": "WIDE<->CENTERED presentation flap during level entry (frames 7304-7331 of the jungle route).",
+      "repro": "recipes/route_jungle.dks with DKC1_WS_TRACE",
+      "expected": "Single clean transition to EXTEND once bounds/calibration are ready.",
+      "first_seen": "2026-08-15"
+    },
+    {
+      "id": "wide-world-key-unwrap",
+      "status": "open",
+      "summary": "Wide world key camX=$FFF0 (-16) unwrap artifact near level start.",
+      "repro": "recipes/route_jungle.dks with DKC1_WS_TRACE",
+      "expected": "World keys clamp at the level's west bound instead of unwrapping.",
+      "first_seen": "2026-08-15"
+    },
+    {
+      "id": "margin-decode-attribute-mismatch",
+      "status": "fixed",
+      "summary": "Stream retrodiction proves 1690 served-margin entries on the jungle entry route disagree with the game's own later stream, overwhelmingly in the ATTRIBUTE byte (palette/priority/flip: xor 0x1c00/0x5c00/0x4c00 clusters; whole 29-row columns as they scroll into view). The ROM level-map decoder's attribute derivation does not match streamed truth for some metatiles - margins can show wrong-palette art.",
+      "repro": "SNESRECOMP_WS_RETRODICT=out.jsonl + recipes/route_jungle.dks; analyze with tools/analyze_retrodiction.py",
+      "expected": "retrodictMismatch == 0 on every route.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16 by the margin decode/localization rework; retrodiction now reports zero mismatches on the jungle route; contract ratchet tightened to 0"
+    },
+    {
+      "id": "entry-oam-xhigh-loss",
+      "status": "open",
+      "summary": "At level entry (~frame 7488) an OAM sprite drops its X high bit: (317,158) -> (69,158) with the low byte continuous - right-margin art teleporting to the left. Caught by level_sweep's wrap detector; likely tied to the entry-time presentation-bias window (see entry-wide-centered-flap / wide-world-key-unwrap).",
+      "repro": "recipes/route_death.dks or route_jungle.dks via tools/level_sweep.py (oam_wrap.first_suspect)",
+      "expected": "Sprites keep the 9-bit X across the entry transition; zero wrap_suspects in the sweep.",
+      "first_seen": "2026-08-16"
+    },
+    {
+      "id": "standstill-pillarbox",
+      "status": "open",
+      "summary": "Standing still at level start pillarboxes for 4000+ frames (layout never selected, source bank 0) until the camera moves; seen on route_death.dks stand-still segment.",
+      "repro": "recipes/route_death.dks via tools/level_sweep.py",
+      "expected": "Calibration should lock from the entry decode without requiring camera motion.",
+      "first_seen": "2026-08-16"
+    },
+    {
+      "id": "post-bonus-bg1-transition-contamination",
+      "status": "fixed",
+      "summary": "Leaving a bonus room could seed BG1 widescreen margins from a transitional VRAM ring, producing repeated vertical strips on both outer edges while the native center and cartridge state remained valid.",
+      "repro": "build/bonus-safe-control-repros-20260816/capture-f00000464-20260816-075932-p28476",
+      "expected": "Unknown-layout stream coverage is rejected until calibration establishes a real layout; the repaired retained render equals a cold reconstruction without changing gameplay timing.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16; first visible divergence was relative frame 307, three 464-frame replays are byte-identical, and the final retained/cold left-center-right comparison is exact"
+    },
+    {
+      "id": "wide-vertical-row-staging-corruption",
+      "status": "fixed",
+      "summary": "Wide simultaneous horizontal/vertical motion could expose black or mixed-color rectangular blocks in BG1 because the stock vertical row builder refreshed only 36 entries before publishing a full 64-entry ring row.",
+      "repro": "build/visible-flight-recorder-20260816/capture-f00004159-20260816-083801-p60144",
+      "expected": "Both authentic vertical row builders execute two overlapping stock passes in eligible wide gameplay, restore Layer1X exactly, and keep the native path unchanged.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16; the 809-frame raw-BG1 zero groups now match the native oracle, the later 3559-frame route is clean and byte-identical across three repeats, and the seven-sample retained/cold transition sentinel passes"
+    },
+    {
+      "id": "wide-seven-tile-stream-guard-gap",
+      "status": "fixed",
+      "summary": "The host renderer sampled seven complete margin tiles at arbitrary sub-tile scroll phases, but the cartridge initializer and moving-row sweep prepared only six. The uninitialized seventh physical BG1 ring column could later rotate into the native center as one 8-pixel vertical strip of stale terrain.",
+      "repro": "build/visible-rowfix-flight-20260816/capture-f00005014-20260816-084158-p69336",
+      "expected": "Cartridge initialization and moving-row coverage include the same seven tile columns consumed by the renderer; post-corruption save states remain historical evidence and are not treated as fresh-entry proof.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16 first by restoring the 56-pixel experimental cartridge contract, then superseded by the safer stock-cartridge default after cross-level fresh-entry testing proved the widened initializer itself corrupts some layouts. Host ROM prefill plus stock streaming retains the accepted 809-frame and 3559-frame Jungle framebuffer hashes; the widened path is now research-only."
+    },
+    {
+      "id": "jungle-bonus1-widened-initializer-corruption",
+      "status": "fixed",
+      "summary": "Jungle Hijinxs Bonus 1 lost its purple floor and showed checkerboard cave columns because a shared fixed-layout initializer was incorrectly treated as a rolling-terrain widescreen capability and wrote widened columns into the native VRAM ring.",
+      "repro": "build/visible-margin7-flight-20260816/capture-f00158989-20260816-094934-p70536",
+      "expected": "Mode $0001, level $0009, entrance $0006 keeps the cartridge initializer stock; the host handles only the side presentation, and a fresh route renders the complete cave floor without changing ordinary scrolling terrain.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16 by making stock cartridge initialization/row streaming the global fail-closed default; the old widening is research-only behind DKC1_ENABLE_EXPERIMENTAL_CARTRIDGE_WIDENING=1. Three 3589-frame fresh-entry replays restore the cave floor, while a separate authentic Ropey Rampage A/B proves the same containment restores its full terrain. Binaries from 05:44 through the pre-rowfix 08:11 build reproduce the old corruption, locating the broad policy to commit 6bf8981 rather than the later seven-tile change."
+    },
+    {
+      "id": "ropey-rampage-widened-initializer-corruption",
+      "status": "fixed",
+      "summary": "Ropey Rampage could start with terrain sliced into displaced horizontal and vertical bands because the shared widened cartridge initializer generated invalid native-ring data for this layout.",
+      "repro": "build/visible-bonusguard-flight-20260816/capture-f00009082-20260816-101211-p61340",
+      "expected": "An authentic Ropey Rampage entry uses stock cartridge initialization and renders a continuous floor/background across the 16:9 frame; center correctness is checked against raw/native evidence rather than margin availability alone.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16 by globally failing closed to stock cartridge initialization/row streaming. The authentic 601-frame entry is clean and byte-identical across three runs (frame b894ba8b..., WRAM 5748eb98..., VRAM 80476dd3...). The widened A/B deterministically reproduces the sliced terrain."
+    },
+    {
+      "id": "underwater-split-map-metatile-bank-pillarbox",
+      "status": "fixed",
+      "summary": "Underwater level $0061/$80BF stayed entirely 4:3 because the host decoded both level-map cells and metatile definitions from the map bank. This scene publishes map bank $E9 in $D5 and metatile-definition bank $D0 in $D6, so the one-bank decode failed calibration and correctly fell back to pillarbox.",
+      "repro": "build/current-level-live/level0061-entrance80BF-20260816-120545.state (external evidence; not committed)",
+      "expected": "ROM level decoding reads map cells from $D5 and metatile definitions from $D6, includes both banks in source identity/trace evidence, and widens only after the native rolling tilemap calibration passes.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16 by splitting the decoder inputs. The exact state improved vertical calibration from 50/224 to 212/224, selected the vertical layout, and rendered real terrain on both sides. Three independent 120-frame candidate replays are byte-identical (frame 54d5958e..., WRAM abf22673..., VRAM 24481010...)."
+    },
+    {
+      "id": "croctopus-authored-right-boundary-gap",
+      "status": "fixed",
+      "summary": "Croctopus Chase level $0061/$00BF widened correctly, but its lower-right rock wall stopped at the native edge and exposed BG2 water in the right margin. The ROM map itself switches from a fully populated wall metatile at world X $0620-$063F to wholly transparent metatiles at X $0640 because those cells were never visible on stock hardware.",
+      "repro": "build/current-underwater-rightgap-20260816/level0061-rightgap.state (external evidence; not committed)",
+      "expected": "Only wholly transparent 32x32 metatiles beyond the native right edge continue the nearest fully populated wall boundary. Native pixels, cartridge memory, partial openings, and every other level remain unchanged.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16 with a scene-locked, presentation-only vertical-boundary continuation. The exact frame replaces 96 transparent margin tiles; WRAM, VRAM, CGRAM, and both OAM copies remain byte-identical. The 256px native center matches its oracle at all 57,344 pixels, three frame captures are byte-identical (SHA-256 AAB0EF0B...), and three 3,551-frame input-history replays end at exact WRAM F5BCA064.... Promoted 2026-08-30 from the Croctopus tuple to a fail-closed vertical-layout capability: a wholly transparent target may continue only from a fully populated source toward the stock edge when an adjacent metatile row proves the same boundary; partial intervening art rejects the continuation."
+    },
+    {
+      "id": "croctopus-nearest-right-wall-source",
+      "status": "fixed",
+      "summary": "At Croctopus Chase level $0061/$00C0 near camera X $007F, BG1's first offscreen right metatile was a complete wall but the following unused metatile was empty. The continuation rule skipped the nearer complete block and tested only the native-edge block, leaving alternating water and rock fragments in the outermost right margin.",
+      "repro": "build/repros/underwater-right-20260816-1823/underwater-right.state (external evidence; not committed)",
+      "expected": "An empty right-margin metatile continues from the nearest fully populated metatile back toward the native viewport. The accepted left-boundary behavior, all native pixels, cartridge memory, partial openings, and other scenes remain unchanged.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16 by searching inward only on the right for the nearest complete continuation source. The exact frame continues 93 tiles and changes 1,491 pixels, all in the 43-pixel right margin; the native center and every other plane are exact. Both previously fixed Croctopus boundary states are pixel-identical, native 4:3 is byte-identical on all five captured surfaces, and three candidate composites are byte-identical (SHA-256 0FDA2212...). Promoted 2026-08-30 to the structural vertical-boundary capability; the inward search remains right-margin-only and now rejects partial intervening metatiles and isolated one-row features without consulting scene or ROM-bank IDs."
+    },
+    {
+      "id": "croctopus-authored-left-boundary-gap",
+      "status": "fixed",
+      "summary": "At world X $0241 in Croctopus Chase level $0061/$00BF, BG1's rock wall stopped 11 pixels inside the left widescreen margin and exposed BG2 water. The ROM map has a fully populated wall metatile at the stock left edge (metatile X $12) but a wholly transparent offscreen metatile at X $10.",
+      "repro": "build/current-underwater-leftgap-20260816/level0061-leftgap.state (external evidence; not committed)",
+      "expected": "The same scene-locked margin continuation used on the right applies symmetrically: only wholly transparent metatiles beyond either native lateral edge may reuse the nearest fully populated wall boundary. Native pixels, cartridge memory, partial openings, and every other level remain unchanged.",
+      "first_seen": "2026-08-16",
+      "fixed_note": "fixed 2026-08-16 by generalizing the guarded underwater boundary rule to both margins. The exact frame continues 93 presentation tiles and changes 2,357 pixels, all within the outermost 11 pixels of the left margin; center and right are byte-identical. The 57,344-pixel native center is exact, WRAM/VRAM remain exact, and three independent captures are byte-identical (SHA-256 96B1D386...). Promoted 2026-08-30 to the structural vertical-boundary capability; west continuation remains anchored to the stock edge and requires a wholly transparent target plus the same complete boundary on an adjacent metatile row."
+    },
+    {
+      "id": "slip-slide-ride-moving-margin-calibration-flicker",
+      "status": "fixed",
+      "summary": "Slip-Slide Ride mode $0009, level $0051, entrance $006D could replace most of both widescreen margins with adjacent ROM tile columns while the camera moved. Independent floor-division first exposed 1-3 pixel camera smoothing; a later uphill/downhill repro showed that rounding an exact four-pixel half-tile tie away from zero still selected an adjacent column.",
+      "repro": "build/repros/ice-cave-flicker-20260830/exact-user.state plus traverse-right.inputs for the original traversal; build/repros/ice-cave-flicker-20260830/vertical-left-right/exact-user-new.state plus left-right.inputs for the four-pixel uphill/downhill tie",
+      "expected": "The decoder quantizes the signed camera/PPU pixel delta once and resolves a half-tile tie toward zero as a global coordinate-domain conversion, preserving camera smoothing and authored phases without scene IDs or cartridge-state changes.",
+      "first_seen": "2026-08-30",
+      "fixed_note": "fixed 2026-08-30 with a presentation-only signed-delta quantizer whose exact half-tile tie resolves toward zero. The original 330-frame A/B reduces world-aligned margin changes from 2,064,024 to 582,396 pixels (71.8%), improves 123 frames, and worsens none; its accepted offsets remain [0,64] for 329 frames and [0,-64] only at the PPU wrap. The later 780-frame uphill/downhill A/B replaces 120 [-1,-32] frames and seven [1,-32] frames with [0,-32] for all 780 frames. It changes 1,666,730 pixels across 129 frames, all in the two presentation margins and zero in the native center; final WRAM and VRAM are byte-identical, and retrodiction mismatches fall from 3,023 to 2,034. Three complete repeats are byte-identical (frame buffer 0010881A..., WRAM 42BAC94E..., VRAM 5F137C81..., CGRAM 33906DBD..., OAM 946088D1..., audio FNV-1a A7ACA5CD19AA7DC1). A controller-only Zinger death followed by map-node re-entry validates a fresh scene boundary: 765 accepted extended frames, 135 fail-closed entry frames, zero raw fallback, and zero policy violations. Promoted globally on 2026-08-30 because subtracting the two cartridge-authentic pixel coordinates before tile quantization is a coordinate-domain rule, not a room capability. Exact underwater and 780-frame cave outputs remain byte-identical to the pre-promotion runner. Four authentic fresh entrances pass three repeats with zero terrain misses, raw fallback, policy violations, or instability, and 12 neutral/Right+Y/Left+Y traversal branches match the pre-promotion runner in framebuffer and all final machine hashes. The available map root exposes only 4 of the 40 floor entrances, so full-matrix promotion remains unclaimed."
+    },
+    {
+      "id": "partial-native-edge-shadow-capture-gap",
+      "status": "fixed",
+      "summary": "At nonzero fine X scroll, the 256-pixel native viewport touches a 33rd BG1 tile, but the generic live shadow sweep retained only 32 complete columns. The renderer's chunk beginning at screen X=254 therefore missed once per scanline and used the transparent fallback across the native/right-margin handoff, producing moving vertical bands in Croctopus Chase and compounding the reported cave-side flicker.",
+      "repro": "build/repros/underwater-side-flicker-20260830-live/exact-underwater-live.state at absolute frame 312762; baseline-stress reports terrain_margin_miss on all 12 motion actions",
+      "expected": "A 256-pixel viewport on a wide 8x8 tilemap must capture all live tiles it intersects: 32 columns at phase zero and 33 at every nonzero fine-X phase. The native center, guest memories, camera, streaming, and gameplay logic remain cartridge-authentic.",
+      "first_seen": "2026-08-30",
+      "fixed_note": "fixed 2026-08-30 in the shared presentation shadow: its live footprint already computed the fine-scroll overhang but capped storage at 32 columns, so the cap is now 33 for every wide 8x8 tilemap. The byte-exact cartridge source at $81:883F confirms that DKC uploads one 32-word map column only when CameraX & $FFF8 changes; the partially exposed next column is therefore live PPU state, not a reason to alter guest streaming. An engine-level regression proves the second-screen tile at column 33 is retained. The v2 snapshot layout remains fixed at 32 retained columns and recaptures the transient overhang after load, preserving old state compatibility. The exact Croctopus frame drops terrain misses and blank serves from 224 to zero and removes the visible strips; all 129 changed native-center pixels match the 4:3 oracle, while WRAM and VRAM remain exact. Three 720-frame traversal repeats are byte-identical and report zero terrain misses across all 508 accepted wide frames. A controller-only map re-entry gives 626 accepted wide frames with zero misses in each of three repeats. The 12-action, two-repeat arbitrary-state stress suite is clean, native-mode traversal is byte-identical to the pre-change runner, and the 780-frame Slip-Slide Ride cave regression remains zero-miss with byte-identical final frame 0010881A..., WRAM 42BAC94E..., and VRAM 5F137C81.... The available user map state exposed only four unlocked entrance nodes, so the complete 40-entrance capability floor was not rerun; no wider all-layout claim is made."
+    },
+    {
+      "id": "macos-promotion-motion-microstutter",
+      "status": "open",
+      "summary": "The fixed 60 Hz game loop is steady, but physical ProMotion scanout can still shift an otherwise complete source frame by one or more 120 Hz intervals. The old window-bound callback no longer advances emulation, so the remaining hitch is isolated to host presentation rather than cartridge timing.",
+      "repro": "build/repros/macos-metal-pacing-20260830/final-short-visible*/scanout.jsonl with the immutable Slip-Slide Ride state and vertical-left-right/left-right.inputs",
+      "expected": "Each complete 60 Hz source frame is scanned exactly twice on a 120 Hz panel, with approximately 8.333 ms drawable intervals and approximately 16.667 ms physical source transitions; no missing, backward, or coalesced source frames.",
+      "first_seen": "2026-08-30",
+      "mitigation_note": "The 2026-08-30 fixed-clock change removed the measured 29-46 ms game-loop stalls. The follow-up native Metal path keeps emulation at that fixed 60 Hz and uses an independent CAMetalDisplayLink, a three-frame immutable queue, one-frame presentation lead, and two 120 Hz draws per source frame. Sharp Bilinear became the fullscreen default, with Smooth and Pixel Sharp retained as explicit choices. Three 780-frame runs remain byte-identical and the presenter reports no producer drops, consumer skips, missing source frames, backward transitions, or starvation. A clean visible sample held 8.333 ms physical intervals and 16.667 ms source transitions, but other current-build visible samples reached approximately 12 ms p99 drawable intervals and approximately 20.5 ms p99 source transitions even while the CPU loop stayed near 16.667 ms. The new dkc1.scanout.v1 trace records actual drawable presentedTime beside camera and BG1-BG3 scroll so the remaining compositor-level variability can be diagnosed without changing game state. September 6: adopted eight-observation refresh qualification with a timestamp fallback, keeping the independent fixed 60 Hz producer. The new five-minute run has zero repeat-goal changes (baseline 116 in 30 seconds), but physical scanout still varies and occluded drawables occur. This remains open; see docs/HOST_ADOPTION_IMPLEMENTATION.md."
+    },
+    {
+      "id": "aquatic-shadow-native-boundary",
+      "status": "open",
+      "summary": "Aquatic BG1 shadow chunks overwrite native-edge pixels; an opt-in pixel-boundary/live-scroll candidate removes the measured defect. Wall adjacency remains experimental and whole-game promotion is pending.",
+      "repro": "build/reviews/aquatic-widescreen-20260906/inputs/exact-underwater-live.state; controller-only fresh entry from the preserved map root",
+      "evidence": "docs/WIDESCREEN_AQUATIC_BACKPORTS.md; build/repros/aquatic-backports-20260906/validation-summary.json",
+      "expected": "Preserve every native pixel, align shadow X with the live scanline, and extend only source-proven wall patterns after all promotion gates pass.",
+      "first_seen": "2026-09-06"
+    },
+    {
+      "id": "aquatic-upward-cache-flash",
+      "status": "open",
+      "summary": "Croctopus Chase briefly blacks both margins when upward scrolling leaves the host cache window. The opt-in scroll-rebase candidate now rebuilds the calibrated frame, including the HDMA native guard row; whole-game promotion remains pending.",
+      "repro": "recipes/croctopus-cache-crossing.json from the immutable map root documented in docs/WIDESCREEN_WATER_FLASH.md; exact turn frames 314683 and 314804",
+      "expected": "Keep calibrated scenery visible across cache boundaries without changing the native center, guest state, or the existing cartridge activation gate.",
+      "first_seen": "2026-09-06",
+      "evidence": "docs/WIDESCREEN_WATER_FLASH.md; build/repros/host-adoption-20260906/validation/report.json",
+      "mitigation_note": "DKC1_WS_SCROLL_REBASE=1 enables the candidate. Both upward-boundary flashes disappear in the 420-frame turn route; 342/308-pixel runs repeat three times and all five guest-memory hashes plus accepted-center hashes match the disabled build on turn, supplied-state, and clean-entry routes. Live before/after windows and a 1980-frame fresh-entry traversal are preserved. The complete 40-entrance floor remains unavailable."
+    },
+    {
+      "id": "coral-capers-populated-wall-seam",
+      "status": "open",
+      "summary": "Two supplied Coral Capers states expose opposite faces of a mismatched authored wall junction. Source-verified, default-off margin corrections are available for local playtesting.",
+      "repro": "build/repros/water-seam-20260906/inputs/quicksave.state; frame 34978, mode 3, level $0061, entrance $00BF, camera 943/10113; right-face follow-up: build/repros/water-right-seam-20260906/inputs/quicksave.state, frame 78551, camera 671/10048",
+      "expected": "Continue only the verified offscreen wall pattern, preserving every native-center pixel and guest state; retain source defaults until the fresh-entry promotion gate passes.",
+      "first_seen": "2026-09-06",
+      "mitigation_note": "DKC1_WS_WALL_SEAMS=1 checks the complete original junction and reads correctly phased donor cells from the same wall. Exact A/B changes 2105 left-margin composite pixels; native center, right margin and all guest hashes remain exact. Both aspects pass three-repeat nearby scrolling and native/layer comparisons. The real window is clean with the user graphics settings. Fresh Coral Capers entry is still unverified. See docs/WIDESCREEN_WALL_SEAM.md. The right-facing extension changes 4982 right-margin pixels at 16:10 and 8375 at 16:9; matching donor triples also close the blue gap. Three-repeat routes and native/isolated-layer checks pass, and the original left-seam routes remain exact. The rebuilt normal app is visually verified at the new save. The next ceiling-corner hole at frame 110246/camera 671,9898 is repaired by extending the verified donor range to row 312; explicit 16:10/16:9 occupancy checks pass. Original ripple retained by user choice."
+    },
+    {
+      "id": "aquatic-fine-scroll-bottom-row-gap",
+      "status": "open",
+      "summary": "Ordinary fine-Y=7 scrolling can expose a short strip of BG2 on the last scanline because the native edge tile guard row was captured only during a cache rebase. The local opt-in correction is validated; whole-game promotion remains pending.",
+      "repro": "recipes/coral-bottom-row-guard.json from active Coral root 1eb7355de0dbc3ff8250d526611e0154fe446e590c1c1e43786a57a99e2be316; first miss at relative frame 85, absolute 110691, camera 592/10000",
+      "expected": "Capture the cartridge-authentic native guard row on calibrated fine-Y=7 frames without modifying the native image, guest state, HDMA or activation.",
+      "first_seen": "2026-09-06",
+      "evidence": "docs/WIDESCREEN_CAMERA_AUDIT.md; build/repros/widescreen-camera-audit-20260906/bottom-row/",
+      "mitigation_note": "DKC1_WS_SCROLL_REBASE=1 now covers ordinary fine-scroll crossings as well as rebases. Fifty 360-frame movement branches, each repeated three times, reduce terrain misses from 124 to zero with exact per-frame native/guest hashes. Additional 16:10/native branches and isolated layers repeat exactly; actual app windows were inspected. Transition sentinel passes 34 samples/five boundaries. Four fresh entrances have zero hard failures and four pre-existing investigations; the 40-entrance floor remains 36 anchors short. Normal app updated for next launch while preserving the current user process and save."
+    },
+    {
+      "id": "coral-western-alcove-margin-gaps",
+      "status": "open",
+      "summary": "The western Coral Capers alcove and higher shaft expose right-margin gaps in unused map cells. Separate source-verified local corrections are available; full promotion remains pending.",
+      "repro": "build/repros/water-new-junction-20260906/inputs/quicksave.state; frame 541651, mode 3, level $0061, entrance $00BF, camera 127/9797; higher shaft: build/repros/water-upper-alcove-20260906/inputs/quicksave.state, frame 553153, camera 16/9380",
+      "expected": "Continue only the verified offscreen wall strips while preserving every pixel of the original viewport, including its Glide placement, and all guest state.",
+      "first_seen": "2026-09-06",
+      "evidence": "docs/WIDESCREEN_WALL_SEAM.md; build/repros/water-new-junction-20260906/",
+      "mitigation_note": "DKC1_WS_WALL_SEAMS=1 validates the 64-cell alcove signature plus 26 donor entries before extending the wall. Exact A/B changes 2722/8063 right-side composite pixels at 16:10/16:9; the original 256-pixel image is exact at output X15..270. Both reported empty regions pass full occupancy checks. Six routes at both aspects pass three repeats, with exact native/left pixels and guest hashes. Earlier 50-route and three-save regressions remain exact. The normal app is rebuilt and reopened at the preserved save. The middle marked join matches original ROM terrain and is unchanged. Fresh Coral entry and the complete 40-entrance floor remain unavailable. Higher-shaft follow-up: a separate 36-cell source/guard/donor check continues columns 9..11 at rows 295..298 from matching authored rows 280..282. It closes both reported holes (756/756 and 1620/1620 probe coverage), changes 3342/6640 side pixels, and preserves the entire native image at Glide output X2..257. 22 route/aspect cases pass three repeats with exact original-viewport pixels, guest hashes and audio; the actual shaft climb/return is visually verified. Higher/lower branches reach camera Y8996..10048, but the previous lower-root connection remains blocked. Four earlier saves and all 50 prior routes remain exact. Clean Coral entry and the full capability floor remain unavailable. Normal app rebuilt, signed and reopened at the higher-shaft save; actual window verified and original slot preserved."
+    },
+    {
+      "id": "ingame-sram-not-persisted",
+      "status": "fixed",
+      "summary": "Candy in-game saves existed only in process SRAM: desktop hosts never loaded or wrote a battery file, so progress disappeared on restart while save states worked.",
+      "repro": "docs/INGAME_SAVES.md; tools/verify_ingame_saves.py with the private pre-Candy entry fixture and fixed 478-frame save input",
+      "evidence": "build/save-qa/verification-4/report.json in the isolated SRAM release worktree",
+      "expected": "Cartridge-generated SRAM survives graceful exit and a cold file-select/load without a save state; failed writes preserve the previous disk image.",
+      "first_seen": "2026-09-13",
+      "fixed_note": "v0.0.12: load exact 2048-byte SRAM before boot, atomically persist changed SRAM after successful frames and at normal exit, and report I/O errors. Three native-presentation Candy barrel saves and cold restarts match explicit-import cartridge oracles and return to entrance $00FA. Comparison excludes only source-verified host PCM queue/cursors; guest CPU, DSP synthesis, WRAM/VRAM/CGRAM/OAM/SRAM remain exact. Fixture changes only the pre-entry map destination; no controller-only campaign or Mac binary validation claim."
+    }
+  ]
+}

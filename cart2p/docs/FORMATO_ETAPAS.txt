@@ -1,0 +1,300 @@
+CART CHASE 2P - STAGE FORMAT (RECIPES)
+======================================
+Created: 2026-10-08. For anyone editing stages by hand or with the editor,
+and for whoever maintains the tools.
+
+1. GENERAL IDEA
+---------------
+Each new stage is built from pieces of one of the two mine-cart levels of
+the original game (Mine Cart Carnage or Mine Cart Madness). There are no
+invented graphics or enemies: pieces of the level are reordered and
+repeated.
+
+  RECIPE  cart2p\etapas_fuente\<id>.json   the SOURCE: this is what you
+                                           edit
+  STAGE   cart2p\stages\<id>.c2p           compiled from the recipe; this
+                                           is what the game loads (do not
+                                           edit)
+  MENU    cart2p\etapas.txt                which stages appear in the menu
+                                           and in what order
+
+Workflow: edit the recipe (in-game editor, HTML editor or by hand) ->
+compile -> play.
+  - In-game editor: main menu -> "EDITOR" (saves and compiles on its own).
+  - HTML editor (fallback): cart2p\JUGAR.bat option 2.
+  - By hand: edit the .json and then JUGAR.bat option 4 (compiles all of
+    them, adds the missing ones to the menu and rebuilds the catalog).
+
+Units: 1 COLUMN = 32 pixels wide. X values are measured in pixels from the
+start of the stage. Y values are the game's own: they grow UPWARD (screen
+row = $200 - Y). Values with $ are hexadecimal.
+
+2. STRUCTURE OF A RECIPE
+------------------------
+{
+  "formato": 1,                     format version
+  "id": "e023_carnage_hoyos03",     file name (lowercase, digits, _)
+  "nombre": "CARNAGE HOYOS 03",     name shown in the menu (A-Z, 0-9,
+                                    space; at most 28 characters)
+  "nivel": "carnage",               base level: carnage or madness
+  "tema": "jungla",                 optional, Carnage only: graphics of
+                                    another world behind the track
+                                    (section 9)
+  "musica": "fabrica",              optional: song of another level
+                                    (section 10)
+  "familia": "HOYOS",               free text (groups stages in the
+                                    editor and the catalog)
+  "dificultad": "DIFICIL",          FACIL / MEDIA / DIFICIL (easy /
+                                    medium / hard; informative only)
+  "descripcion": "...",             what is special about the stage
+  "autor", "creada", "modificada", "semilla", "generacion": informative
+                                    (author, created, modified, seed,
+                                    generation)
+  "notas": "...",                   ideas or to-dos for the next edit
+  "estadisticas": {...},            statistics: CALCULATED by the
+                                    compiler (do not edit)
+  "piezas": [ ... ],                THE STAGE: ordered list of pieces
+  "objetos_quitar": [ ... ],        level objects that are removed
+  "objetos_agregar": [ ... ],       new objects
+  "platanos_quitar": [ ... ],       banana groups that are removed
+  "historial": [ "2026-10-08 ..." ] history: what was changed and when
+}
+
+3. PIECES
+---------
+The stage is the sequence of pieces, from left to right.
+
+  {"tipo": "tramo", "desde": 170, "hasta": 195}
+      Segment ("tramo"): columns 170 to 194 of the original level, WITH
+      their objects (enemies, KONG letters, barrels, bananas). "hasta"
+      (to) is not included; "desde" is from.
+      If the same segment is repeated, its objects appear only in the
+      first copy (the game does not allow the same object twice).
+
+  {"tipo": "recta", "columna": 195, "largo": 3}
+      Straight track ("recta"): column 195 of the original (a column of
+      flat track) repeated 3 times ("largo" = length). No objects. The
+      height is that of that column.
+
+  {"tipo": "hoyo", "hoyos_px": [64], "columnas": [437, 437, 445, 446, 447, 448, 437, 437]}
+  {"tipo": "doble", ...}   (two pits)
+  {"tipo": "columnas", "columnas": [...]}   (any list)
+      Single columns of the original in that order ("hoyo" = pit,
+      "doble" = double pit, "columnas" = columns). Pits are made with an
+      ORIGINAL PIT EDGE (columns 445-448 above: jump take-off, gap and
+      landing) between flat columns at the same height. Do not use loose
+      empty columns as a pit: that leaves a wall under the landing track
+      where the cart crashes or gets stuck without dying.
+
+  "nota" (in each piece): written by the compiler; describes the piece
+  (columns, X in the stage, objects, track heights). No need to edit it.
+
+RULES (checked by the compiler and the editor):
+  - The FIRST piece is the starting segment: "desde": 0 and "hasta" >= 48
+    (that is where the initial state with the Kongs riding is).
+  - The LAST piece is the final segment of the level: "hasta" = number of
+    columns of the level (Carnage 588, Madness 468); it contains the exit
+    door (finish).
+  - At each joint the TRACK MUST MATCH: the height at which a piece exits
+    (right edge of its last column) must be the height at which the next
+    one enters (left edge of its first column), +-2.
+  - Maximum length (game memory): Carnage 600 columns, Madness 580.
+  - Objects: at most as many as the original level (Carnage 39, Madness
+    78, plus the door). If there are too many, the rightmost ones are lost
+    (warning).
+
+VISIBLE SEAMS (not an error, but noticeable; added 2026-10-09):
+  A joint leaves a VISIBLE SEAM when the column that would follow in the
+  original (last column of the piece + 1) is not identical (layer 1, the
+  one with the track and the buildings) to the first column of the next
+  piece: the scenery changes abruptly and looks like another stage. The
+  110 stages of the batch have none: they only jump between TWIN COLUMNS
+  (identical columns in two places of the level, with flat track at the
+  same height, away from the start and the finish). The editors mark the
+  seams in orange and offer the "SIN CORTE" (no seam) pieces;
+  estadisticas.cortes_visibles counts them. Straights, pits and loose
+  columns almost always leave a seam.
+  Madness far background (layer 2): it is half-speed parallax, so the
+  compiler takes it as CONTINUOUS (stage column n = original column n;
+  past the end it repeats the last 64) and it does not depend on the
+  pieces. In Carnage layer 2 follows each piece (in twin jumps it
+  matches).
+
+4. OBJECTS
+----------
+  "objetos_quitar": [{"pieza": 4, "indice": 12}]
+      Removes object number 12 of the original level's list ("indice" =
+      index), in piece 5 of the stage ("pieza" = piece; pieces are counted
+      from 0 in the file; the editor shows them from 1).
+
+  "objetos_agregar": [{"pieza": 7, "dx": 120, "y": 304, "nombre": "NECKY",
+                       "puntero": "$BD61"}]
+      Adds an object 120 px from the start of piece 8, at height Y.
+      "puntero" (pointer) is the object's template in the game (bank
+      $B5): it is taken from an identical object of the level (the editor
+      lists them). Objects are anchored to their piece: if the piece
+      moves, the object goes with it.
+
+  Object types of the cart levels (by template): ZINGER (wasp), NECKY
+  (flying vulture), GNAWTY (beaver), CARRO (enemy cart), LETRA KONG (KONG
+  letter), RACIMO (banana bunch), BARRIL DK (DK barrel), CANON (cannon
+  barrel), COFRE (chest), FICHA (animal token), BARRIL CONTROL
+  (checkpoint barrel), GLOBO (balloon, extra life), SENAL (sign),
+  NEUMATICO (tire), CUERDA (rope).
+
+  Enemies from OTHER LEVELS (2026-10-12): any template from another
+  level's object list works in "objetos_agregar" (the game loads its
+  graphics and palette when it appears). Tested on a cart track (they
+  appear and walk or fly): KRITTER $9443 $958D $9B83 $9B9F $9C15
+  $9C27 $9C4F $9C7F $953B, KLUMP $98B3 $999B, KLAPTRAP $9703 $96F5 $96BF
+  $97D1, KRUSHA $B559 $B587 $B5CB $B5E3, ARMY $A467 $A47B, SLIPPA $9CCF,
+  MINI NECKY $B863 $B86D, NECKY $BC87 $BCAB $BCBD, NECKY NUECES (nut-
+  throwing Necky) $C703 $C73F, ZINGER $9D21 $9D3D $9E1D $9F87 $9FC9,
+  GNAWTY $B413 $B3F7.
+  Never appear (do not use): Kritter $94ED, Krusha $B5AB and $BB89.
+  Ground enemies go at the track's Y height (they follow the slopes);
+  flying ones about $30 higher. Do not put added objects at the start
+  (Carnage before X $700, Madness before $800): the start already scanned
+  that zone when the initial state was saved, and they do not appear.
+  The 10 "MUNDO ..." (world) stages (e181-e190,
+  tools\cart2p\generar_mundos.py) are examples: theme + music + enemies
+  from the same level of the game.
+
+  Invented pits are avoided near flying enemies (Necky, Zinger: from $40
+  px before to $200 px after) and ground enemies (Gnawty, carts: +-$80
+  px): they attack right during the jump.
+
+5. BANANAS
+----------
+Banana groups follow their segment (first copy). To remove one:
+  "platanos_quitar": [{"pieza": 2, "indice": 5}]
+New groups cannot be added (the game builds them from a fixed table).
+
+6. WHAT THE COMPILER DOES (tools\cart2p\etapa_lib.py and, inside the game,
+   runner\cart2p\cart2p_receta.c: both produce the same .c2p byte for
+   byte; verified with the 110 recipes on 2026-10-09)
+-----------------------------------------------------
+  - Copies the columns of the two map layers (track and background; the
+    Madness background continuous, see VISIBLE SEAMS).
+  - Moves objects, bananas and the exit door with their segment.
+  - Rebuilds the level's CAMERA ZONES (the camera height per segment) so
+    they follow each segment.
+  - Writes the .c2p (format v3 below), fills in notes and statistics, and
+    adds the stage to the menu if it was not there.
+  The game installs the .c2p when the race starts (runner\cart2p\
+  cart2p_stage.c): map in WRAM $7F:3800, objects, bananas and camera in
+  the in-memory copy of the ROM (restored when the stage changes).
+
+7. BINARY FORMAT .c2p v3 (little endian)
+----------------------------------------
+  char[8] "C2PSTG3\0"; u16 entrada; u16 columnas; u16 camara_max;
+  u16 objetos; u16 grupos_platanos; u16 bytes_metatiles; u16 bytes_objetos;
+  u16 bytes_platanos; u16 bytes_zonas_camara; u16 tema y musica (low
+  byte: theme, 0 = none, otherwise the position + 1 in the theme list:
+  1 jungla ... 8 mina; high byte: music, 0 = the level's own, otherwise
+  the game's song + 1, section 10);
+  capa1[columnas*32]; capa2[columnas*32]; objetos[bytes_objetos] (8 bytes
+  each: type, X, Y, template); platanos[bytes_platanos] (4 bytes each);
+  zonas_camara[...] (8 bytes each: X, Y min, Y max, flags; end $FFFF).
+  (entrada = entrance, columnas = columns, camara = camera, objetos =
+  objects, platanos = bananas, capa = layer, zonas = zones.)
+  The game still reads formats 1 and 2 (older stages).
+
+8. TOOLS
+--------
+  tools\cart2p\etapa_lib.py       shared library (levels, validate, compile)
+  tools\cart2p\compilar_etapas.py compiles recipes, menu and catalog
+  tools\cart2p\editor_server.py   server for the HTML editor (cart2p\editor\)
+  tools\cart2p\exportar_editor.py draws the levels for the editor
+  tools\cart2p\generar_etapas.py  the batch of 110 seamless stages (v2)
+  tools\cart2p\gen_stage.py       one automatic stage (seed);
+                                  generar_sin_costura and twins
+  tools\cart2p\azar_etapas.py     seamless randomizer (JUGAR.bat
+                                  option 3; the game has the same in C)
+  tools\cart2p\temas.py           graphics of other worlds (section 9)
+  Track profiles measured by the game: cart2p\stages\vias_<nivel>.txt
+  Catalog of all stages: cart2p\etapas_fuente\CATALOGO_ETAPAS.txt
+  (generated by tools\cart2p\compilar_etapas.py)
+
+9. THEMES: GRAPHICS OF OTHER WORLDS (2026-10-09, Madness 2026-10-10)
+--------------------------------------------------------------------
+A Carnage or Madness stage can have a "tema" (theme): the same track (and
+the same gameplay) with the scenery of another world of the game behind.
+  jungla   Jungle Hijinxs        cueva    Bouncy Bonanza
+  fabrica  Oil Drum Alley        nieve    Snow Barrel Blast
+  arboles  Tree Top Town         bosque   Forest Frenzy
+  templo   Temple Tempest        mina     Misty Mine
+(Reef and ice are not available: their maps are not 16-cell columns.)
+How it works (tools\cart2p\temas.py + runner\cart2p\cart2p_stage.c):
+  - temas.py reads each level's graphics from the ROM, without running
+    the game: the game's decompressor (B8:96FC) rewritten in Python, the
+    graphics lists (F9:A924), palettes (B9:99F1), video mode (F9:A4DC)
+    and map set (81:8C66; the metatile bank can be a different one,
+    DATA_818BC0). The temple decompresses E7:3BDE before its list; its
+    tiles $116-$11B (animated in the game) are left transparent.
+  - Layer 1 keeps only the metatiles with collision (rails, posts,
+    starting platform): the game's collision does not change. They are
+    drawn with a single palette row (the one the track uses most:
+    Carnage 7, Madness 0).
+  - Layer 2 (which the game draws behind, BG2) is filled with a "window"
+    of columns from the theme's level, repeated (chosen so the
+    repetition is not noticeable). Its colors are at 70 % (mina at 100 %)
+    so the track and the characters stand out. In Madness layer 2
+    scrolls at half speed (parallax).
+  - Carnage: track and theme share the BG1/BG2 characters ($2000-$57FF,
+    896 tiles); its fence background (BG3) is erased. Madness: BG2 has
+    its own characters ($6000-$77FF, 384 tiles for the theme) and BG3
+    is off. Madness animates palette row 1 every frame (the lights): the
+    theme does not use it.
+  - The sky is one color per theme.
+Files: cart2p\stages\tema_<nombre>.c2t (Carnage) and
+tema_<nombre>_madness.c2t (Madness); written by
+"python tools\cart2p\temas.py generar"; preview:
+"python tools\cart2p\temas.py vista salida.png [madness]". Format .c2t
+v2 (little endian):
+  char[8] "C2PPIEL2"; u16 entrada; u16 conservar (metatiles with
+  collision); u16 window columns; u16 metatiles; u16 track VRAM base;
+  u16 track tiles; u16 theme VRAM base; u16 theme tiles (0 = shares the
+  track's); u16 marks (bit 0: erase BG3); u16 x3 reserved;
+  char[24] title; metatiles[metatiles*32]; window[columns*16 cells u16];
+  track and theme tiles [*32] (4bpp); palette[128 u16] (rows 0-7).
+The game installs it when loading the stage (after the .c2p) and redraws
+the screen. The in-game editor also draws the stage with its theme.
+Development tools: DKC1_CART2P_PIEL=archivo.c2t puts a skin ("piel") on
+top of DKC1_CART2P_STAGE; DKC1_CART2P_TEMAS=folder dumps the graphics of
+other levels from the game (does not work for the compressed ones: that
+is why everything is done in Python).
+
+10. MUSIC FROM OTHER LEVELS (2026-10-12)
+----------------------------------------
+"musica" sets the song of another level. The game changes it when
+installing the stage with its own song-change routine (CODE_B99036: stops
+the music, uploads that song's instruments to the sound chip after the
+common ones, uploads the song and plays it; this is what it does when
+entering each level). Sound effects use the common instruments: they do
+not change.
+  name      song (Define_DKC1_MusicID)      levels that use it
+  isla      $00 DK Island Swing             Jungle Hijinxs, Ropey Rampage...
+  cueva     $01 Cave Dweller Concert        Bouncy Bonanza, Manic Mincers...
+  niebla    $02 Misty Menace                Misty Mine, Stop & Go, Loopy Lights
+  agua      $03 Aquatic Ambience            Coral Capers, Clam City...
+  carro     $04 Mine Cart Madness           both mine-cart levels
+  nieve     $05 Northern Hemispheres        Snow Barrel Blast, Ice Age Alley
+  templo    $06 Voices of the Temple        Temple Tempest, Millstone Mayhem
+  fabrica   $07 Fear Factory                Oil Drum Alley, Blackout Basement
+  minas     $08 Life in the Mines           Platform Perils, Trick Track Trek...
+  hielo     $0B Ice Cave Chant              Slipslide Ride
+  bosque    $0D Forest Frenzy               Forest Frenzy, Vulture Culture
+  bonus     $10 Bonus Room Blitz            bonus rooms
+  arboles   $13 Treetop Rock                Tree Top Town, Rope Bridge Rumble
+  jefe      $15 Bad Boss Boogie             bosses
+  galeon    $18 Gang-Plank Galleon          K. Rool
+Same list in etapa_lib.MUSICAS and cart2p_receta.c kMusicas. In the
+in-game editor: key M; in the HTML editor: the "Musica" (music) selector.
+A theme brings the music of the level its graphics come from (2026-10-12,
+requested by the author): jungla isla, cueva cueva, fabrica fabrica,
+nieve nieve, arboles arboles, bosque bosque, templo templo, mina niebla
+(etapa_lib.TEMA_MUSICA, cart2p_receta.c kTemaMusica). Stages with a theme
+(e101-e180 and the "AZAR" (random) stages with a theme) have it in the
+recipe; when choosing a theme in the editors or when rolling a random
+stage, the music follows it (unless another one was chosen by hand).

@@ -1,0 +1,113 @@
+{
+  "formato": 1,
+  "id": "azar_madness_64897",
+  "nombre": "AZAR MADNESS 64897",
+  "nivel": "madness",
+  "tema": "mina",
+  "musica": "niebla",
+  "familia": "AZAR",
+  "descripcion": "Etapa al azar creada en el juego, sin costuras: un recorrido por Mine Cart Madness que salta 8 veces entre columnas identicas (el corte no se ve). 467 columnas, unos 66.7 s, 46 enemigos. Tema: mina",
+  "autor": "juego (etapas al azar)",
+  "creada": "2026-10-12",
+  "modificada": "2026-10-12",
+  "semilla": 64897,
+  "estadisticas": {
+    "columnas": 467,
+    "largo_px": 14944,
+    "segundos_aprox": 66.7,
+    "piezas": 9,
+    "tramos_originales": 9,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 46,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 17,
+      "CUERDA": 1,
+      "FICHA": 1,
+      "GNAWTY": 4,
+      "LETRA KONG": 3,
+      "MEDIO NEUMATICO": 5,
+      "NECKY": 12,
+      "NEUMATICO": 3,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 13
+    },
+    "grupos_platanos": 16,
+    "largo_vs_original": 1.0,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 81,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-80 (X original $0000-$0A1F), 81 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 1 LETRA KONG, 4 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 131,
+      "hasta": 233,
+      "nota": "Tramo original de Mine Cart Madness, columnas 131-232 (X original $1060-$1D1F), 102 columnas, en la etapa desde X $0A20. 1 BARRIL CONTROL, 5 CARRO, 1 FICHA, 1 LETRA KONG, 4 NECKY, 1 ZINGER; 5 grupo(s) de platanos; via entra a $00D3 y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 360,
+      "hasta": 380,
+      "nota": "Tramo original de Mine Cart Madness, columnas 360-379 (X original $2D00-$2F7F), 20 columnas, en la etapa desde X $16E0. 1 CARRO, 1 MEDIO NEUMATICO, 1 ZINGER; 1 grupo(s) de platanos; via entra a $0073 y sale a $0057."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 222,
+      "hasta": 254,
+      "nota": "Tramo original de Mine Cart Madness, columnas 222-253 (X original $1BC0-$1FBF), 32 columnas, en la etapa desde X $1960. 2 CARRO, 2 NECKY; 2 grupo(s) de platanos; via entra a $0058 y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 348,
+      "hasta": 415,
+      "nota": "Tramo original de Mine Cart Madness, columnas 348-414 (X original $2B80-$33DF), 67 columnas, en la etapa desde X $1D60. 3 CARRO, 3 MEDIO NEUMATICO, 1 NECKY, 1 RACIMO, 5 ZINGER; 1 grupo(s) de platanos; via entra a $0073 y sale a $00B3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 63,
+      "hasta": 129,
+      "nota": "Tramo original de Mine Cart Madness, columnas 63-128 (X original $07E0-$101F), 66 columnas, en la etapa desde X $25C0. 2 CANON, 4 CARRO, 1 CUERDA, 1 LETRA KONG, 3 NECKY, 1 ZINGER; 3 grupo(s) de platanos; via entra a $00B3 y sale a $00BF."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 275,
+      "hasta": 287,
+      "nota": "Tramo original de Mine Cart Madness, columnas 275-286 (X original $2260-$23DF), 12 columnas, en la etapa desde X $2E00. 2 ZINGER; 0 grupo(s) de platanos; via entra a $00C0 y sale a $00F0."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 305,
+      "hasta": 334,
+      "nota": "Tramo original de Mine Cart Madness, columnas 305-333 (X original $2620-$29BF), 29 columnas, en la etapa desde X $2F80. 1 CARRO, 1 LETRA KONG, 1 MEDIO NEUMATICO, 3 ZINGER; 1 grupo(s) de platanos; via entra a $00EF y sale a $0098."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 410,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 410-467 (X original $3340-$3A7F), 58 columnas, en la etapa desde X $3320. 2 CANON, 1 CARRO, 1 GNAWTY, 1 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 1 ZINGER; 3 grupo(s) de platanos; via entra a $0097 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-12 17:29 creada en el juego (etapas al azar)",
+    "2026-10-12 musica del tema: niebla (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "semilla": 64897,
+    "columnas": 0,
+    "saltos_min": 8,
+    "sin_costura": true,
+    "generador": "juego"
+  }
+}

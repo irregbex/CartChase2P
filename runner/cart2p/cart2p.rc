@@ -1,0 +1,4 @@
+// Cart Chase 2P - icono del ejecutable DKC1Recomp.exe (tools/cart2p/icono.py).
+// Explorer, el acceso directo "Cart Chase 2P" y la ventana (SDL toma el
+// primer icono del exe) lo usan.
+1 ICON "cart2p.ico"

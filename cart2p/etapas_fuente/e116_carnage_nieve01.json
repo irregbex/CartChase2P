@@ -1,0 +1,90 @@
+{
+  "formato": 1,
+  "id": "e116_carnage_nieve01",
+  "nombre": "NIEVE 01",
+  "nivel": "carnage",
+  "tema": "nieve",
+  "musica": "nieve",
+  "familia": "TEMA",
+  "descripcion": "La via cruza los cerros nevados de Snow Barrel Blast. Recorrido sin costuras. 340 columnas (58 % del original), unos 47.4 s, 5 saltos sin costura, pasa por 20 hoyos del nivel, 14 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 2030,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 340,
+    "largo_px": 10880,
+    "segundos_aprox": 47.4,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 14,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 14,
+      "COFRE": 1,
+      "LETRA KONG": 2,
+      "RACIMO": 1,
+      "SENAL": 2
+    },
+    "grupos_platanos": 11,
+    "largo_vs_original": 0.58,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 110,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-109 (X original $0000-$0DBF), 110 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE, 1 LETRA KONG; 4 grupo(s) de platanos; via entra a - y sale a $0141."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 509,
+      "hasta": 524,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 509-523 (X original $3FA0-$417F), 15 columnas, en la etapa desde X $0DC0. 2 CARRO; 0 grupo(s) de platanos; via entra a $013F y sale a $00B3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 256,
+      "hasta": 271,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 256-270 (X original $2000-$21DF), 15 columnas, en la etapa desde X $0FA0. 2 CARRO; 1 grupo(s) de platanos; via entra a $00B3 y sale a $0037."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 354,
+      "hasta": 368,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 354-367 (X original $2C40-$2DFF), 14 columnas, en la etapa desde X $1180. 1 CARRO; 0 grupo(s) de platanos; via entra a $0038 y sale a $016A."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 181,
+      "hasta": 197,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 181-196 (X original $16A0-$189F), 16 columnas, en la etapa desde X $1340. 1 RACIMO; 0 grupo(s) de platanos; via entra a $016C y sale a $0097."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 418,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 418-587 (X original $3440-$497F), 170 columnas, en la etapa desde X $1540. 1 CANON, 10 CARRO, 1 LETRA KONG, 1 SALIDA, 2 SENAL; 6 grupo(s) de platanos; via entra a $0098 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: nieve (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 2030,
+    "columnas": 352,
+    "saltos_min": 5,
+    "objetivo": "variedad"
+  },
+  "dificultad": "FACIL"
+}

@@ -1,0 +1,7 @@
+state_load carnage_inicio.state
+82 * 40
+0 * 60
+pulse 81 6 20 1e0f >= 0002 timeout 1500
+0 * 90
+state_save carnage_montado.state
+0 * 2

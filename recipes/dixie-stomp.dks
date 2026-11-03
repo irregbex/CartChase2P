@@ -1,0 +1,21 @@
+# Fresh boot to a confirmed Dixie enemy-stomp rebound and safe landing.
+# Also see docs/DIXIE_HAPTICS.md for the immutable-state frame-149 repro.
+wait 0032 == 0001 timeout 600
+0 * 5100
+pulse 8 6 120 003e == 00eb timeout 6000
+pulse 8 6 120 003e == 00ec timeout 2000
+pulse 8 6 120 003e == 0016 timeout 2000
+0 * 1500
+pulse 8 8 150 0028 <= 0008 timeout 4000
+wait 1b25 >= 0100 timeout 600
+wait 088b <= 0100 timeout 600
+0 * 270
+checkpoint grounded
+80 * 105
+81 * 24
+80 * 19
+checkpoint falling
+80 * 1
+checkpoint stomp
+0 * 160
+checkpoint landed

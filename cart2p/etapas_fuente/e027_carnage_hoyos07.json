@@ -1,0 +1,113 @@
+{
+  "formato": 1,
+  "id": "e027_carnage_hoyos07",
+  "nombre": "CARNAGE HOYOS 07",
+  "nivel": "carnage",
+  "familia": "HOYOS",
+  "descripcion": "Recorrido sin costuras que pasa por la mayor cantidad posible de hoyos del nivel (repite los tramos con mas saltos). 587 columnas (100 % del original), unos 85.0 s, 9 saltos sin costura, pasa por 28 hoyos del nivel, 20 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-08",
+  "semilla": 27,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 587,
+    "largo_px": 18784,
+    "segundos_aprox": 85.0,
+    "piezas": 10,
+    "tramos_originales": 10,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 20,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 2,
+      "CANON": 4,
+      "CARRO": 20,
+      "COFRE": 1,
+      "GLOBO": 1,
+      "LETRA KONG": 4,
+      "RACIMO": 1,
+      "SENAL": 2
+    },
+    "grupos_platanos": 18,
+    "largo_vs_original": 1.0,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 60,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-59 (X original $0000-$077F), 60 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE; 3 grupo(s) de platanos; via entra a - y sale a $008E."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 246,
+      "hasta": 265,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 246-264 (X original $1EC0-$211F), 19 columnas, en la etapa desde X $0780. 1 CARRO; 0 grupo(s) de platanos; via entra a $0090 y sale a $0061."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 220,
+      "hasta": 246,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 220-245 (X original $1B80-$1EBF), 26 columnas, en la etapa desde X $09E0. 1 BARRIL CONTROL, 1 BARRIL DK; 1 grupo(s) de platanos; via entra a $005F y sale a $008E."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 60,
+      "hasta": 90,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 60-89 (X original $0780-$0B3F), 30 columnas, en la etapa desde X $0D20. 1 LETRA KONG; 0 grupo(s) de platanos; via entra a $0090 y sale a $0118."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 375,
+      "hasta": 393,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 375-392 (X original $2EE0-$311F), 18 columnas, en la etapa desde X $10E0. 2 CARRO; 0 grupo(s) de platanos; via entra a $0117 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 299,
+      "hasta": 312,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 299-311 (X original $2560-$26FF), 13 columnas, en la etapa desde X $1320. 1 CARRO, 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0173 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 146,
+      "hasta": 181,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 146-180 (X original $1240-$169F), 35 columnas, en la etapa desde X $14C0. 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0093 y sale a $016A."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 368,
+      "hasta": 404,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 368-403 (X original $2E00-$327F), 36 columnas, en la etapa desde X $1920. 2 CARRO; 0 grupo(s) de platanos; via entra a $016C y sale a $0053."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 319,
+      "hasta": 349,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 319-348 (X original $27E0-$2B9F), 30 columnas, en la etapa desde X $1DA0. 1 CARRO, 1 GLOBO, 1 RACIMO; 2 grupo(s) de platanos; via entra a $0053 y sale a $0038."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 268,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 268-587 (X original $2180-$497F), 320 columnas, en la etapa desde X $2160. 1 CANON, 18 CARRO, 1 GLOBO, 2 LETRA KONG, 1 RACIMO, 1 SALIDA, 2 SENAL; 13 grupo(s) de platanos; via entra a $0037 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-08 generada (familia HOYOS)",
+    "2026-10-09 rehecha sin costuras (version con cortes en cart2p\\archivo\\2026-10-09_etapas_con_cortes\\)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 27,
+    "columnas": 0,
+    "saltos_min": 8,
+    "objetivo": "hoyos"
+  },
+  "dificultad": "MEDIA"
+}

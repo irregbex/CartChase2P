@@ -1,0 +1,181 @@
+{
+  "formato": 1,
+  "id": "e184_carnage_mundo_templo",
+  "nombre": "MUNDO TEMPLO",
+  "nivel": "carnage",
+  "tema": "templo",
+  "musica": "templo",
+  "familia": "OTROS MUNDOS",
+  "descripcion": "Etapa de prueba con la musica y los enemigos de Temple Tempest y Millstone Mayhem (Voices of the Temple), sobre la via de TEMPLO 01 (e131_carnage_templo01) con su tema. Se quitaron 7 enemigos originales y se agregaron 8 del otro mundo (GNAWTY, KRITTER, KRUSHA, SLIPPA, ZINGER).",
+  "autor": "Claude (generar_mundos.py)",
+  "creada": "2026-10-12",
+  "modificada": "2026-10-12",
+  "notas": "Prueba de enemigos y musica de otros niveles. Jugarla y ajustar en el editor (los enemigos agregados se ven con borde blanco).",
+  "estadisticas": {
+    "columnas": 348,
+    "largo_px": 11136,
+    "segundos_aprox": 48.6,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 16,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 8,
+      "COFRE": 1,
+      "GLOBO": 1,
+      "GNAWTY": 1,
+      "KRITTER": 2,
+      "KRUSHA": 2,
+      "LETRA KONG": 1,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "SLIPPA": 2,
+      "ZINGER": 1
+    },
+    "grupos_platanos": 13,
+    "largo_vs_original": 0.59,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 60,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-59 (X original $0000-$077F), 60 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE; 3 grupo(s) de platanos; via entra a - y sale a $008E."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 246,
+      "hasta": 299,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 246-298 (X original $1EC0-$255F), 53 columnas, en la etapa desde X $0780. 3 CARRO; 3 grupo(s) de platanos; via entra a $0090 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 393,
+      "hasta": 410,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 393-409 (X original $3120-$333F), 17 columnas, en la etapa desde X $0E20. sin objetos; 0 grupo(s) de platanos; via entra a $0173 y sale a $0053."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 336,
+      "hasta": 368,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 336-367 (X original $2A00-$2DFF), 32 columnas, en la etapa desde X $1040. 1 CARRO, 1 GLOBO; 1 grupo(s) de platanos; via entra a $0053 y sale a $016A."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 181,
+      "hasta": 197,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 181-196 (X original $16A0-$189F), 16 columnas, en la etapa desde X $1440. 1 RACIMO; 0 grupo(s) de platanos; via entra a $016C y sale a $0097."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 418,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 418-587 (X original $3440-$497F), 170 columnas, en la etapa desde X $1640. 1 CANON, 10 CARRO, 1 LETRA KONG, 1 SALIDA, 2 SENAL; 6 grupo(s) de platanos; via entra a $0098 y sale a -."
+    }
+  ],
+  "objetos_quitar": [
+    {
+      "pieza": 1,
+      "indice": 13
+    },
+    {
+      "pieza": 1,
+      "indice": 15
+    },
+    {
+      "pieza": 5,
+      "indice": 25
+    },
+    {
+      "pieza": 5,
+      "indice": 28
+    },
+    {
+      "pieza": 5,
+      "indice": 30
+    },
+    {
+      "pieza": 5,
+      "indice": 32
+    },
+    {
+      "pieza": 5,
+      "indice": 35
+    }
+  ],
+  "objetos_agregar": [
+    {
+      "pieza": 1,
+      "dx": 464,
+      "y": 111,
+      "nombre": "KRITTER",
+      "puntero": "$9C4F",
+      "enemigo": true
+    },
+    {
+      "pieza": 1,
+      "dx": 1424,
+      "y": 388,
+      "nombre": "SLIPPA",
+      "puntero": "$9CCF",
+      "enemigo": true
+    },
+    {
+      "pieza": 3,
+      "dx": 240,
+      "y": 143,
+      "nombre": "KRUSHA",
+      "puntero": "$B5CB",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 272,
+      "y": 319,
+      "nombre": "ZINGER",
+      "puntero": "$9D21",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 784,
+      "y": 239,
+      "nombre": "GNAWTY",
+      "puntero": "$B413",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 1872,
+      "y": 240,
+      "nombre": "KRITTER",
+      "puntero": "$9C4F",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 2672,
+      "y": 356,
+      "nombre": "SLIPPA",
+      "puntero": "$9CCF",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 4400,
+      "y": 83,
+      "nombre": "KRUSHA",
+      "puntero": "$B5CB",
+      "enemigo": true
+    }
+  ],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-12 generada con generar_mundos.py desde e131_carnage_templo01"
+  ],
+  "dificultad": "FACIL"
+}

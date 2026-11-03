@@ -1,0 +1,45 @@
+build/
+build-*/
+.DS_Store
+generated/
+*.sfc
+*.smc
+*.srm
+*.i64
+rom.cfg
+__pycache__/
+*.pyc
+tier2_dkc1_*.json
+tier2_dkc1_*.jsonl
+*.ppm
+*.pcm
+*.szst*
+captures/
+artifacts/
+*.state
+session/
+tools/SuperZSNESStateExporter/bin/
+tools/SuperZSNESStateExporter/obj/
+*.state.buildinfo.json
+*_ws.jsonl
+reference/*
+!reference/README.md
+recipes/promoted/
+contracts/promoted/
+
+# Cart Chase 2P workspace
+snesrecomp/
+rom/*
+!rom/LEEME.txt
+
+# Cart Chase 2P: se crea desde la ROM del usuario (tools/cart2p/preparar_desde_rom.py)
+cart2p/stages/
+cart2p/editor/datos/
+*.c2p
+*.c2t
+# datos personales y archivo de desarrollo
+cart2p/archivo/
+cart2p/logs/
+cart2p/records.txt
+cart2p/mandos.txt
+cart2p/opciones.txt

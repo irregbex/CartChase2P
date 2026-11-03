@@ -1,0 +1,96 @@
+{
+  "formato": 1,
+  "id": "e175_madness_templo05",
+  "nombre": "TEMPLO MAD 05",
+  "nivel": "madness",
+  "tema": "templo",
+  "musica": "templo",
+  "familia": "TEMA",
+  "descripcion": "Via de Mine Cart Madness. La via pasa frente a las ruinas de Temple Tempest. Recorrido sin costuras. 324 columnas (69 % del original), unos 44.9 s, 5 saltos sin costura, pasa por 19 hoyos del nivel, 35 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 3064,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 324,
+    "largo_px": 10368,
+    "segundos_aprox": 44.9,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 35,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 1,
+      "CANON": 3,
+      "CARRO": 12,
+      "FICHA": 1,
+      "GNAWTY": 4,
+      "LETRA KONG": 3,
+      "MEDIO NEUMATICO": 7,
+      "NECKY": 8,
+      "NEUMATICO": 3,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 11
+    },
+    "grupos_platanos": 10,
+    "largo_vs_original": 0.69,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 81,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-80 (X original $0000-$0A1F), 81 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 1 LETRA KONG, 4 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 131,
+      "hasta": 150,
+      "nota": "Tramo original de Mine Cart Madness, columnas 131-149 (X original $1060-$12BF), 19 columnas, en la etapa desde X $0A20. 1 LETRA KONG, 3 NECKY; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00EF."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 289,
+      "hasta": 303,
+      "nota": "Tramo original de Mine Cart Madness, columnas 289-302 (X original $2420-$25DF), 14 columnas, en la etapa desde X $0C80. 1 CANON, 1 CARRO, 1 MEDIO NEUMATICO; 1 grupo(s) de platanos; via entra a $00F0 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 144,
+      "hasta": 173,
+      "nota": "Tramo original de Mine Cart Madness, columnas 144-172 (X original $1200-$159F), 29 columnas, en la etapa desde X $0E40. 2 CARRO, 1 FICHA, 1 LETRA KONG, 2 NECKY, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00F3 y sale a $0133."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 193,
+      "hasta": 211,
+      "nota": "Tramo original de Mine Cart Madness, columnas 193-210 (X original $1820-$1A5F), 18 columnas, en la etapa desde X $11E0. 1 BARRIL CONTROL, 1 CARRO; 1 grupo(s) de platanos; via entra a $0133 y sale a $00F0."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 305,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 305-467 (X original $2620-$3A7F), 163 columnas, en la etapa desde X $1420. 2 CANON, 6 CARRO, 1 GNAWTY, 1 LETRA KONG, 6 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 10 ZINGER; 5 grupo(s) de platanos; via entra a $00EF y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: templo (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 3064,
+    "columnas": 327,
+    "saltos_min": 5,
+    "objetivo": "variedad"
+  },
+  "dificultad": "FACIL"
+}

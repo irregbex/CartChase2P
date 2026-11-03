@@ -1,0 +1,95 @@
+{
+  "formato": 1,
+  "id": "e150_madness_cueva05",
+  "nombre": "CUEVA MAD 05",
+  "nivel": "madness",
+  "tema": "cueva",
+  "musica": "cueva",
+  "familia": "TEMA",
+  "descripcion": "Via de Mine Cart Madness. La via cruza las cuevas de Bouncy Bonanza. Recorrido sin costuras. 333 columnas (71 % del original), unos 46.3 s, 5 saltos sin costura, pasa por 20 hoyos del nivel, 36 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 3014,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 333,
+    "largo_px": 10656,
+    "segundos_aprox": 46.3,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 36,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 13,
+      "FICHA": 1,
+      "GNAWTY": 4,
+      "LETRA KONG": 3,
+      "MEDIO NEUMATICO": 7,
+      "NECKY": 8,
+      "NEUMATICO": 3,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 11
+    },
+    "grupos_platanos": 10,
+    "largo_vs_original": 0.71,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 83,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-82 (X original $0000-$0A5F), 83 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 1 LETRA KONG, 5 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 116,
+      "hasta": 136,
+      "nota": "Tramo original de Mine Cart Madness, columnas 116-135 (X original $0E80-$10FF), 20 columnas, en la etapa desde X $0A60. 1 CANON, 1 CARRO, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 280,
+      "hasta": 303,
+      "nota": "Tramo original de Mine Cart Madness, columnas 280-302 (X original $2300-$25DF), 23 columnas, en la etapa desde X $0CE0. 1 CANON, 1 CARRO, 1 MEDIO NEUMATICO, 1 ZINGER; 1 grupo(s) de platanos; via entra a $00D3 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 144,
+      "hasta": 173,
+      "nota": "Tramo original de Mine Cart Madness, columnas 144-172 (X original $1200-$159F), 29 columnas, en la etapa desde X $0FC0. 2 CARRO, 1 FICHA, 1 LETRA KONG, 2 NECKY, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00F3 y sale a $0133."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 193,
+      "hasta": 210,
+      "nota": "Tramo original de Mine Cart Madness, columnas 193-209 (X original $1820-$1A3F), 17 columnas, en la etapa desde X $1360. 1 CARRO; 1 grupo(s) de platanos; via entra a $0133 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 307,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 307-467 (X original $2660-$3A7F), 161 columnas, en la etapa desde X $1580. 2 CANON, 6 CARRO, 1 GNAWTY, 1 LETRA KONG, 6 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 8 ZINGER; 5 grupo(s) de platanos; via entra a $00F3 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: cueva (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 3014,
+    "columnas": 327,
+    "saltos_min": 5,
+    "objetivo": "variedad"
+  },
+  "dificultad": "FACIL"
+}

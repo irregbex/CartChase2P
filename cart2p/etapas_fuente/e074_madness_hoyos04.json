@@ -1,0 +1,116 @@
+{
+  "formato": 1,
+  "id": "e074_madness_hoyos04",
+  "nombre": "MADNESS HOYOS 04",
+  "nivel": "madness",
+  "familia": "HOYOS",
+  "descripcion": "Recorrido sin costuras que pasa por la mayor cantidad posible de hoyos del nivel (repite los tramos con mas saltos). 461 columnas (99 % del original), unos 65.8 s, 9 saltos sin costura, pasa por 36 hoyos del nivel, 41 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-08",
+  "semilla": 74,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 461,
+    "largo_px": 14752,
+    "segundos_aprox": 65.8,
+    "piezas": 10,
+    "tramos_originales": 10,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 41,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 3,
+      "CARRO": 16,
+      "FICHA": 1,
+      "GNAWTY": 4,
+      "LETRA KONG": 3,
+      "MEDIO NEUMATICO": 7,
+      "NECKY": 10,
+      "NEUMATICO": 3,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 11
+    },
+    "grupos_platanos": 13,
+    "largo_vs_original": 0.99,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 81,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-80 (X original $0000-$0A1F), 81 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 1 LETRA KONG, 4 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 131,
+      "hasta": 200,
+      "nota": "Tramo original de Mine Cart Madness, columnas 131-199 (X original $1060-$18FF), 69 columnas, en la etapa desde X $0A20. 5 CARRO, 1 FICHA, 1 LETRA KONG, 3 NECKY, 1 ZINGER; 3 grupo(s) de platanos; via entra a $00D3 y sale a $0150."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 186,
+      "hasta": 209,
+      "nota": "Tramo original de Mine Cart Madness, columnas 186-208 (X original $1740-$1A1F), 23 columnas, en la etapa desde X $12C0. 2 CARRO; 2 grupo(s) de platanos; via entra a $014F y sale a $00EF."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 289,
+      "hasta": 301,
+      "nota": "Tramo original de Mine Cart Madness, columnas 289-300 (X original $2420-$259F), 12 columnas, en la etapa desde X $15A0. 1 CANON, 1 CARRO, 1 MEDIO NEUMATICO; 1 grupo(s) de platanos; via entra a $00F0 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 288,
+      "hasta": 308,
+      "nota": "Tramo original de Mine Cart Madness, columnas 288-307 (X original $2400-$267F), 20 columnas, en la etapa desde X $1720. 1 CANON, 1 CARRO, 1 MEDIO NEUMATICO, 2 ZINGER; 1 grupo(s) de platanos; via entra a $00F3 y sale a $00F0."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 287,
+      "hasta": 360,
+      "nota": "Tramo original de Mine Cart Madness, columnas 287-359 (X original $23E0-$2CFF), 73 columnas, en la etapa desde X $19A0. 1 CANON, 4 CARRO, 1 LETRA KONG, 5 MEDIO NEUMATICO, 5 ZINGER; 2 grupo(s) de platanos; via entra a $00EF y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 231,
+      "hasta": 246,
+      "nota": "Tramo original de Mine Cart Madness, columnas 231-245 (X original $1CE0-$1EBF), 15 columnas, en la etapa desde X $22C0. 1 CARRO, 1 NECKY; 1 grupo(s) de platanos; via entra a $0073 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 338,
+      "hasta": 359,
+      "nota": "Tramo original de Mine Cart Madness, columnas 338-358 (X original $2A40-$2CDF), 21 columnas, en la etapa desde X $24A0. 2 CARRO, 3 MEDIO NEUMATICO, 2 ZINGER; 0 grupo(s) de platanos; via entra a $0093 y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 227,
+      "hasta": 254,
+      "nota": "Tramo original de Mine Cart Madness, columnas 227-253 (X original $1C60-$1FBF), 27 columnas, en la etapa desde X $2740. 2 CARRO, 2 NECKY; 1 grupo(s) de platanos; via entra a $0073 y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 348,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 348-467 (X original $2B80-$3A7F), 120 columnas, en la etapa desde X $2AA0. 2 CANON, 4 CARRO, 1 GNAWTY, 4 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 6 ZINGER; 4 grupo(s) de platanos; via entra a $0073 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-08 generada (familia HOYOS)",
+    "2026-10-09 rehecha sin costuras (version con cortes en cart2p\\archivo\\2026-10-09_etapas_con_cortes\\)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 74,
+    "columnas": 0,
+    "saltos_min": 9,
+    "objetivo": "hoyos"
+  },
+  "dificultad": "DIFICIL"
+}

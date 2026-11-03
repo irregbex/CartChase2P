@@ -1,0 +1,106 @@
+{
+  "formato": 1,
+  "id": "e178_madness_mina03",
+  "nombre": "MINA OSCURA MAD 03",
+  "nivel": "madness",
+  "tema": "mina",
+  "musica": "niebla",
+  "familia": "TEMA",
+  "descripcion": "Via de Mine Cart Madness. La via cruza la mina oscura de Misty Mine. Recorrido sin costuras. 374 columnas (80 % del original), unos 52.5 s, 7 saltos sin costura, pasa por 21 hoyos del nivel, 40 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 3072,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 374,
+    "largo_px": 11968,
+    "segundos_aprox": 52.5,
+    "piezas": 8,
+    "tramos_originales": 8,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 40,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 5,
+      "CARRO": 13,
+      "GNAWTY": 4,
+      "LETRA KONG": 3,
+      "MEDIO NEUMATICO": 7,
+      "NECKY": 10,
+      "NEUMATICO": 4,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 13
+    },
+    "grupos_platanos": 11,
+    "largo_vs_original": 0.8,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 78,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-77 (X original $0000-$09BF), 78 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 4 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 116,
+      "hasta": 151,
+      "nota": "Tramo original de Mine Cart Madness, columnas 116-150 (X original $0E80-$12DF), 35 columnas, en la etapa desde X $09C0. 1 CANON, 1 CARRO, 1 LETRA KONG, 3 NECKY, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 306,
+      "hasta": 338,
+      "nota": "Tramo original de Mine Cart Madness, columnas 306-337 (X original $2640-$2A3F), 32 columnas, en la etapa desde X $0E20. 1 CARRO, 1 LETRA KONG, 1 MEDIO NEUMATICO, 3 ZINGER; 1 grupo(s) de platanos; via entra a $00F3 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 246,
+      "hasta": 283,
+      "nota": "Tramo original de Mine Cart Madness, columnas 246-282 (X original $1EC0-$235F), 37 columnas, en la etapa desde X $1220. 1 CANON, 2 CARRO, 1 LETRA KONG, 1 NEUMATICO, 2 ZINGER; 0 grupo(s) de platanos; via entra a $0093 y sale a $00D7."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 139,
+      "hasta": 151,
+      "nota": "Tramo original de Mine Cart Madness, columnas 139-150 (X original $1160-$12DF), 12 columnas, en la etapa desde X $16C0. 1 LETRA KONG, 2 NECKY; 0 grupo(s) de platanos; via entra a $00D8 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 290,
+      "hasta": 305,
+      "nota": "Tramo original de Mine Cart Madness, columnas 290-304 (X original $2440-$261F), 15 columnas, en la etapa desde X $1840. 1 CANON, 1 CARRO, 1 MEDIO NEUMATICO; 1 grupo(s) de platanos; via entra a $00F3 y sale a $00F0."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 211,
+      "hasta": 246,
+      "nota": "Tramo original de Mine Cart Madness, columnas 211-245 (X original $1A60-$1EBF), 35 columnas, en la etapa desde X $1A20. 1 CARRO, 2 NECKY; 2 grupo(s) de platanos; via entra a $00EF y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 338,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 338-467 (X original $2A40-$3A7F), 130 columnas, en la etapa desde X $1E80. 2 CANON, 5 CARRO, 1 GNAWTY, 5 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 7 ZINGER; 4 grupo(s) de platanos; via entra a $0093 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: niebla (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 3072,
+    "columnas": 374,
+    "saltos_min": 7,
+    "objetivo": "variedad"
+  },
+  "dificultad": "MEDIA"
+}

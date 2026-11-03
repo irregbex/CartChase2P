@@ -1,0 +1,8 @@
+wait 0032 == 0001 timeout 600
+0 * 5100
+pulse 8 6 120 003e == 00eb timeout 6000
+pulse 8 6 120 003e == 00ec timeout 2000
+pulse 8 6 120 003e == 0016 timeout 2000
+0 * 1500
+state_save map.state
+0 * 10

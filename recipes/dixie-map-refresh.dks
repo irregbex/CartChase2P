@@ -1,0 +1,17 @@
+# Exact September 14 supplied Ropey Rampage map state; see the QA report.
+# Re-enter completed Jungle, pause/exit normally, then return to Ropey.
+# Controller-only refresh of old serialized graphics; no WRAM writes.
+checkpoint supplied_map
+10 * 20
+0 * 340
+1 * 6
+0 * 600
+8 * 2
+0 * 40
+4 * 6
+0 * 600
+checkpoint fresh_jungle_map
+20 * 20
+0 * 340
+checkpoint refreshed_ropey_map
+state_save refreshed_map.state

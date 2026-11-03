@@ -1,0 +1,178 @@
+{
+  "formato": 1,
+  "id": "e183_carnage_mundo_arboles",
+  "nombre": "MUNDO ARBOLES",
+  "nivel": "carnage",
+  "tema": "arboles",
+  "musica": "arboles",
+  "familia": "OTROS MUNDOS",
+  "descripcion": "Etapa de prueba con la musica y los enemigos de Tree Top Town (Treetop Rock), sobre la via de ALDEA ARBOREA 01 (e121_carnage_arboles01) con su tema. Se quitaron 7 enemigos originales y se agregaron 8 del otro mundo (GNAWTY, KRITTER, NECKY, ZINGER).",
+  "autor": "Claude (generar_mundos.py)",
+  "creada": "2026-10-12",
+  "modificada": "2026-10-12",
+  "notas": "Prueba de enemigos y musica de otros niveles. Jugarla y ajustar en el editor (los enemigos agregados se ven con borde blanco).",
+  "estadisticas": {
+    "columnas": 362,
+    "largo_px": 11584,
+    "segundos_aprox": 50.7,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 16,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 8,
+      "COFRE": 1,
+      "GNAWTY": 2,
+      "KRITTER": 2,
+      "LETRA KONG": 4,
+      "NECKY": 2,
+      "SENAL": 2,
+      "ZINGER": 2
+    },
+    "grupos_platanos": 12,
+    "largo_vs_original": 0.62,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 90,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-89 (X original $0000-$0B3F), 90 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE, 1 LETRA KONG; 3 grupo(s) de platanos; via entra a - y sale a $0118."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 375,
+      "hasta": 393,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 375-392 (X original $2EE0-$311F), 18 columnas, en la etapa desde X $0B40. 2 CARRO; 0 grupo(s) de platanos; via entra a $0117 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 299,
+      "hasta": 312,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 299-311 (X original $2560-$26FF), 13 columnas, en la etapa desde X $0D80. 1 CARRO, 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0173 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 146,
+      "hasta": 183,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 146-182 (X original $1240-$16DF), 37 columnas, en la etapa desde X $0F20. 1 LETRA KONG; 1 grupo(s) de platanos; via entra a $0093 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 299,
+      "hasta": 319,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 299-318 (X original $2560-$27DF), 20 columnas, en la etapa desde X $13C0. 2 CARRO, 1 LETRA KONG; 2 grupo(s) de platanos; via entra a $0173 y sale a $0053."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 404,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 404-587 (X original $3280-$497F), 184 columnas, en la etapa desde X $1640. 1 CANON, 10 CARRO, 1 LETRA KONG, 1 SALIDA, 2 SENAL; 6 grupo(s) de platanos; via entra a $0053 y sale a -."
+    }
+  ],
+  "objetos_quitar": [
+    {
+      "pieza": 1,
+      "indice": 23
+    },
+    {
+      "pieza": 2,
+      "indice": 16
+    },
+    {
+      "pieza": 5,
+      "indice": 25
+    },
+    {
+      "pieza": 5,
+      "indice": 28
+    },
+    {
+      "pieza": 5,
+      "indice": 30
+    },
+    {
+      "pieza": 5,
+      "indice": 32
+    },
+    {
+      "pieza": 5,
+      "indice": 35
+    }
+  ],
+  "objetos_agregar": [
+    {
+      "pieza": 0,
+      "dx": 2352,
+      "y": 211,
+      "nombre": "KRITTER",
+      "puntero": "$9C7F",
+      "enemigo": true
+    },
+    {
+      "pieza": 2,
+      "dx": 240,
+      "y": 227,
+      "nombre": "NECKY",
+      "puntero": "$BCAB",
+      "enemigo": true
+    },
+    {
+      "pieza": 3,
+      "dx": 720,
+      "y": 171,
+      "nombre": "ZINGER",
+      "puntero": "$9F87",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 176,
+      "y": 83,
+      "nombre": "GNAWTY",
+      "puntero": "$B413",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 1072,
+      "y": 243,
+      "nombre": "KRITTER",
+      "puntero": "$9C7F",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 2128,
+      "y": 224,
+      "nombre": "NECKY",
+      "puntero": "$BCAB",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 3120,
+      "y": 404,
+      "nombre": "ZINGER",
+      "puntero": "$9F87",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 3824,
+      "y": 179,
+      "nombre": "GNAWTY",
+      "puntero": "$B413",
+      "enemigo": true
+    }
+  ],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-12 generada con generar_mundos.py desde e121_carnage_arboles01"
+  ],
+  "dificultad": "FACIL"
+}

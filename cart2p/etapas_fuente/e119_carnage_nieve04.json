@@ -1,0 +1,111 @@
+{
+  "formato": 1,
+  "id": "e119_carnage_nieve04",
+  "nombre": "NIEVE 04",
+  "nivel": "carnage",
+  "tema": "nieve",
+  "musica": "nieve",
+  "familia": "TEMA",
+  "descripcion": "La via cruza los cerros nevados de Snow Barrel Blast. Recorrido sin costuras. 573 columnas (97 % del original), unos 82.9 s, 8 saltos sin costura, pasa por 28 hoyos del nivel, 20 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 2033,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 573,
+    "largo_px": 18336,
+    "segundos_aprox": 82.9,
+    "piezas": 9,
+    "tramos_originales": 9,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 20,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 2,
+      "CANON": 4,
+      "CARRO": 20,
+      "COFRE": 1,
+      "FICHA": 1,
+      "GLOBO": 1,
+      "LETRA KONG": 3,
+      "RACIMO": 2,
+      "SENAL": 2
+    },
+    "grupos_platanos": 18,
+    "largo_vs_original": 0.97,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 60,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-59 (X original $0000-$077F), 60 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE; 3 grupo(s) de platanos; via entra a - y sale a $008E."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 246,
+      "hasta": 264,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 246-263 (X original $1EC0-$20FF), 18 columnas, en la etapa desde X $0780. 1 CARRO; 0 grupo(s) de platanos; via entra a $0090 y sale a $0070."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 219,
+      "hasta": 246,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 219-245 (X original $1B60-$1EBF), 27 columnas, en la etapa desde X $09C0. 1 BARRIL CONTROL, 1 BARRIL DK; 1 grupo(s) de platanos; via entra a $006F y sale a $008E."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 60,
+      "hasta": 85,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 60-84 (X original $0780-$0A9F), 25 columnas, en la etapa desde X $0D20. 1 LETRA KONG; 0 grupo(s) de platanos; via entra a $0090 y sale a $018C."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 211,
+      "hasta": 245,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 211-244 (X original $1A60-$1E9F), 34 columnas, en la etapa desde X $1040. 1 BARRIL CONTROL, 1 BARRIL DK, 1 FICHA; 1 grupo(s) de platanos; via entra a $018B y sale a $007E."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 59,
+      "hasta": 90,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 59-89 (X original $0760-$0B3F), 31 columnas, en la etapa desde X $1480. 1 LETRA KONG; 0 grupo(s) de platanos; via entra a $0080 y sale a $0118."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 375,
+      "hasta": 393,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 375-392 (X original $2EE0-$311F), 18 columnas, en la etapa desde X $1860. 2 CARRO; 0 grupo(s) de platanos; via entra a $0117 y sale a $0173."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 183,
+      "hasta": 221,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 183-220 (X original $16E0-$1B9F), 38 columnas, en la etapa desde X $1AA0. 1 FICHA, 1 RACIMO; 1 grupo(s) de platanos; via entra a $0173 y sale a $0051."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 266,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 266-587 (X original $2140-$497F), 322 columnas, en la etapa desde X $1F60. 1 CANON, 18 CARRO, 1 GLOBO, 2 LETRA KONG, 1 RACIMO, 1 SALIDA, 2 SENAL; 13 grupo(s) de platanos; via entra a $004F y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: nieve (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 2033,
+    "columnas": 0,
+    "saltos_min": 8,
+    "objetivo": "variedad"
+  },
+  "dificultad": "DIFICIL"
+}

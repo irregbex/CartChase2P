@@ -1,0 +1,28 @@
+{
+  "name": "dixie-stomp",
+  "script": "../recipes/dixie-stomp.dks",
+  "frames": 16000,
+  "widescreen": false,
+  "repeats": 3,
+  "budgets": {"cache_oob": 0, "retrodict": 0},
+  "checkpoints": {
+    "grounded": {"expect": [
+      {"addr": "0x003E", "op": "==", "value": "0x0016"},
+      {"addr": "0x102B", "op": "==", "value": "0"}
+    ]},
+    "falling": {"expect": [
+      {"addr": "0x0EF3", "op": "==", "value": "0xF8B8"},
+      {"addr": "0x102B", "op": "==", "value": "1"}
+    ]},
+    "stomp": {"expect": [
+      {"addr": "0x0EF3", "op": "==", "value": "0x0900"},
+      {"addr": "0x102B", "op": "==", "value": "1"},
+      {"addr": "0x0D47", "op": "==", "value": "1"}
+    ]},
+    "landed": {"expect": [
+      {"addr": "0x102B", "op": "==", "value": "0"},
+      {"addr": "0x0575", "op": "==", "value": "5"},
+      {"addr": "0x003E", "op": "==", "value": "0x0016"}
+    ]}
+  }
+}

@@ -1,0 +1,214 @@
+{
+  "formato": 1,
+  "id": "e189_madness_mundo_plataformas",
+  "nombre": "MUNDO PLATAFORMAS",
+  "nivel": "madness",
+  "tema": "mina",
+  "musica": "minas",
+  "familia": "OTROS MUNDOS",
+  "descripcion": "Etapa de prueba con la musica y los enemigos de Platform Perils y Trick Track Trek (Life in the Mines), sobre la via de MINA OSCURA MAD 01 (e176_madness_mina01) con su tema. Se quitaron 14 enemigos originales y se agregaron 8 del otro mundo (ARMY, KLUMP, KRITTER, KRUSHA, MINI NECKY).",
+  "autor": "Claude (generar_mundos.py)",
+  "creada": "2026-10-12",
+  "modificada": "2026-10-12",
+  "notas": "Prueba de enemigos y musica de otros niveles. Jugarla y ajustar en el editor (los enemigos agregados se ven con borde blanco).",
+  "estadisticas": {
+    "columnas": 277,
+    "largo_px": 8864,
+    "segundos_aprox": 37.8,
+    "piezas": 6,
+    "tramos_originales": 6,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 22,
+    "objetos": {
+      "ARMY": 2,
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 1,
+      "CANON": 3,
+      "CARRO": 4,
+      "FICHA": 1,
+      "GNAWTY": 2,
+      "KLUMP": 2,
+      "KRITTER": 1,
+      "KRUSHA": 2,
+      "LETRA KONG": 1,
+      "MEDIO NEUMATICO": 3,
+      "MINI NECKY": 1,
+      "NECKY": 5,
+      "NEUMATICO": 3,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 3
+    },
+    "grupos_platanos": 10,
+    "largo_vs_original": 0.59,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 77,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-76 (X original $0000-$099F), 77 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 4 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00CF."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 135,
+      "hasta": 147,
+      "nota": "Tramo original de Mine Cart Madness, columnas 135-146 (X original $10E0-$125F), 12 columnas, en la etapa desde X $09A0. 1 LETRA KONG, 3 NECKY; 0 grupo(s) de platanos; via entra a $00D0 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 290,
+      "hasta": 306,
+      "nota": "Tramo original de Mine Cart Madness, columnas 290-305 (X original $2440-$263F), 16 columnas, en la etapa desde X $0B20. 1 CANON, 1 CARRO, 1 MEDIO NEUMATICO; 1 grupo(s) de platanos; via entra a $00F3 y sale a $00F3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 147,
+      "hasta": 173,
+      "nota": "Tramo original de Mine Cart Madness, columnas 147-172 (X original $1260-$159F), 26 columnas, en la etapa desde X $0D20. 2 CARRO, 1 FICHA, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00F3 y sale a $0133."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 193,
+      "hasta": 231,
+      "nota": "Tramo original de Mine Cart Madness, columnas 193-230 (X original $1820-$1CDF), 38 columnas, en la etapa desde X $1060. 1 BARRIL CONTROL, 1 CARRO, 1 NECKY; 2 grupo(s) de platanos; via entra a $0133 y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 360,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 360-467 (X original $2D00-$3A7F), 108 columnas, en la etapa desde X $1520. 2 CANON, 3 CARRO, 1 GNAWTY, 2 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 5 ZINGER; 4 grupo(s) de platanos; via entra a $0073 y sale a -."
+    }
+  ],
+  "objetos_quitar": [
+    {
+      "pieza": 0,
+      "indice": 1
+    },
+    {
+      "pieza": 0,
+      "indice": 4
+    },
+    {
+      "pieza": 0,
+      "indice": 6
+    },
+    {
+      "pieza": 0,
+      "indice": 8
+    },
+    {
+      "pieza": 1,
+      "indice": 20
+    },
+    {
+      "pieza": 1,
+      "indice": 23
+    },
+    {
+      "pieza": 3,
+      "indice": 24
+    },
+    {
+      "pieza": 3,
+      "indice": 27
+    },
+    {
+      "pieza": 4,
+      "indice": 32
+    },
+    {
+      "pieza": 5,
+      "indice": 60
+    },
+    {
+      "pieza": 5,
+      "indice": 62
+    },
+    {
+      "pieza": 5,
+      "indice": 64
+    },
+    {
+      "pieza": 5,
+      "indice": 68
+    },
+    {
+      "pieza": 5,
+      "indice": 76
+    }
+  ],
+  "objetos_agregar": [
+    {
+      "pieza": 3,
+      "dx": 48,
+      "y": 243,
+      "nombre": "KRUSHA",
+      "puntero": "$B5E3",
+      "enemigo": true
+    },
+    {
+      "pieza": 3,
+      "dx": 624,
+      "y": 336,
+      "nombre": "ARMY",
+      "puntero": "$A47B",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 464,
+      "y": 243,
+      "nombre": "KLUMP",
+      "puntero": "$999B",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 720,
+      "y": 99,
+      "nombre": "MINI NECKY",
+      "puntero": "$B863",
+      "enemigo": true
+    },
+    {
+      "pieza": 4,
+      "dx": 976,
+      "y": 104,
+      "nombre": "KRITTER",
+      "puntero": "$9C27",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 16,
+      "y": 111,
+      "nombre": "KRUSHA",
+      "puntero": "$B5E3",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 1360,
+      "y": 147,
+      "nombre": "ARMY",
+      "puntero": "$A47B",
+      "enemigo": true
+    },
+    {
+      "pieza": 5,
+      "dx": 2352,
+      "y": 328,
+      "nombre": "KLUMP",
+      "puntero": "$999B",
+      "enemigo": true
+    }
+  ],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-12 generada con generar_mundos.py desde e176_madness_mina01"
+  ],
+  "dificultad": "FACIL"
+}

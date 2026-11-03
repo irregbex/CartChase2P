@@ -1,0 +1,115 @@
+{
+  "formato": 1,
+  "id": "azar_carnage_60120",
+  "nombre": "AZAR CARNAGE 60120",
+  "nivel": "carnage",
+  "tema": "cueva",
+  "musica": "cueva",
+  "familia": "AZAR",
+  "descripcion": "Etapa al azar creada en el juego, sin costuras: un recorrido por Mine Cart Carnage que salta 9 veces entre columnas identicas (el corte no se ve). 586 columnas, unos 84.8 s, 18 enemigos. Tema: cueva",
+  "autor": "juego (etapas al azar)",
+  "creada": "2026-10-12",
+  "modificada": "2026-10-12",
+  "semilla": 60120,
+  "estadisticas": {
+    "columnas": 586,
+    "largo_px": 18752,
+    "segundos_aprox": 84.8,
+    "piezas": 10,
+    "tramos_originales": 10,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 18,
+    "objetos": {
+      "BARRIL CONTROL": 1,
+      "BARRIL DK": 2,
+      "CANON": 4,
+      "CARRO": 18,
+      "COFRE": 1,
+      "FICHA": 1,
+      "GLOBO": 1,
+      "LETRA KONG": 4,
+      "RACIMO": 3,
+      "SENAL": 2
+    },
+    "grupos_platanos": 20,
+    "largo_vs_original": 1.0,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 60,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 0-59 (X original $0000-$077F), 60 columnas, en la etapa desde X $0000. 1 BARRIL DK, 3 CANON, 1 CARRO, 1 COFRE; 3 grupo(s) de platanos; via entra a - y sale a $008E."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 246,
+      "hasta": 312,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 246-311 (X original $1EC0-$26FF), 66 columnas, en la etapa desde X $0780. 4 CARRO, 1 LETRA KONG; 4 grupo(s) de platanos; via entra a $0090 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 146,
+      "hasta": 246,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 146-245 (X original $1240-$1EBF), 100 columnas, en la etapa desde X $0FC0. 1 BARRIL CONTROL, 1 BARRIL DK, 1 FICHA, 1 LETRA KONG, 1 RACIMO; 3 grupo(s) de platanos; via entra a $0093 y sale a $008E."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 60,
+      "hasta": 146,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 60-145 (X original $0780-$123F), 86 columnas, en la etapa desde X $1C40. 1 LETRA KONG, 1 RACIMO; 3 grupo(s) de platanos; via entra a $0090 y sale a $0093."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 312,
+      "hasta": 349,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 312-348 (X original $2700-$2B9F), 37 columnas, en la etapa desde X $2700. 2 CARRO, 1 GLOBO, 1 RACIMO; 3 grupo(s) de platanos; via entra a $0093 y sale a $0038."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 268,
+      "hasta": 300,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 268-299 (X original $2180-$257F), 32 columnas, en la etapa desde X $2BA0. 2 CARRO; 3 grupo(s) de platanos; via entra a $0037 y sale a $016C."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 394,
+      "hasta": 471,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 394-470 (X original $3140-$3ADF), 77 columnas, en la etapa desde X $2FA0. 2 CARRO, 1 LETRA KONG; 4 grupo(s) de platanos; via entra a $016B y sale a $00B3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 256,
+      "hasta": 271,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 256-270 (X original $2000-$21DF), 15 columnas, en la etapa desde X $3940. 2 CARRO; 1 grupo(s) de platanos; via entra a $00B3 y sale a $0037."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 354,
+      "hasta": 385,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 354-384 (X original $2C40-$301F), 31 columnas, en la etapa desde X $3B20. 2 CARRO; 0 grupo(s) de platanos; via entra a $0038 y sale a $0170."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 506,
+      "hasta": 588,
+      "nota": "Tramo original de Mine Cart Carnage, columnas 506-587 (X original $3F40-$497F), 82 columnas, en la etapa desde X $3F00. 1 CANON, 7 CARRO, 1 SALIDA, 2 SENAL; 0 grupo(s) de platanos; via entra a $016F y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-12 17:29 creada en el juego (etapas al azar)",
+    "2026-10-12 musica del tema: cueva (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "semilla": 60120,
+    "columnas": 0,
+    "saltos_min": 9,
+    "sin_costura": true,
+    "generador": "juego"
+  }
+}

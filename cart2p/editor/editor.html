@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor de etapas</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="editor.css">
+</head>
+<body>
+<!-- Cart Chase 2P - editor de etapas. Se abre con cart2p\JUGAR.bat opcion 5
+     (tools\cart2p\editor_server.py). Manual: cart2p\docs\EDITOR_ETAPAS.txt -->
+<header class="barra">
+  <div class="marca">CART CHASE 2P <span>editor de etapas</span></div>
+  <div class="etapa-actual">
+    <span id="tit-etapa">sin etapa</span>
+    <span id="sucia" class="pildora oculta">sin guardar</span>
+    <span id="estado" class="pildora"></span>
+  </div>
+  <div class="acciones">
+    <button id="b-deshacer" title="Deshacer (Ctrl+Z)">&#8630;</button>
+    <button id="b-rehacer" title="Rehacer (Ctrl+Y)">&#8631;</button>
+    <button id="b-nueva">Nueva</button>
+    <button id="b-duplicar">Duplicar</button>
+    <button id="b-guardar" class="primario" title="Ctrl+S">Guardar</button>
+    <button id="b-probar" class="secundario" title="Abre el juego directo en esta etapa (guardada)">Probar en el juego</button>
+    <button id="b-ayuda" title="Ayuda (F1)">?</button>
+  </div>
+</header>
+
+<main class="cuerpo">
+  <aside class="biblioteca">
+    <div class="filtros">
+      <input id="f-buscar" type="search" placeholder="Buscar etapa...">
+      <div class="fila">
+        <select id="f-nivel"><option value="">Todos los niveles</option><option value="carnage">Carnage</option><option value="madness">Madness</option></select>
+        <select id="f-familia"><option value="">Todas</option></select>
+      </div>
+    </div>
+    <div id="lista-etapas" class="lista-etapas"></div>
+    <div id="cuenta-etapas" class="pie-lista"></div>
+  </aside>
+
+  <section class="centro">
+    <div class="props" id="props">
+      <label>Nombre en el menu<input id="p-nombre" maxlength="28"></label>
+      <label>Id (archivo)<input id="p-id" maxlength="40"></label>
+      <label>Nivel<input id="p-nivel" disabled></label>
+      <label>Familia<input id="p-familia" maxlength="20"></label>
+      <label title="Graficos de otro mundo detras de la via (solo Carnage); se ven al jugar">Tema<select id="p-tema"><option value="">(ninguno)</option><option value="jungla">Jungla</option><option value="cueva">Cueva</option><option value="fabrica">Fabrica</option><option value="nieve">Nieve</option><option value="arboles">Aldea en arboles</option><option value="bosque">Bosque</option><option value="templo">Templo</option><option value="mina">Mina oscura</option></select></label>
+      <label title="Cancion de otro nivel del juego; se oye al jugar">Musica<select id="p-musica"><option value="">(la del nivel)</option><option value="isla">DK Island Swing (jungla)</option><option value="cueva">Cave Dweller Concert (cuevas)</option><option value="niebla">Misty Menace (mina oscura, luces)</option><option value="agua">Aquatic Ambience (arrecife)</option><option value="carro">Mine Cart Madness (carro)</option><option value="nieve">Northern Hemispheres (nieve)</option><option value="templo">Voices of the Temple (templo)</option><option value="fabrica">Fear Factory (fabrica)</option><option value="minas">Life in the Mines (plataformas)</option><option value="hielo">Ice Cave Chant (hielo)</option><option value="bosque">Forest Frenzy (bosque)</option><option value="bonus">Bonus Room Blitz (bonus)</option><option value="arboles">Treetop Rock (arboles)</option><option value="jefe">Bad Boss Boogie (jefes)</option><option value="galeon">Gang-Plank Galleon (K. Rool)</option></select></label>
+      <label>Dificultad<select id="p-dificultad"><option></option><option>FACIL</option><option>MEDIA</option><option>DIFICIL</option></select></label>
+      <label class="ancho">Descripcion<textarea id="p-descripcion" rows="2"></textarea></label>
+      <label class="ancho">Notas para editar<textarea id="p-notas" rows="2"></textarea></label>
+    </div>
+
+    <div class="pista-herr">
+      <div class="grupo">
+        <label>Zoom <input id="zoom" type="range" min="0.25" max="1.5" step="0.05" value="0.6"></label>
+        <span id="zoom-val">60%</span>
+      </div>
+      <div class="grupo">
+        <label><input type="checkbox" id="v-objetos" checked> Objetos</label>
+        <label><input type="checkbox" id="v-platanos" checked> Platanos</label>
+        <label><input type="checkbox" id="v-via" checked> Via</label>
+        <label><input type="checkbox" id="v-piezas" checked> Piezas</label>
+        <label><input type="checkbox" id="v-zonas"> Zonas sin hoyos</label>
+      </div>
+      <div class="grupo" id="pos-cursor">X -</div>
+    </div>
+    <div class="pista-marco" id="pista-marco">
+      <canvas id="pista"></canvas>
+      <div id="modo-agregar" class="aviso-modo oculta">Clic en la pista para poner el objeto. Esc para salir.</div>
+    </div>
+    <div class="scroll-pista" id="scroll-pista"><div id="scroll-largo"></div></div>
+    <canvas id="minimapa" class="minimapa" title="Clic para ir a esa parte"></canvas>
+
+    <div class="linea-piezas" id="linea-piezas"></div>
+  </section>
+
+  <aside class="panel">
+    <nav class="pestanas">
+      <button data-p="piezas" class="activa">Piezas</button>
+      <button data-p="pieza">Pieza elegida</button>
+      <button data-p="objetos">Objetos</button>
+      <button data-p="revision">Revision</button>
+    </nav>
+    <div class="pestana" id="t-piezas">
+      <label class="chk"><input type="checkbox" id="solo-compat" checked> Solo las que calzan entre la pieza elegida y la siguiente</label>
+      <h3>Sin corte</h3>
+      <div class="fila">Largo <input id="sincorte-largo" type="number" min="4" max="200" value="32"> columnas. Sigue en una columna identica: el paisaje no cambia de golpe.</div>
+      <div id="pal-sincorte" class="paleta"></div>
+      <h3>Tramos originales</h3>
+      <div id="pal-tramos" class="paleta"></div>
+      <h3>Rectas</h3>
+      <div class="fila">Largo <input id="recta-largo" type="number" min="1" max="20" value="4"> columnas (32 px c/u)</div>
+      <div id="pal-rectas" class="paleta"></div>
+      <h3>Hoyos (bordes de hoyo del juego)</h3>
+      <div id="pal-hoyos" class="paleta"></div>
+    </div>
+    <div class="pestana oculta" id="t-pieza"></div>
+    <div class="pestana oculta" id="t-objetos">
+      <p class="ayuda-corta">Elige una plantilla y haz clic en la pista para agregar el objeto. Los objetos agregados se pueden arrastrar. Clic en un objeto del nivel para quitarlo o restaurarlo.</p>
+      <div id="pal-objetos" class="paleta objetos"></div>
+      <h3>Objetos agregados</h3>
+      <div id="lista-agregados"></div>
+      <h3>Objetos quitados</h3>
+      <div id="lista-quitados"></div>
+      <div id="cuenta-objetos" class="cuenta"></div>
+    </div>
+    <div class="pestana oculta" id="t-revision">
+      <div id="rev-errores"></div>
+      <h3>Estadisticas</h3>
+      <div id="rev-stats"></div>
+      <h3>Historial</h3>
+      <div id="rev-historial"></div>
+    </div>
+  </aside>
+</main>
+
+<dialog id="dlg-nueva">
+  <form method="dialog">
+    <h2 id="dlg-titulo">Nueva etapa</h2>
+    <label>Nivel
+      <select id="n-nivel"><option value="carnage">Mine Cart Carnage</option><option value="madness">Mine Cart Madness</option></select>
+    </label>
+    <label>Id (archivo, minusculas, numeros y _)<input id="n-id" required pattern="[a-z0-9_]{3,40}"></label>
+    <label>Nombre en el menu<input id="n-nombre" maxlength="28" required></label>
+    <p class="ayuda-corta" id="n-ayuda">Empieza como el nivel original completo, cortado en sus tramos. Desde ahi se reordena, se quitan tramos y se agregan rectas y hoyos.</p>
+    <div class="botones"><button value="cancelar" formnovalidate>Cancelar</button><button value="ok" class="primario">Crear</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-ayuda">
+  <form method="dialog">
+    <h2>Como se arma una etapa</h2>
+    <ul>
+      <li>Una etapa es una <b>secuencia de piezas</b> del nivel original: <b>tramos</b> (trozos del nivel con sus enemigos, platanos y letras), <b>rectas</b> y <b>hoyos</b>.</li>
+      <li>La via debe <b>calzar</b> en cada union: la altura a la que sale una pieza debe ser la altura a la que entra la siguiente. Una union que no calza se marca en rojo y no se puede guardar.</li>
+      <li>La primera pieza es siempre el tramo de partida y la ultima el tramo con la puerta de salida.</li>
+      <li>Una union marcada <b>CORTE</b> (naranjo) es valida pero el paisaje cambia de golpe. "Sin corte" ofrece seguir en columnas identicas, donde la union no se nota.</li>
+      <li>Los hoyos usan bordes de hoyo del juego (el salto es el del original). Evita ponerlos donde ataca un enemigo volador: activa "Zonas sin hoyos" para verlas.</li>
+      <li><b>Guardar</b> escribe la receta (cart2p\etapas_fuente\), compila la etapa y la agrega al menu del juego. La version anterior queda en etapas_fuente\historial\.</li>
+      <li><b>Probar en el juego</b> abre la carrera directo en la etapa guardada.</li>
+    </ul>
+    <h3>Teclas</h3>
+    <p>Ctrl+S guardar &middot; Ctrl+Z / Ctrl+Y deshacer / rehacer &middot; Flechas izquierda/derecha elegir pieza &middot; Alt+flechas mover pieza &middot; Supr borrar pieza &middot; Ctrl+D duplicar pieza &middot; Esc salir del modo agregar &middot; rueda del mouse: desplazar, Ctrl+rueda: zoom</p>
+    <div class="botones"><button value="ok" class="primario">Entendido</button></div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast oculta"></div>
+<script src="editor.js"></script>
+</body>
+</html>

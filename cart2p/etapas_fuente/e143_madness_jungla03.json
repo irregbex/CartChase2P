@@ -1,0 +1,107 @@
+{
+  "formato": 1,
+  "id": "e143_madness_jungla03",
+  "nombre": "JUNGLA MAD 03",
+  "nivel": "madness",
+  "tema": "jungla",
+  "musica": "isla",
+  "familia": "TEMA",
+  "descripcion": "Via de Mine Cart Madness. La via de Mine Cart Carnage cruza la jungla de Jungle Hijinxs. Recorrido sin costuras. 366 columnas (78 % del original), unos 51.3 s, 7 saltos sin costura, pasa por 20 hoyos del nivel, 37 enemigos.",
+  "autor": "Claude (generar_etapas.py v2, sin costuras)",
+  "creada": "2026-10-09",
+  "modificada": "2026-10-12",
+  "semilla": 3002,
+  "notas": "Etapa sin costuras: cada union salta a una columna identica de otra parte del nivel. Probarla jugando y ajustarla en el editor; si se agregan piezas, preferir las de \"SIN CORTE\".",
+  "estadisticas": {
+    "columnas": 366,
+    "largo_px": 11712,
+    "segundos_aprox": 51.3,
+    "piezas": 8,
+    "tramos_originales": 8,
+    "piezas_inventadas": 0,
+    "hoyos_inventados": 0,
+    "enemigos": 37,
+    "objetos": {
+      "BARRIL DK": 1,
+      "CANON": 4,
+      "CARRO": 12,
+      "FICHA": 1,
+      "GNAWTY": 4,
+      "LETRA KONG": 3,
+      "MEDIO NEUMATICO": 5,
+      "NECKY": 9,
+      "NEUMATICO": 4,
+      "RACIMO": 1,
+      "SENAL": 2,
+      "ZINGER": 12
+    },
+    "grupos_platanos": 12,
+    "largo_vs_original": 0.78,
+    "cortes_visibles": 0
+  },
+  "piezas": [
+    {
+      "tipo": "tramo",
+      "desde": 0,
+      "hasta": 76,
+      "nota": "Tramo original de Mine Cart Madness, columnas 0-75 (X original $0000-$097F), 76 columnas, en la etapa desde X $0000. 1 BARRIL DK, 2 CARRO, 3 GNAWTY, 4 NECKY; 3 grupo(s) de platanos; via entra a $015F y sale a $00D3."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 134,
+      "hasta": 173,
+      "nota": "Tramo original de Mine Cart Madness, columnas 134-172 (X original $10C0-$159F), 39 columnas, en la etapa desde X $0980. 2 CARRO, 1 FICHA, 1 LETRA KONG, 3 NECKY, 1 ZINGER; 0 grupo(s) de platanos; via entra a $00D3 y sale a $0133."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 193,
+      "hasta": 209,
+      "nota": "Tramo original de Mine Cart Madness, columnas 193-208 (X original $1820-$1A1F), 16 columnas, en la etapa desde X $0E60. 1 CARRO; 1 grupo(s) de platanos; via entra a $0133 y sale a $00EF."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 289,
+      "hasta": 302,
+      "nota": "Tramo original de Mine Cart Madness, columnas 289-301 (X original $2420-$25BF), 13 columnas, en la etapa desde X $1060. 1 CANON, 1 CARRO, 1 MEDIO NEUMATICO; 1 grupo(s) de platanos; via entra a $00F0 y sale a $00EF."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 289,
+      "hasta": 348,
+      "nota": "Tramo original de Mine Cart Madness, columnas 289-347 (X original $2420-$2B7F), 59 columnas, en la etapa desde X $1200. 1 CANON, 3 CARRO, 1 LETRA KONG, 3 MEDIO NEUMATICO, 4 ZINGER; 2 grupo(s) de platanos; via entra a $00F0 y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 254,
+      "hasta": 287,
+      "nota": "Tramo original de Mine Cart Madness, columnas 254-286 (X original $1FC0-$23DF), 33 columnas, en la etapa desde X $1960. 1 CANON, 1 CARRO, 1 LETRA KONG, 1 NEUMATICO, 2 ZINGER; 0 grupo(s) de platanos; via entra a $0073 y sale a $00F0."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 211,
+      "hasta": 233,
+      "nota": "Tramo original de Mine Cart Madness, columnas 211-232 (X original $1A60-$1D1F), 22 columnas, en la etapa desde X $1D80. 1 NECKY; 2 grupo(s) de platanos; via entra a $00EF y sale a $0073."
+    },
+    {
+      "tipo": "tramo",
+      "desde": 360,
+      "hasta": 468,
+      "nota": "Tramo original de Mine Cart Madness, columnas 360-467 (X original $2D00-$3A7F), 108 columnas, en la etapa desde X $2040. 2 CANON, 3 CARRO, 1 GNAWTY, 2 MEDIO NEUMATICO, 1 NECKY, 3 NEUMATICO, 1 RACIMO, 1 SALIDA, 2 SENAL, 5 ZINGER; 4 grupo(s) de platanos; via entra a $0073 y sale a -."
+    }
+  ],
+  "objetos_quitar": [],
+  "objetos_agregar": [],
+  "platanos_quitar": [],
+  "historial": [
+    "2026-10-09 generada sin costuras",
+    "2026-10-12 musica del tema: isla (pedido: la musica de donde son los graficos)"
+  ],
+  "generacion": {
+    "metodo": "sin_costura",
+    "semilla": 3002,
+    "columnas": 374,
+    "saltos_min": 7,
+    "objetivo": "variedad"
+  },
+  "dificultad": "MEDIA"
+}
