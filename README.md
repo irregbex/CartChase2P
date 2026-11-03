@@ -1,5 +1,7 @@
 # Cart Chase 2P
 
+[![Cart Chase 2P - 1 minute trailer](https://img.youtube.com/vi/sTRl1Q-96Dk/maxresdefault.jpg)](https://www.youtube.com/watch?v=sTRl1Q-96Dk)
+
 Two-player, split-screen mine cart racing built on
 [DKC1Recomp](docs/DKC1RECOMP_README.md), a static recompilation of
 Donkey Kong Country (SNES) to native C.
