@@ -1,6 +1,6 @@
 # Cart Chase 2P
 
-[![Cart Chase 2P - 1 minute trailer](https://img.youtube.com/vi/sTRl1Q-96Dk/maxresdefault.jpg)](https://www.youtube.com/watch?v=sTRl1Q-96Dk)
+[![Cart Chase 2P - 1 minute trailer](https://img.youtube.com/vi/I8Xh4tp_96U/maxresdefault.jpg)](https://www.youtube.com/watch?v=I8Xh4tp_96U)
 
 > **🤖 100% vibe-coded.** Every line of this mod was written by
 > [Claude Code](https://claude.com/claude-code) (Anthropic's AI). No code was
