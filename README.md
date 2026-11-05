@@ -2,6 +2,12 @@
 
 [![Cart Chase 2P - 1 minute trailer](https://img.youtube.com/vi/sTRl1Q-96Dk/maxresdefault.jpg)](https://www.youtube.com/watch?v=sTRl1Q-96Dk)
 
+> **🤖 100% vibe-coded.** Every line of this mod was written by
+> [Claude Code](https://claude.com/claude-code) (Anthropic's AI). No code was
+> written by hand: the human part was the idea, the design, describing it in
+> plain language, playing every build and reporting what was broken.
+> See [How it was made](#how-it-was-made-100-vibe-coded).
+
 Two-player, split-screen mine cart racing built on
 [DKC1Recomp](docs/DKC1RECOMP_README.md), a static recompilation of
 Donkey Kong Country (SNES) to native C.
@@ -92,6 +98,36 @@ from the ROM.
 | `cart2p/etapas_fuente/` | stage recipes (JSON: column numbers and options, no game data) |
 | `cart2p/states/*.dks` | input scripts that recreate the start states from a clean boot |
 | everything else | DKC1Recomp (MIT) |
+
+## How it was made (100% vibe-coded)
+
+Cart Chase 2P is an experiment in vibe coding: the whole mod was programmed
+by Claude Code from requests written in plain Spanish, over about four weeks
+(first session 2026-10-06, first public release 2026-11-03).
+
+| Who | What |
+|---|---|
+| Human | the idea, the design, every request, playing each build, bug reports, final decisions |
+| Claude Code | all of the mod's code (about 13,000 lines: C, Python, JavaScript/HTML/CSS), the 206 stage recipes, tests, docs and the packaging for this repository |
+
+How the work was organised:
+
+- small steps, one task per session, with a test asked for after every change
+- a project context file and a session log, kept up to date by Claude, so
+  each new session picks up where the last one stopped
+- fixed rules written once: never edit `generated\`, never delete anything
+  without asking, the 2P mode always behind a flag that is off by default
+- automatic checks instead of guesswork: a headless mode, a bot that drives
+  the cart to the finish line, and A/B hashes proving the original game is
+  untouched when the mod is off
+- for hard bugs (audio, camera) Claude was asked for evidence first (memory
+  dumps, frame captures) before proposing a fix
+
+"100% vibe-coded" refers to the mod (`runner/cart2p/`, `tools/cart2p/`,
+`cart2p/`). The base it runs on, [DKC1Recomp](docs/DKC1RECOMP_README.md) and
+the [snesrecomp](https://github.com/elliotttate/snesrecomp) engine, is the
+work of their own authors. It is open source, so anyone can read the code
+and judge it; concrete bug reports are welcome in Issues.
 
 ## License
 
